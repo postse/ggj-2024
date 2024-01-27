@@ -6,7 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     void Start()
     {
-        var parent = GetComponentInParent<Terrain>();
+        var parent = GetComponentInParent<TerrainGenerator>();
 
         float desiredWidth = parent.width; // The desired width of the camera's viewport in world units
 
