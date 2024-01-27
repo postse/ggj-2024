@@ -12,6 +12,9 @@ namespace DTerrain
         private List<Rect> rects;
         private float PPU;
 
+        [SerializeField]
+        private PhysicsMaterial2D physicsMaterial;
+
         /// <summary>
         /// Prepares all colliders. Deletes previous BoxColliders2D and adds new by using Quadtree. Also fits them correctly with texture.
         /// 
@@ -51,6 +54,7 @@ namespace DTerrain
                     BoxCollider2D b = gameObject.AddComponent<BoxCollider2D>();
                     b.offset = rColliderOffset;
                     b.size = r.size;
+                    b.sharedMaterial = physicsMaterial;
                 }
                 else
                 {
@@ -63,8 +67,11 @@ namespace DTerrain
             //All BoxColliders2D that were modified and haven't been found are deleted.
             foreach (BoxCollider2D b in colls)
             {
-                if (b.enabled == false)
+                if (b.enabled == false) {
                     Destroy(b);
+                } else {
+                    b.sharedMaterial = physicsMaterial;
+                }
             }
         }
 
