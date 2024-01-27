@@ -2,18 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-class ProjectileBalloon : Projectile {
+public class BowlingPinProjectile : MonoBehaviour
+{
     [SerializeField]
     private GameObject explosionAnimation;
 
     bool exploded = false;
 
-    void Update() {
-        if (this.GetComponent<Rigidbody2D>().velocity.magnitude > 0.1f) {
-            this.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(this.GetComponent<Rigidbody2D>().velocity.y, this.GetComponent<Rigidbody2D>().velocity.x) * Mathf.Rad2Deg);
-        }
-    }
-    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!exploded && collision.gameObject.CompareTag("Terrain"))

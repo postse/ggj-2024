@@ -31,13 +31,17 @@ public class TerrainBreaker : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Terrain") {
-            Vector3 p = this.transform.position;
-
-            terrain.BreakTerrain(p, craterSize, destroyCircle);
             if (destroyOnImpact) {
-                Destroy(this.gameObject);
+                BreakTerrain();
             }
         }
+    }
+
+    public void BreakTerrain() {
+        Vector3 p = this.transform.position;
+
+        terrain.BreakTerrain(p, craterSize, destroyCircle);
+        Destroy(this.gameObject);
     }
 
 }
