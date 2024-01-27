@@ -11,6 +11,14 @@ namespace DTerrain
         [SerializeField]
         private GameObject ball = null;
 
+        [SerializeField]
+        private GameObject bomb = null;
+
+        [SerializeField]
+        private BasicPaintableLayer primaryLayer;
+        [SerializeField]
+        private BasicPaintableLayer secondaryLayer;
+
         void Update()
         {
             CreateBall();
@@ -18,6 +26,15 @@ namespace DTerrain
 
         public void CreateBall()
         {
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                Vector3 mPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mPos.z = 0;
+                GameObject newBomb = Instantiate(bomb, mPos, new Quaternion(0, 0, 0, 0));
+
+                newBomb.GetComponent<TerrainBreaker>().primaryLayer = primaryLayer;
+                newBomb.GetComponent<TerrainBreaker>().secondaryLayer = secondaryLayer;
+            }
             if (Input.GetKeyDown(KeyCode.B))
             {
                 Vector3 mPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
