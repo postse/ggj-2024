@@ -45,11 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af97f7e47e1a35b40a103acc70aab69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  movementSpeed: 5
+  bubblesSpeed: 2
   maxFuel: 5
   fuelConsumptionRate: 1
+  jetpackRelativeFuelConsumptionRate: 3
   moveLeftKey: 97
   moveRightKey: 100
+  jetpackKey: 32
+  fuel: 0
 --- !u!1 &5177332239580765678
 GameObject:
   m_ObjectHideFlags: 0

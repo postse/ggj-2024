@@ -6,7 +6,10 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 10.0f;
+    private float movementSpeed = 5f;
+
+    [SerializeField]
+    private float bubblesSpeed = 2;
 
     [Tooltip("Max fuel in seconds")]
     [SerializeField]
@@ -16,13 +19,22 @@ public class CarController : MonoBehaviour
     private float fuelConsumptionRate = 1.0f; // fuel consumed per second
 
     [SerializeField]
+    private float bubblesRelativeFuelConsumptionRate = 2.0f; // fuel consumed per second
+
+    [SerializeField]
     private KeyCode moveLeftKey = KeyCode.A;
 
     [SerializeField]
     private KeyCode moveRightKey = KeyCode.D;
 
-    private float moveHorizontal;
+    [SerializeField]
+    private KeyCode jetpackKey = KeyCode.Space;
+
+    [SerializeField]
     private float fuel;
+
+    private float moveHorizontal;
+    private bool isBubblesActive;
     private Rigidbody2D rb;
 
     void Start()
@@ -47,6 +59,12 @@ public class CarController : MonoBehaviour
                 moveHorizontal = 1.0f;
                 fuel -= fuelConsumptionRate * Time.deltaTime; // consume fuel
             }
+
+            if (Input.GetKey(jetpackKey))
+            {
+                fuel -= fuelConsumptionRate * bubblesRelativeFuelConsumptionRate * Time.deltaTime; // consume fuel twice as fast
+                isBubblesActive = true;
+            }
         }
 
         fuel = Mathf.Clamp(fuel, 0, maxFuel); // ensure fuel is within [0, maxFuel]
@@ -54,10 +72,16 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isBubblesActive)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, bubblesSpeed);
+            isBubblesActive = false;
+        }
+
         if (moveHorizontal != 0.0f)
         {
             rb.constraints = RigidbodyConstraints2D.None;
-            Vector3 movement = rb.transform.up * moveHorizontal * speed;
+            Vector3 movement = rb.transform.up * moveHorizontal * movementSpeed;
             rb.velocity = new Vector2(movement.x, rb.velocity.y + Physics2D.gravity.y * Time.fixedDeltaTime);
         }
         else

@@ -483,6 +483,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1764531529808354184, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: movementSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764531529808354184, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: jetpackRelativeFuelConsumptionRate
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2049682013209598996, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
       propertyPath: m_Name
       value: Clown Car
@@ -526,10 +534,6 @@ PrefabInstance:
     - target: {fileID: 4252377177649841876, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5177332239580765678, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
-      propertyPath: m_Name
-      value: Sprite
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
