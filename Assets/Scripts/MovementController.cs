@@ -58,7 +58,7 @@ public class CarController : MonoBehaviour
 
         if (fuel > 0)
         {
-            if (Input.GetKey(moveLeftKey))
+            if (Input.GetAxis("Horizontal") < 0)
             {
                 moveHorizontal = -1.0f;
                 fuel -= fuelConsumptionRate * Time.deltaTime; // consume fuel
@@ -68,7 +68,7 @@ public class CarController : MonoBehaviour
                     flipped = true;
                 }
             }
-            else if (Input.GetKey(moveRightKey))
+            else if (Input.GetAxis("Horizontal") > 0)
             {
                 moveHorizontal = 1.0f;
                 fuel -= fuelConsumptionRate * Time.deltaTime; // consume fuel
@@ -79,7 +79,7 @@ public class CarController : MonoBehaviour
                 }
             }
 
-            if (Input.GetKey(jetpackKey))
+            if (Input.GetButton("Jump"))
             {
                 fuel -= fuelConsumptionRate * bubblesRelativeFuelConsumptionRate * Time.deltaTime; // consume fuel twice as fast
                 isBubblesActive = true;
@@ -91,9 +91,6 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log("Up " + rb.transform.up);
-        Debug.Log(rb.constraints);
-
         if (!isBubblesActive && moveHorizontal == 0.0f)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
