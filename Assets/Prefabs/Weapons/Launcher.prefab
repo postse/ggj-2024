@@ -141,7 +141,9 @@ MonoBehaviour:
   launchKey: 32
   idlePrefab: {fileID: 0}
   projectilePrefab: {fileID: 0}
-  _aimSpeed: 45
+  _aimSpeed: 200
+  inventoryManager: {fileID: 0}
+  shotWeapon: 0
 --- !u!1 &1814046452567907279
 GameObject:
   m_ObjectHideFlags: 0

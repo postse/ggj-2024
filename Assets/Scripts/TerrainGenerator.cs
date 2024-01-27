@@ -5,7 +5,7 @@ using DTerrain;
 using Unity.VisualScripting;
 using UnityEngine.SocialPlatforms.GameCenter;
 
-public class Terrain : MonoBehaviour
+public class TerrainGenerator : MonoBehaviour
 {
     [SerializeField]
     private Texture2D CollisionTexture = null;
@@ -19,11 +19,9 @@ public class Terrain : MonoBehaviour
     [SerializeField]
     private BasicPaintableLayer VisibleLayer;
 
-    [SerializeField]
-    private int width;
+    public int width;
 
-    [SerializeField]
-    private int height;
+    public int height;
 
     [SerializeField]
     private float smoothness;
@@ -36,7 +34,10 @@ public class Terrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CollisionTexture = CollisionTexture == null ? new PerlinTerrainGenerator().Generate(width, height, smoothness, terrainColor) : CollisionTexture;
+        var pixelWidth = width * CollidableLogicLayer.PPU;
+        var pixelHeight = height * CollidableLogicLayer.PPU;
+
+        CollisionTexture = CollisionTexture == null ? new PerlinTerrainGenerator().Generate(pixelWidth, pixelHeight, smoothness, terrainColor) : CollisionTexture;
         VisualTexture = VisualTexture == null ? CollisionTexture : VisualTexture;
 
         VisibleLayer.OriginalTexture = VisualTexture;

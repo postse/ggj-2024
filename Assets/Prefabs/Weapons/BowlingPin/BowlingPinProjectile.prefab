@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8693213912305080374}
   - component: {fileID: 8712001169249298848}
   - component: {fileID: 553011143142260260}
+  - component: {fileID: 1579119188820993958}
   m_Layer: 0
   m_Name: BowlingPinProjectile
   m_TagString: Weapon
@@ -179,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craterSize: 32
   damage: 10
-  destroyOnImpact: 1
+  destroyOnImpact: 0
 --- !u!82 &553011143142260260
 AudioSource:
   m_ObjectHideFlags: 0
@@ -276,3 +277,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1579119188820993958
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5319658358756247338}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c66e520f598dc514baec0b01ceb82137, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
