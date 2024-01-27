@@ -25,12 +25,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406898027573303817}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5699947173079166573}
+  m_Father: {fileID: 2810347712506367369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3228175888850313052
 SpriteRenderer:
@@ -93,9 +93,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8673475956473057458}
-  - component: {fileID: 9144505354086365093}
+  - component: {fileID: 6277746227756106683}
   m_Layer: 0
-  m_Name: Clown
+  m_Name: Launcher
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ Transform:
   - {fileID: 5699947173079166573}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9144505354086365093
+--- !u!114 &6277746227756106683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,19 +127,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1416555780664304441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9070e9b372dd1444d98be67916c224bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 96f98e291bce40246865a4debac67456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 799789476157890231}
+  firePoint: {fileID: 2810347712506367369}
   idlePoint: {fileID: 5699947173079166573}
-  launchableObj: {fileID: 6228062737230371545, guid: 09882f5cea885444894e907074b5484c, type: 3}
-  angle: 0
+  angle: 45
   power: 10
-  minAngle: -75
-  maxAngle: 75
+  minAngle: -135
+  maxAngle: 135
   aimUpKey: 119
   aimDownKey: 115
   launchKey: 32
+  idlePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 0}
+  _aimSpeed: 45
 --- !u!1 &1814046452567907279
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +171,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 2810347712506367369}
   m_Father: {fileID: 8673475956473057458}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5427732850068214915
@@ -210,8 +213,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2015621953
-  m_SortingLayer: 0
+  m_SortingLayerID: -1102050519
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1746507593, guid: 386d6eddc916d4e448445bce87648027, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -249,12 +252,10 @@ Transform:
   m_GameObject: {fileID: 4988171779662504751}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.52, y: 1.03, z: 0}
+  m_LocalPosition: {x: -0.82, y: 0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 799789476157890231}
-  - {fileID: 2810347712506367369}
+  m_Children: []
   m_Father: {fileID: 8673475956473057458}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6507620503726891762
@@ -281,10 +282,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6507620503726891762}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.2, y: 1.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5699947173079166573}
+  m_Children:
+  - {fileID: 799789476157890231}
+  m_Father: {fileID: 3021793807571982510}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
