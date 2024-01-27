@@ -8,20 +8,20 @@ public class TerrainBreaker : MonoBehaviour
 {
 
     [SerializeField]
-    private int size = 64;
+    private int craterSize = 64;
 
     [SerializeField]
     private bool destroyOnImpact = false;
 
-    public BasicPaintableLayer primaryLayer;
-    public BasicPaintableLayer secondaryLayer;
+    private Terrain terrain;
 
     public Shape destroyCircle;
 
     // Start is called before the first frame update
     void Start()
     {
-        destroyCircle = Shape.GenerateShapeCircle(size);
+        terrain = GameObject.Find("Terrain").GetComponent<Terrain>();
+        destroyCircle = Shape.GenerateShapeCircle(craterSize);
     }
 
     // Update is called once per frame
@@ -31,34 +31,13 @@ public class TerrainBreaker : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Terrain") {
-            BreakTerrain();
+            Vector3 p = this.transform.position;
+
+            terrain.BreakTerrain(p, craterSize, destroyCircle);
+            if (destroyOnImpact) {
+                Destroy(this.gameObject);
+            }
         }
     }
 
-    void BreakTerrain() {
-        // Vector3 p = Camera.main.ScreenToWorldPoint(Input.mousePosition) - primaryLayer.transform.position;
-        Vector3 p = this.transform.position - primaryLayer.transform.position;
-
-        primaryLayer?.Paint(new PaintingParameters() 
-        { 
-            Color = UnityEngine.Color.clear, 
-            Position = new Vector2Int((int)(p.x * primaryLayer.PPU) - size, (int)(p.y * primaryLayer.PPU) - size), 
-            Shape = destroyCircle, 
-            PaintingMode=PaintingMode.REPLACE_COLOR,
-            DestructionMode = DestructionMode.DESTROY
-        });
-
-        secondaryLayer?.Paint(new PaintingParameters() 
-        {
-            Color = UnityEngine.Color.clear,
-            Position = new Vector2Int((int)(p.x * secondaryLayer.PPU) - size, (int)(p.y * secondaryLayer.PPU) - size), 
-            Shape = destroyCircle, 
-            PaintingMode=PaintingMode.REPLACE_COLOR,
-            DestructionMode = DestructionMode.NONE
-        });
-
-        if (destroyOnImpact) {
-            Destroy(this.gameObject);
-        }
-    }
 }

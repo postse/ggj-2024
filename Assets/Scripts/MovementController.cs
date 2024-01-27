@@ -28,20 +28,11 @@ public class CarController : MonoBehaviour
     [SerializeField]
     private float maxRotation = 80.0f; // max rotation in degrees
 
-    [SerializeField]
-    private KeyCode moveLeftKey = KeyCode.A;
-
-    [SerializeField]
-    private KeyCode moveRightKey = KeyCode.D;
-
-    [SerializeField]
-    private KeyCode jetpackKey = KeyCode.Space;
-
-
     private float moveHorizontal;
     private bool isBubblesActive;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
+    private InputController inputController;
     bool flipped;
 
     public FuelBar fuelBar;
@@ -50,6 +41,7 @@ public class CarController : MonoBehaviour
     {
         rb = GetComponentInChildren<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+        inputController = GetComponent<InputController>();
         fuel = maxFuel; // initialize fuel to maxFuel
         fuelBar.SetMaxFuel(maxFuel);
         flipped = false;
@@ -61,7 +53,7 @@ public class CarController : MonoBehaviour
 
         if (fuel > 0)
         {
-            if (Input.GetKey(moveLeftKey))
+            if (inputController.GetAxis("Horizontal") < 0)
             {
                 moveHorizontal = -1.0f;
                 fuel -= fuelConsumptionRate * Time.deltaTime; // consume fuel
@@ -72,7 +64,7 @@ public class CarController : MonoBehaviour
                     flipped = true;
                 }
             }
-            else if (Input.GetKey(moveRightKey))
+            else if (inputController.GetAxis("Horizontal") > 0)
             {
                 moveHorizontal = 1.0f;
                 fuel -= fuelConsumptionRate * Time.deltaTime; // consume fuel
@@ -84,7 +76,7 @@ public class CarController : MonoBehaviour
                 }
             }
 
-            if (Input.GetKey(jetpackKey))
+            if (inputController.GetButton("Jump"))
             {
                 fuel -= fuelConsumptionRate * bubblesRelativeFuelConsumptionRate * Time.deltaTime; // consume fuel twice as fast
                 fuelBar.SetFuel(fuel); // change fuel bar
@@ -97,8 +89,8 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log("Up " + rb.transform.up);
-        Debug.Log(rb.constraints);
+        // Debug.Log("Up " + rb.transform.up);
+        // Debug.Log(rb.constraints);
 
         if (!isBubblesActive && moveHorizontal == 0.0f)
         {
