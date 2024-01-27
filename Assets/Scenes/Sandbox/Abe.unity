@@ -192,6 +192,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clown Car
       objectReference: {fileID: 0}
+    - target: {fileID: 2307377226361905132, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: idlePrefab
+      value: 
+      objectReference: {fileID: 8639102526344289014, guid: 354e6acb9ef6dd046bd1d00c0ba8cf83, type: 3}
+    - target: {fileID: 2307377226361905132, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 99593371221942278, guid: 3c5efb382926d9e449f8e7844ac8bacd, type: 3}
     - target: {fileID: 4252377177649841876, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -230,6 +238,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4252377177649841876, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790211394513604219, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790211394513604219, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981286758366606838, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981286758366606838, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -298,7 +322,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
