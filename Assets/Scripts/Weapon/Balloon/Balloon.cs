@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class Balloon : Launchable
 {
 
     private float destroyDelay = 5f;
+    [SerializeField]
+    private GameObject explosionAnimation;
 
     void Start() {
         this.GetComponent<Rigidbody2D>().simulated = false;
@@ -31,10 +34,14 @@ public class Balloon : Launchable
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Terrain"))
         {
             this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             this.GetComponent<Rigidbody2D>().gravityScale = 0;
+            GameObject anim = Instantiate(explosionAnimation, this.transform.position, Quaternion.identity);
+            // TODO: Don't hardcode explosion time
+            Destroy(anim, .6f);
+            Destroy(this.gameObject);
         }
     }
 }

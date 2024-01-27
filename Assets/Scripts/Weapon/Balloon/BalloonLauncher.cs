@@ -25,4 +25,5 @@ public class BalloonLauncher : Launcher
     {
         idlePoint.rotation = Quaternion.Euler(0, 0, angle);
     }
+
 }
