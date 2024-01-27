@@ -10,7 +10,7 @@ namespace DTerrain
     public class BasicPaintableLayer : PaintableLayer<PaintableChunk>
     {
         //CHUNK SIZE X!!!!
-        public virtual void Start()
+        public virtual void InitLayer()
         {
             SpawnChunks();
             InitChunks();
