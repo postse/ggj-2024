@@ -80,21 +80,28 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate()
     {
+        Debug.Log("Up " + rb.transform.up);
+        Debug.Log(rb.constraints);
+
+        if (!isBubblesActive && moveHorizontal == 0.0f)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+        }
+
         if (isBubblesActive)
         {
-            rb.velocity = new Vector2(rb.velocity.x, bubblesSpeed);
+            rb.constraints = RigidbodyConstraints2D.None;
+
+            rb.velocity = rb.transform.up * bubblesSpeed;
             isBubblesActive = false;
         }
 
         if (moveHorizontal != 0.0f)
         {
             rb.constraints = RigidbodyConstraints2D.None;
+
             Vector3 movement = rb.transform.right * moveHorizontal * movementSpeed;
             rb.velocity = new Vector2(movement.x, rb.velocity.y + Physics2D.gravity.y * Time.fixedDeltaTime);
-        }
-        else
-        {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         }
 
         float z = rb.transform.eulerAngles.z;
