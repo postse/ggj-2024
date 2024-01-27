@@ -165,6 +165,13 @@ public class CarController : MonoBehaviour
         turnController.CheckIfGameOver();
     }
 
+    public void Heal(float heal) {
+        if (heal < 0) throw new ArgumentException("Heal must be positive");
+
+        health += Mathf.Min(heal, health);
+        healthBar.SetHealth(health);
+    }
+
     public void ResetHealth()
     {
         health = maxHealth;

@@ -16,7 +16,13 @@ public class Launcher : MonoBehaviour
     protected float angle = 45;
 
     [SerializeField]
-    protected float power = 10;
+    protected float powerMultiplier = 50;
+
+    public float currentPower = 0f;
+    private bool powerIncreasing = true;
+
+    [SerializeField]
+    private float powerCycleSpeed = 3f;
 
     [SerializeField]
     private float minAngle = -135;
@@ -56,18 +62,46 @@ public class Launcher : MonoBehaviour
     }
 
 
-    void Update() {
+    void Update()
+    {
         if (!carController.isTurn) return;
 
-        if (Input.GetKeyDown(launchKey)) {
+        if (Input.GetKeyDown(launchKey))
+        {
             Launch();
             inventoryManager.SpendItem();
         }
 
-        if (Input.GetButton("AimLeft")) {
+        if (Input.GetButton("AimLeft"))
+        {
             SetAim(1);
-        } else if (Input.GetButton("AimRight")) {
+        }
+        else if (Input.GetButton("AimRight"))
+        {
             SetAim(-1);
+        }
+
+        float powerIncrement = (1f / powerCycleSpeed) * Time.deltaTime;
+
+        if (powerIncreasing)
+        {
+            currentPower += powerIncrement;
+
+            if (currentPower >= 1f)
+            {
+                currentPower = 1f;
+                powerIncreasing = false;
+            }
+        }
+        else
+        {
+            currentPower -= powerIncrement;
+
+            if (currentPower <= 0f)
+            {
+                currentPower = 0f;
+                powerIncreasing = true;
+            }
         }
     }
 
@@ -84,7 +118,7 @@ public class Launcher : MonoBehaviour
     }
 
     public void SetPower(float power) {
-        this.power = power;
+        this.powerMultiplier = power;
     }
 
     public void Launch()
@@ -99,7 +133,7 @@ public class Launcher : MonoBehaviour
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
 
         // Arrow is offset by 90 degrees
-        projectile.GetComponent<Projectile>().Launch(this.transform.parent.rotation.eulerAngles.z + angle + 90f, power);
+        projectile.GetComponent<Projectile>().Launch(this.transform.parent.rotation.eulerAngles.z + angle + 90f, currentPower * powerMultiplier);
     }
 
     protected void UpdateTransforms()
