@@ -10,11 +10,11 @@ public class NoiseManager : MonoBehaviour
 
     public int width = 10000;
     public int height = 10000;
-    public float smoothness = 10000;
+    public float smoothness = 100000;
 
     private void Awake()
     {
-        var seed = Random.Range(0, 1000000);
+        var seed = Random.Range(0, 10);
         float[,] noise = new float[width, height];
         for (int x = 0; x < width; x++)
         {
