@@ -19,6 +19,13 @@ public class CarController : MonoBehaviour
     [SerializeField]
     private float fuel;
 
+    [Tooltip("Max health")]
+    [SerializeField]
+    private float maxHealth = 5.0f; // max fuel in seconds
+
+    [SerializeField]
+    private float health;
+
     [SerializeField]
     private float fuelConsumptionRate = 1.0f; // fuel consumed per second
 
@@ -133,5 +140,11 @@ public class CarController : MonoBehaviour
                 sprite.flipX = flip;
             }
         }
+    }
+
+    public void ResetFuel()
+    {
+        fuel = maxFuel;
+        fuelBar.SetFuel(fuel);
     }
 }
