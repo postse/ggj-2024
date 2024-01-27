@@ -14,7 +14,6 @@ namespace DTerrain
         {
             SpawnChunks();
             InitChunks();
-            
         }
 
         public virtual void Update()
