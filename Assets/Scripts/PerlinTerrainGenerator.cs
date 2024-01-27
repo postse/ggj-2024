@@ -6,12 +6,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class PerlinTerrainGenerator : MonoBehaviour
+public class PerlinTerrainGenerator
 {
     private int _width;
     private int _height;
 
-    public Texture2D Generate(int width = 3840, int height = 2160, float terrainSmoothness = 500, Color? terrainColor = null, float textureSmoothness = 500)
+    public Texture2D Generate(int width = 3840, int height = 2160, float terrainSmoothness = 1000, Color? terrainColor = null, float textureSmoothness = 500)
     {
         _width = width;
         _height = height;
@@ -21,8 +21,8 @@ public class PerlinTerrainGenerator : MonoBehaviour
         Tuple<float, float>[] floatTuples = new Tuple<float, float>[]
         {
             new Tuple<float, float>(1.0f, 1f),
-            new Tuple<float, float>(.5f, .1f),
-            new Tuple<float, float>(.2f, .05f)
+            new Tuple<float, float>(.5f, .25f),
+            new Tuple<float, float>(.25f, .125f),
         };
         
         // Texture Noise
@@ -47,7 +47,12 @@ public class PerlinTerrainGenerator : MonoBehaviour
             {
                 if (y < hillHeight)
                 {
-                    float brightness = Math.Max(Mathf.PerlinNoise(x / textureSmoothness + seed, y / textureSmoothness + seed), 0.3f);
+                    // This could be much prettier. You can do that, I believe in you.
+                    float brightness = Mathf.PerlinNoise(x / textureSmoothness + seed, y / textureSmoothness + seed);
+                    brightness += Mathf.PerlinNoise(x / textureSmoothness*2 + seed, y / textureSmoothness*2 + seed) * 0.5f;
+                    brightness += Mathf.PerlinNoise(x / textureSmoothness*4 + seed, y / textureSmoothness*4 + seed) * 0.25f;
+                    brightness *= y/hillHeight;
+                    brightness = Mathf.Clamp(brightness, 0.1f, 1.0f);
                     Color color = terrainColor ?? Color.green;
                     color *= brightness;
                     color.a = 1.0f;

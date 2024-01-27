@@ -7,7 +7,7 @@ public class InputController : MonoBehaviour
 
     private void Update()
     {
-        // Debug.Log(inputName);
+        Debug.Log(inputName);
     }
 
     public bool GetButton(string axes)
