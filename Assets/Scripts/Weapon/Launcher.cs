@@ -64,9 +64,9 @@ public class Launcher : MonoBehaviour
             inventoryManager.SpendItem();
         }
 
-        if (Input.GetKey(aimUpKey)) {
+        if (Input.GetButton("AimLeft")) {
             SetAim(1);
-        } else if (Input.GetKey(aimDownKey)) {
+        } else if (Input.GetButton("AimRight")) {
             SetAim(-1);
         }
     }
