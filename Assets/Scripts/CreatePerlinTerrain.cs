@@ -4,18 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class CreatePerlinTerrain : MonoBehaviour
+public class NoiseManager : MonoBehaviour
 {
-    private int _width;
-    private int _height;
-    private Color _groundColor;
+    public RawImage noiseTextureImage;
 
-    public Texture2D Generate(int width = 3840, int height = 2160, float smoothness = 10000, Color? groundColor = null)
+    public int width = 10000;
+    public int height = 10000;
+    public float smoothness = 100000;
+
+    private void Awake()
     {
-        _width = width;
-        _height = height;
-        _groundColor = groundColor ?? Color.green;
-
         // fix this
         var seed = Random.Range(0, 10);
         float[,] noise = new float[width, height];
@@ -35,25 +33,24 @@ public class CreatePerlinTerrain : MonoBehaviour
                 }
             }
         }
-        return _SetNoiseTexture(noise);
+        _SetNoiseTexture(noise);
     }
 
-    private Texture2D _SetNoiseTexture(float[,] noise)
+    private void _SetNoiseTexture(float[,] noise)
     {
-        Color[] pixels = new Color[_width * _height];
+        Color[] pixels = new Color[width * height];
 
-        for (int y = 0; y < _height; y++)
+        for (int y = 0; y < height; y++)
         {
-            for (int x = 0; x < _width; x++)
+            for (int x = 0; x < width; x++)
             {
-                pixels[x + _width * y] = Color.Lerp(Color.clear, _groundColor, noise[x, y]);
+                pixels[x + width * y] = Color.Lerp(Color.clear, Color.green, noise[x, y]);
             }
         }
 
-        Texture2D texture = new Texture2D(_width, _height);
+        Texture2D texture = new Texture2D(width, height);
         texture.SetPixels(pixels);
         texture.Apply();
-
-        return texture;
+        noiseTextureImage.texture = texture;
     }
 }
