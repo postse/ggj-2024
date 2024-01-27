@@ -37,6 +37,7 @@ public class TerrainBreaker : MonoBehaviour
         if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "CarBody") {
             if (destroyOnImpact) {
                 BreakTerrain();
+                Destroy(this.gameObject);
             }
         }
     }
@@ -60,6 +61,5 @@ public class TerrainBreaker : MonoBehaviour
         }
 
         terrain.BreakTerrain(p, craterSize, destroyCircle);
-        Destroy(this.gameObject);
     }
 }
