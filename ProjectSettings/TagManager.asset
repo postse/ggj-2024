@@ -7,6 +7,7 @@ TagManager:
   - Weapon
   - Terrain
   - Projectile
+  - CarBody
   layers:
   - Default
   - TransparentFX
@@ -64,4 +65,7 @@ TagManager:
     locked: 0
   - name: Weapon
     uniqueID: 3530192199
+    locked: 0
+  - name: Effects
+    uniqueID: 4053506483
     locked: 0

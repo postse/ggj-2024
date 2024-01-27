@@ -51,11 +51,6 @@ public class BowlingPinCluster : Projectile
         Destroy(this.gameObject);
     }
 
-    public override void Launch(float angle, float power)
-    {
-        this.GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * power, ForceMode2D.Impulse);
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (!exploded && collision.gameObject.CompareTag("Terrain"))

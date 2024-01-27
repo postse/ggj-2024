@@ -9,13 +9,6 @@ public class BowlingPinProjectile : MonoBehaviour
 
     bool exploded = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Point the object in the direction of its velocity
-        // transform.LookAt(transform.position + GetComponent<Rigidbody2D>().velocity);
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!exploded && collision.gameObject.CompareTag("Terrain"))

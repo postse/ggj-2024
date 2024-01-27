@@ -36,11 +36,13 @@ public class CarController : MonoBehaviour
     private float maxRotation = 80.0f; // max rotation in degrees
 
     public bool isTurn = false;
+    public bool isDead = false;
 
     private float moveHorizontal;
     private bool isBubblesActive;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
+    private TurnController turnController;
     bool flipped;
 
     public FuelBar fuelBar;
@@ -50,6 +52,7 @@ public class CarController : MonoBehaviour
     {
         rb = GetComponentInChildren<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+        turnController = FindObjectOfType<TurnController>();
         fuel = maxFuel; // initialize fuel to maxFuel
         fuelBar.SetMaxFuel(maxFuel);
         health = maxHealth; // initialize health to maxHealth
@@ -151,8 +154,15 @@ public class CarController : MonoBehaviour
     {
         if (damage < 0) throw new ArgumentException("Damage must be positive");
 
-        health -= damage;
+        health -= Mathf.Min(damage, health);
         healthBar.SetHealth(health);
+
+        if (health <= 0)
+        {
+            isDead = true;
+        }
+
+        turnController.CheckIfGameOver();
     }
 
     public void ResetHealth()

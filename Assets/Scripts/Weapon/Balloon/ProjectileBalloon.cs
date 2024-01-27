@@ -19,17 +19,10 @@ class ProjectileBalloon : Projectile {
         if (!exploded && collision.gameObject.CompareTag("Terrain"))
         {
             exploded = true;
-            this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-            this.GetComponent<Rigidbody2D>().gravityScale = 0;
             GameObject anim = Instantiate(explosionAnimation, this.transform.position, Quaternion.identity);
             // TODO: Don't hardcode explosion time
             Destroy(anim, .6f);
             Destroy(this.gameObject);
         }
-    }
-
-    public override void Launch(float angle, float power)
-    {
-        this.GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * power, ForceMode2D.Impulse);
     }
 }

@@ -55,6 +55,7 @@ MonoBehaviour:
   bubblesRelativeFuelConsumptionRate: 3
   maxRotation: 80
   isTurn: 0
+  isDead: 0
   fuelBar: {fileID: 8034542316944715483}
   healthBar: {fileID: 2843177827420221500}
 --- !u!1 &5177332239580765678
@@ -71,7 +72,7 @@ GameObject:
   - component: {fileID: 5369114102284853393}
   m_Layer: 0
   m_Name: CarBody
-  m_TagString: Untagged
+  m_TagString: CarBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
