@@ -66,7 +66,6 @@ public class Launcher : MonoBehaviour
 
     public void SetAim(float angleDelta) {
         float newAngle = this.angle + angleDelta * _aimSpeed * Time.deltaTime;
-        Debug.Log(newAngle);
         if (newAngle > maxAngle) {
             this.angle = maxAngle;
         } else if (newAngle < minAngle) {
