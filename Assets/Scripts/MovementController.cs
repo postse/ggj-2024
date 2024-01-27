@@ -16,10 +16,16 @@ public class CarController : MonoBehaviour
     private float maxFuel = 5.0f; // max fuel in seconds
 
     [SerializeField]
+    private float fuel;
+
+    [SerializeField]
     private float fuelConsumptionRate = 1.0f; // fuel consumed per second
 
     [SerializeField]
     private float bubblesRelativeFuelConsumptionRate = 2.0f; // fuel consumed per second
+
+    [SerializeField]
+    private float maxRotation = 80.0f; // max rotation in degrees
 
     [SerializeField]
     private KeyCode moveLeftKey = KeyCode.A;
@@ -30,8 +36,6 @@ public class CarController : MonoBehaviour
     [SerializeField]
     private KeyCode jetpackKey = KeyCode.Space;
 
-    [SerializeField]
-    private float fuel;
 
     private float moveHorizontal;
     private bool isBubblesActive;
@@ -92,5 +96,10 @@ public class CarController : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         }
+
+        float z = rb.transform.eulerAngles.z;
+        if (z > 180.0f) z -= 360.0f; // Convert angle to [-180, 180] range
+        z = Mathf.Clamp(z, -1 * maxRotation, maxRotation); // Clamp angle to [-80, 80] range
+        rb.transform.eulerAngles = new Vector3(rb.transform.eulerAngles.x, rb.transform.eulerAngles.y, z);
     }
 }
