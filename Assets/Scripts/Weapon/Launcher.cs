@@ -7,6 +7,8 @@ public abstract class Launcher : MonoBehaviour
 
     [SerializeField]
     protected Transform firePoint;
+    [SerializeField]
+    protected Transform idlePoint;
 
     [SerializeField]
     protected Launchable launchableObj;
@@ -54,7 +56,7 @@ public abstract class Launcher : MonoBehaviour
         }
         this.UpdateTransforms();
     }
-    
+
     public void SetPower(float power) {
         this.power = power;
     }

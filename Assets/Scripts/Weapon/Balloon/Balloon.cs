@@ -6,6 +6,8 @@ using UnityEngine;
 public class Balloon : Launchable
 {
 
+    private float destroyDelay = 5f;
+
     void Start() {
         this.GetComponent<Rigidbody2D>().simulated = false;
     }
@@ -15,6 +17,8 @@ public class Balloon : Launchable
         this.transform.rotation = Quaternion.Euler(0, 0, angle);
         this.GetComponent<Rigidbody2D>().AddForce(this.transform.up * power, ForceMode2D.Impulse);
         this.GetComponent<Rigidbody2D>().simulated = true;
+
+        Destroy(this.gameObject, destroyDelay);
     }
 
     // Physics stuff
