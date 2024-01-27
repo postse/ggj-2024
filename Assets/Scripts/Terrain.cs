@@ -14,7 +14,7 @@ public class Terrain : MonoBehaviour
     private Texture2D VisualTexture = null;
 
     [SerializeField]
-    private BasicPaintableLayer CollidableLogicLayer;
+    public BasicPaintableLayer CollidableLogicLayer;
 
     [SerializeField]
     private BasicPaintableLayer VisibleLayer;

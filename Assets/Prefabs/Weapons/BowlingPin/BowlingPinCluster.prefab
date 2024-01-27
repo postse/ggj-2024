@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   craterSize: 64
+  damage: 20
   destroyOnImpact: 1
 --- !u!1 &1068406239288350428
 GameObject:

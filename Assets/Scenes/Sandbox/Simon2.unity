@@ -260,6 +260,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5177332239580765678, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: m_TagString
+      value: CarBody
+      objectReference: {fileID: 0}
     - target: {fileID: 8151674787339852201, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
       propertyPath: inputName
       value: 
