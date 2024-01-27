@@ -11,13 +11,18 @@ public class JackInTheBoxProjectile : Projectile
     private float explosionDelay = 5f;
 
     void Start() {
-        Invoke("Explode", 5f);
+        Invoke("BeginExplode", 5f);
     }
 
-    void Explode() {
+    void BeginExplode()
+    {
+        GetComponent<Animator>().Play("JackBox");
+        Invoke("EndExplosion", 1);
+    }
+
+    void EndExplosion()
+    {
         GetComponent<TerrainBreaker>().BreakTerrain();
-        GameObject anim = Instantiate(explosionAnimation, this.transform.position, Quaternion.identity);
-        Destroy(anim, .6f);
         Destroy(this.gameObject);
     }
 }
