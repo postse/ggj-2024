@@ -27,10 +27,6 @@ public class InventoryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // foreach (InventoryItem prefab in itemPrefabs) {
-        //     InventoryItem item = Instantiate(prefab);
-        //     items.Add(item);
-        // }
         LoadProjectile();
     }
 
@@ -43,8 +39,6 @@ public class InventoryManager : MonoBehaviour
     }
 
     private void CycleProjectile() {
-        // active++;
-        // if (active >= items.Length) active = 0;
         active = active == items.Length - 1 ? 0 : active + 1;
         while (counts[active] == 0) {
             active = active == items.Length - 1 ? 0 : active + 1;
@@ -68,7 +62,7 @@ public class InventoryManager : MonoBehaviour
             counts[active]--;
 
             if (counts[active] == 0) {
-                // No more
+                // No more. Go back to default
                 active = 0;
             }
             LoadProjectile();
