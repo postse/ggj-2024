@@ -4,6 +4,9 @@ using UnityEngine;
 
 public abstract class Projectile : MonoBehaviour {
 
-    public abstract void Launch(float angle, float power);
+    public void Launch(float angle, float power)
+    {
+        this.GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * power, ForceMode2D.Impulse);
+    }
 
 }
