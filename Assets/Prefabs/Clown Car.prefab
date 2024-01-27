@@ -46,14 +46,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
-  bubblesSpeed: 2
+  bubblesSpeed: 3
   maxFuel: 5
   fuel: 0
+  maxHealth: 100
+  health: 0
   fuelConsumptionRate: 1
-  bubblesRelativeFuelConsumptionRate: 2
+  bubblesRelativeFuelConsumptionRate: 3
   maxRotation: 80
   isTurn: 0
   fuelBar: {fileID: 8034542316944715483}
+  healthBar: {fileID: 2843177827420221500}
 --- !u!1 &5177332239580765678
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,6 +514,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
+--- !u!114 &2843177827420221500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5483550408538926000, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
+  m_PrefabInstance: {fileID: 7740987511007026060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e4b134c92e25a4fb4150c799d221ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2941329540557110270 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4880829433550463090, guid: a8ec42a86c91ab945941da25431ca914, type: 3}

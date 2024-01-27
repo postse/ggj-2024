@@ -21,7 +21,7 @@ public class CarController : MonoBehaviour
 
     [Tooltip("Max health")]
     [SerializeField]
-    private float maxHealth = 5.0f; // max fuel in seconds
+    private float maxHealth = 100f; // max fuel in seconds
 
     [SerializeField]
     private float health;
@@ -44,6 +44,7 @@ public class CarController : MonoBehaviour
     bool flipped;
 
     public FuelBar fuelBar;
+    public HealthBar healthBar;
 
     void Start()
     {
@@ -51,6 +52,8 @@ public class CarController : MonoBehaviour
         sprite = GetComponentInChildren<SpriteRenderer>();
         fuel = maxFuel; // initialize fuel to maxFuel
         fuelBar.SetMaxFuel(maxFuel);
+        health = maxHealth; // initialize health to maxHealth
+        healthBar.SetMaxHealth(maxHealth);
         flipped = false;
     }
 
@@ -142,5 +145,19 @@ public class CarController : MonoBehaviour
     {
         fuel = maxFuel;
         fuelBar.SetFuel(fuel);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (damage < 0) throw new ArgumentException("Damage must be positive");
+
+        health -= damage;
+        healthBar.SetHealth(health);
+    }
+
+    public void ResetHealth()
+    {
+        health = maxHealth;
+        healthBar.SetHealth(health);
     }
 }
