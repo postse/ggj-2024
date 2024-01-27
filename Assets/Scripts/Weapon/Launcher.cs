@@ -42,17 +42,20 @@ public class Launcher : MonoBehaviour
     [SerializeField]
     private float _aimSpeed = 45f;
 
+    [SerializeField]
+    private InventoryManager inventoryManager;
 
     void Start() {
-        if (idlePrefab != null) {
-            this.SetIdleSprite(idlePrefab);
-        }
+        // if (idlePrefab != null) {
+        //     this.SetIdleSprite(idlePrefab);
+        // }
     }
 
 
     void Update() {
         if (Input.GetKeyDown(launchKey)) {
             Launch();
+            inventoryManager.SpendItem();
         }
 
         if (Input.GetKey(aimUpKey)) {
@@ -81,6 +84,8 @@ public class Launcher : MonoBehaviour
     public void Launch()
     {
         Destroy(_idleObject);
+        if (!projectilePrefab) return;  // Projectile is null, don't launch
+
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
 
         // Arrow is offset by 90 degrees
@@ -93,6 +98,7 @@ public class Launcher : MonoBehaviour
     }
 
     public void SetIdleSprite(GameObject idlePrefab) {
+        Destroy(_idleObject);   // Clear current idle object
         _idleObject = Instantiate(idlePrefab, idlePoint.position, idlePoint.rotation);
         _idleObject.transform.SetParent(idlePoint);
         this.UpdateTransforms();
