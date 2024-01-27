@@ -19,9 +19,9 @@ public class Launcher : MonoBehaviour
     protected float power = 10;
 
     [SerializeField]
-    private float minAngle = 85;
+    private float minAngle = -135;
     [SerializeField]
-    private float maxAngle = -85;
+    private float maxAngle = 135;
 
     [SerializeField]
     private KeyCode aimUpKey = KeyCode.W;
@@ -44,14 +44,12 @@ public class Launcher : MonoBehaviour
 
 
     void Start() {
-        _idleObject = Instantiate(idlePrefab, idlePoint.position, idlePoint.rotation);
-        _idleObject.transform.SetParent(idlePoint);
-        this.UpdateTransforms();
+        if (idlePrefab != null) {
+            this.SetIdleSprite(idlePrefab);
+        }
     }
 
 
-
-    
     void Update() {
         if (Input.GetKeyDown(launchKey)) {
             Launch();
@@ -86,35 +84,22 @@ public class Launcher : MonoBehaviour
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
 
         // Arrow is offset by 90 degrees
-        projectile.GetComponent<Projectile>().Launch(angle + 90f, power);
+        projectile.GetComponent<Projectile>().Launch(this.transform.parent.rotation.eulerAngles.z + angle + 90f, power);
     }
 
     protected void UpdateTransforms()
     {
-        idlePoint.rotation = Quaternion.Euler(0, 0, angle);
-    }
-
-    public void LoadLaunchableItem(GameObject lItem) {
-        LaunchableItem launchableItem = lItem.GetComponent<LaunchableItem>();
-        this.idlePrefab = launchableItem.idlePrefab;
-        this.projectilePrefab = launchableItem.projectilePrefab;
-        _idleObject = Instantiate(idlePrefab, idlePoint.position, idlePoint.rotation);
-        _idleObject.transform.SetParent(idlePoint);
+        firePoint.rotation = Quaternion.Euler(0, 0, angle + this.transform.parent.rotation.eulerAngles.z);
     }
 
     public void SetIdleSprite(GameObject idlePrefab) {
-        this.idlePrefab = idlePrefab;
+        _idleObject = Instantiate(idlePrefab, idlePoint.position, idlePoint.rotation);
+        _idleObject.transform.SetParent(idlePoint);
+        this.UpdateTransforms();
     }
 
     public void SetProjectilePrefab(GameObject projectilePrefab) {
         this.projectilePrefab = projectilePrefab;
     }
 
-    public void SetFirePoint(Transform firePoint) {
-        this.firePoint = firePoint;
-    }
-
-    public void SetIdlePoint(Transform idlePoint) {
-        this.idlePoint = idlePoint;
-    }
 }

@@ -36,11 +36,14 @@ public class CarController : MonoBehaviour
     private SpriteRenderer sprite;
     bool flipped;
 
+    public FuelBar fuelBar;
+
     void Start()
     {
         rb = GetComponentInChildren<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         fuel = maxFuel; // initialize fuel to maxFuel
+        fuelBar.SetMaxFuel(maxFuel);
         flipped = false;
     }
 
@@ -60,6 +63,7 @@ public class CarController : MonoBehaviour
             {
                 moveHorizontal = -1.0f;
                 fuel -= fuelConsumptionRate * Time.deltaTime; // consume fuel
+                fuelBar.SetFuel(fuel); // change fuel bar
                 if (flipped == false)
                 {
                     FlipSprite(true);
@@ -70,6 +74,7 @@ public class CarController : MonoBehaviour
             {
                 moveHorizontal = 1.0f;
                 fuel -= fuelConsumptionRate * Time.deltaTime; // consume fuel
+                fuelBar.SetFuel(fuel); // change fuel bar
                 if (flipped == true)
                 {
                     FlipSprite(false);
@@ -80,6 +85,7 @@ public class CarController : MonoBehaviour
             if (Input.GetButton("Jump"))
             {
                 fuel -= fuelConsumptionRate * bubblesRelativeFuelConsumptionRate * Time.deltaTime; // consume fuel twice as fast
+                fuelBar.SetFuel(fuel); // change fuel bar
                 isBubblesActive = true;
             }
         }
