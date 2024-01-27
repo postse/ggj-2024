@@ -124,8 +124,13 @@ public class CarController : MonoBehaviour
     void FlipSprite(bool flip)
     {
         sprite.flipX = flip;
-        Launcher launcher = GetComponentInChildren<Launcher>();
-        launcher.gameObject.transform.rotation = flip ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
-        
+        SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer sprite in sprites)
+        {
+            if (sprite.CompareTag("Weapon") || sprite.CompareTag("Player"))
+            {
+                sprite.flipX = flip;
+            }
+        }
     }
 }
