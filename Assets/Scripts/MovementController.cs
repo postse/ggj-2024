@@ -19,7 +19,7 @@ public class CarController : MonoBehaviour
     private float fuelConsumptionRate = 1.0f; // fuel consumed per second
 
     [SerializeField]
-    private float jetpackRelativeFuelConsumptionRate = 2.0f; // fuel consumed per second
+    private float bubblesRelativeFuelConsumptionRate = 2.0f; // fuel consumed per second
 
     [SerializeField]
     private KeyCode moveLeftKey = KeyCode.A;
@@ -34,7 +34,7 @@ public class CarController : MonoBehaviour
     private float fuel;
 
     private float moveHorizontal;
-    private bool isJetpackActive;
+    private bool isBubblesActive;
     private Rigidbody2D rb;
 
     void Start()
@@ -62,8 +62,8 @@ public class CarController : MonoBehaviour
 
             if (Input.GetKey(jetpackKey))
             {
-                fuel -= fuelConsumptionRate * jetpackRelativeFuelConsumptionRate * Time.deltaTime; // consume fuel twice as fast
-                isJetpackActive = true;
+                fuel -= fuelConsumptionRate * bubblesRelativeFuelConsumptionRate * Time.deltaTime; // consume fuel twice as fast
+                isBubblesActive = true;
             }
         }
 
@@ -72,10 +72,10 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isJetpackActive)
+        if (isBubblesActive)
         {
             rb.velocity = new Vector2(rb.velocity.x, bubblesSpeed);
-            isJetpackActive = false;
+            isBubblesActive = false;
         }
 
         if (moveHorizontal != 0.0f)
