@@ -44,15 +44,21 @@ public class Launcher : MonoBehaviour
 
     [SerializeField]
     private InventoryManager inventoryManager;
+    private CarController carController;
+
+    public bool shotWeapon = false;
 
     void Start() {
         // if (idlePrefab != null) {
         //     this.SetIdleSprite(idlePrefab);
         // }
+        carController = GetComponentInParent<CarController>();
     }
 
 
     void Update() {
+        if (!carController.isTurn) return;
+
         if (Input.GetKeyDown(launchKey)) {
             Launch();
             inventoryManager.SpendItem();
@@ -83,6 +89,10 @@ public class Launcher : MonoBehaviour
 
     public void Launch()
     {
+        if (shotWeapon) return;
+
+        shotWeapon = true;
+
         Destroy(_idleObject);
         if (!projectilePrefab) return;  // Projectile is null, don't launch
 

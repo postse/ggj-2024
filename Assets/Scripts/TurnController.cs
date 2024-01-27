@@ -57,6 +57,7 @@ public class TurnController : MonoBehaviour
         else
         {
             currentPlayer.isTurn = true;
+            currentPlayer.GetComponentInChildren<Launcher>().shotWeapon = false;
         }
     }
 

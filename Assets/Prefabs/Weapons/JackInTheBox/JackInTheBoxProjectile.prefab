@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   craterSize: 96
+  damage: 40
   destroyOnImpact: 0
 --- !u!95 &3089867679999398199
 Animator:
