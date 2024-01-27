@@ -31,6 +31,11 @@ public class TurnController : MonoBehaviour
             {
                 playerTurn = 0;
                 roundNumber++;
+
+                foreach (var player in players)
+                {
+                    player.GetComponent<CarController>().ResetFuel();
+                }
             }
 
             players[playerTurn].GetComponent<CarController>().isTurn = true;
