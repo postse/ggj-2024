@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2338669121818697854}
   - component: {fileID: -6467702845324018093}
   m_Layer: 0
-  m_Name: Bomb
+  m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ec72075cd8b81174181715a822fd2687, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f1cd82ed229dc95409ffb5bd6a136ab4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,6 +172,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 64
-  destroyOnImpact: 0
+  destroyOnImpact: 1
   primaryLayer: {fileID: 0}
   secondaryLayer: {fileID: 0}
