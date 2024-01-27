@@ -434,6 +434,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 44864348}
     - target: {fileID: 2384024810541278957, guid: d58a7fcf883eb9a599b6a21db7bf9bdd, type: 3}
+      propertyPath: width
+      value: 3840
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384024810541278957, guid: d58a7fcf883eb9a599b6a21db7bf9bdd, type: 3}
+      propertyPath: height
+      value: 2160
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384024810541278957, guid: d58a7fcf883eb9a599b6a21db7bf9bdd, type: 3}
+      propertyPath: smoothness
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384024810541278957, guid: d58a7fcf883eb9a599b6a21db7bf9bdd, type: 3}
+      propertyPath: terrainColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384024810541278957, guid: d58a7fcf883eb9a599b6a21db7bf9bdd, type: 3}
+      propertyPath: terrainColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384024810541278957, guid: d58a7fcf883eb9a599b6a21db7bf9bdd, type: 3}
+      propertyPath: terrainColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384024810541278957, guid: d58a7fcf883eb9a599b6a21db7bf9bdd, type: 3}
       propertyPath: OriginalTexture
       value: 
       objectReference: {fileID: 0}
