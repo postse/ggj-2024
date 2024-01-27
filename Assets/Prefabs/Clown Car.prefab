@@ -49,7 +49,7 @@ MonoBehaviour:
   bubblesSpeed: 2
   maxFuel: 5
   fuelConsumptionRate: 1
-  jetpackRelativeFuelConsumptionRate: 3
+  bubblesRelativeFuelConsumptionRate: 2
   moveLeftKey: 97
   moveRightKey: 100
   jetpackKey: 32
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 6959240117199990883}
   - component: {fileID: 6893162379009918047}
   - component: {fileID: 4804258933519843669}
-  - component: {fileID: 5889128815194169056}
+  - component: {fileID: 5369114102284853393}
   m_Layer: 0
   m_Name: MovementController
   m_TagString: Untagged
@@ -81,13 +81,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5177332239580765678}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4252377177649841876}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6893162379009918047
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b2ab1f73141c734892adcd2578752bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -167,7 +167,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &5889128815194169056
+--- !u!70 &5369114102284853393
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,6 +199,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.0000002, y: 2.0000005}
-  m_Direction: 0
+  m_Offset: {x: 0, y: -0.75}
+  m_Size: {x: 3, y: 1.6}
+  m_Direction: 1
