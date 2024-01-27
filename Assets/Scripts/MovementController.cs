@@ -36,10 +36,12 @@ public class CarController : MonoBehaviour
     private float moveHorizontal;
     private bool isBubblesActive;
     private Rigidbody2D rb;
+    private SpriteRenderer sprite;
 
     void Start()
     {
         rb = GetComponentInChildren<Rigidbody2D>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
         fuel = maxFuel; // initialize fuel to maxFuel
     }
 
@@ -53,11 +55,13 @@ public class CarController : MonoBehaviour
             {
                 moveHorizontal = -1.0f;
                 fuel -= fuelConsumptionRate * Time.deltaTime; // consume fuel
+                sprite.flipX = true;
             }
             else if (Input.GetKey(moveRightKey))
             {
                 moveHorizontal = 1.0f;
                 fuel -= fuelConsumptionRate * Time.deltaTime; // consume fuel
+                sprite.flipX = false;
             }
 
             if (Input.GetKey(jetpackKey))
@@ -81,7 +85,7 @@ public class CarController : MonoBehaviour
         if (moveHorizontal != 0.0f)
         {
             rb.constraints = RigidbodyConstraints2D.None;
-            Vector3 movement = rb.transform.up * moveHorizontal * movementSpeed;
+            Vector3 movement = rb.transform.right * moveHorizontal * movementSpeed;
             rb.velocity = new Vector2(movement.x, rb.velocity.y + Physics2D.gravity.y * Time.fixedDeltaTime);
         }
         else
