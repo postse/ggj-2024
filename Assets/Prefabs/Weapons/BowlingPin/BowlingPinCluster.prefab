@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4152948006886351523}
   - component: {fileID: 176066530204285270}
   - component: {fileID: 4347587744650877268}
+  - component: {fileID: 8434902786380635617}
+  - component: {fileID: 4393921974260608419}
   m_Layer: 0
   m_Name: BowlingPinCluster
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 99593371221942278}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.23, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -52,6 +54,7 @@ MonoBehaviour:
   explosionDelay: 1
   bowlingPin: {fileID: 5319658358756247338, guid: 724101b386471ac46a7f4a8403a1253b, type: 3}
   spread: 15
+  fizzleAnimation: {fileID: 502887073166235544, guid: 189e1de322a6ef342a9e93dfcdac6dc6, type: 3}
 --- !u!50 &4347587744650877268
 Rigidbody2D:
   serializedVersion: 4
@@ -79,6 +82,55 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &8434902786380635617
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99593371221942278}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.25
+--- !u!114 &4393921974260608419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99593371221942278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0fcf27862db6b9c8b9f6274deb0bf89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  craterSize: 64
+  destroyOnImpact: 1
 --- !u!1 &1068406239288350428
 GameObject:
   m_ObjectHideFlags: 0
