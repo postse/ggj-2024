@@ -7,18 +7,34 @@ using Unity.VisualScripting;
 public class TerrainScript : MonoBehaviour
 {
     [SerializeField]
-    public Texture2D OriginalTexture;
+    private Texture2D OriginalTexture = null;
 
     [SerializeField]
-    BasicPaintableLayer CollidableLogicLayer;
+    private BasicPaintableLayer CollidableLogicLayer;
 
     [SerializeField]
-    BasicPaintableLayer VisibleLayer;
+    private BasicPaintableLayer VisibleLayer;
+
+    [SerializeField]
+    private int width;
+
+    [SerializeField]
+    private int height;
+
+    [SerializeField]
+    private float smoothness;
+
+    [SerializeField]
+    private Color terrainColor;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        // Debug.Log("Testing 1 2 3");
+        OriginalTexture = new PerlinTerrainGenerator().Generate(width: width, height: height, smoothness: smoothness, terrainColor: terrainColor);
+        // OriginalTexture = new PerlinTerrainGenerator().Generate();
+
         VisibleLayer.OriginalTexture = OriginalTexture;
         CollidableLogicLayer.OriginalTexture = OriginalTexture;
 

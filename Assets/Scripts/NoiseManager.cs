@@ -12,7 +12,7 @@ public class NoiseManager : MonoBehaviour
     private void Awake()
     {
         // fix this
-        var terrainGenerator = new PerlinTerrainGenerator();
-        noiseTextureImage.texture = terrainGenerator.Generate();
+        // var terrainGenerator = new PerlinTerrainGenerator();
+        // noiseTextureImage.texture = terrainGenerator.Generate();
     }
 }

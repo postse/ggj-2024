@@ -9,7 +9,7 @@ public class PerlinTerrainGenerator : MonoBehaviour
     private int _width;
     private int _height;
 
-    public Texture2D Generate(int width = 3840, int height = 2160, float smoothness = 500, Color? groundColor = null)
+    public Texture2D Generate(int width = 3840, int height = 2160, float smoothness = 500, Color? terrainColor = null)
     {
         _width = width;
         _height = height;
@@ -25,7 +25,7 @@ public class PerlinTerrainGenerator : MonoBehaviour
             {
                 if (y < hillHeight)
                 {
-                    colorMap[x, y] = groundColor ?? Color.green;
+                    colorMap[x, y] = terrainColor ?? Color.green;
                 }
                 else
                 {
