@@ -31,9 +31,6 @@ namespace DTerrain
                 Vector3 mPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 mPos.z = 0;
                 GameObject newBomb = Instantiate(bomb, mPos, new Quaternion(0, 0, 0, 0));
-
-                newBomb.GetComponent<TerrainBreaker>().primaryLayer = primaryLayer;
-                newBomb.GetComponent<TerrainBreaker>().secondaryLayer = secondaryLayer;
             }
             if (Input.GetKeyDown(KeyCode.B))
             {
