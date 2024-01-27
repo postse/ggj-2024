@@ -35,10 +35,10 @@ public class PerlinTerrainGenerator : MonoBehaviour
             var hillHeight = 0f;
             var totalHillHeight = 0f;
 
-            for (int y = 0; y < floatTuples.Length; y++)
+            for (int layer = 0; layer < floatTuples.Length; layer++)
             {
-                hillHeight += Mathf.RoundToInt(GenerateHillHeight(x, terrainSmoothness * floatTuples[y].Item1, seed) * floatTuples[y].Item2);
-                totalHillHeight += floatTuples[y].Item2;
+                hillHeight += Mathf.RoundToInt(GenerateHillHeight(x, terrainSmoothness * floatTuples[layer].Item1, seed) * floatTuples[layer].Item2);
+                totalHillHeight += floatTuples[layer].Item2;
             }
 
             hillHeight /= totalHillHeight;
@@ -47,7 +47,7 @@ public class PerlinTerrainGenerator : MonoBehaviour
             {
                 if (y < hillHeight)
                 {
-                    float brightness = Mathf.PerlinNoise(x / textureSmoothness + seed, y / textureSmoothness + seed);
+                    float brightness = Math.Max(Mathf.PerlinNoise(x / textureSmoothness + seed, y / textureSmoothness + seed), 0.3f);
                     Color color = terrainColor ?? Color.green;
                     color *= brightness;
                     color.a = 1.0f;
