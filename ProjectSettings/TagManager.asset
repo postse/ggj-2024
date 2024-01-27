@@ -7,6 +7,7 @@ TagManager:
   - Weapon
   - Terrain
   - Projectile
+  - CarBody
   layers:
   - Default
   - TransparentFX
