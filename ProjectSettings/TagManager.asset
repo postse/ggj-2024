@@ -40,10 +40,16 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
+  - name: Background1
     uniqueID: 1707495439
     locked: 0
-  - name: BackgroundMask
+  - name: Background2
+    uniqueID: 1658371535
+    locked: 0
+  - name: Background3
+    uniqueID: 75860613
+    locked: 0
+  - name: Background4
     uniqueID: 468215533
     locked: 0
   - name: Default
@@ -51,6 +57,9 @@ TagManager:
     locked: 0
   - name: Clown
     uniqueID: 3192916777
+    locked: 0
+  - name: Car
+    uniqueID: 3947505695
     locked: 0
   - name: Weapon
     uniqueID: 3530192199
