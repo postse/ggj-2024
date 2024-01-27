@@ -67,13 +67,11 @@ public class InventoryManager : MonoBehaviour
             // Count is limited
             counts[active]--;
 
-            if (counts[active] > 0) {
-                // Are there more?
-                LoadProjectile();
-            } else {
-                // No more :(
-                launcher.SetProjectilePrefab(null);
+            if (counts[active] == 0) {
+                // No more
+                active = 0;
             }
+            LoadProjectile();
 
         } else {
             // Count is negative, treat as infinity
