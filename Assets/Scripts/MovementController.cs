@@ -27,7 +27,7 @@ public class CarController : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponentInChildren<Rigidbody2D>();
         fuel = maxFuel; // initialize fuel to maxFuel
     }
 
