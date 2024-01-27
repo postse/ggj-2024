@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -41,12 +42,14 @@ public class CarController : MonoBehaviour
     private bool isBubblesActive;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
+    bool flipped;
 
     void Start()
     {
         rb = GetComponentInChildren<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         fuel = maxFuel; // initialize fuel to maxFuel
+        flipped = false;
     }
 
     void Update()
@@ -59,13 +62,21 @@ public class CarController : MonoBehaviour
             {
                 moveHorizontal = -1.0f;
                 fuel -= fuelConsumptionRate * Time.deltaTime; // consume fuel
-                sprite.flipX = true;
+                if (flipped == false)
+                {
+                    FlipSprite(true);
+                    flipped = true;
+                }
             }
             else if (Input.GetKey(moveRightKey))
             {
                 moveHorizontal = 1.0f;
                 fuel -= fuelConsumptionRate * Time.deltaTime; // consume fuel
-                sprite.flipX = false;
+                if (flipped == true)
+                {
+                    FlipSprite(false);
+                    flipped = false;
+                }
             }
 
             if (Input.GetKey(jetpackKey))
@@ -108,5 +119,13 @@ public class CarController : MonoBehaviour
         if (z > 180.0f) z -= 360.0f; // Convert angle to [-180, 180] range
         z = Mathf.Clamp(z, -1 * maxRotation, maxRotation); // Clamp angle to [-80, 80] range
         rb.transform.eulerAngles = new Vector3(rb.transform.eulerAngles.x, rb.transform.eulerAngles.y, z);
+    }
+
+    void FlipSprite(bool flip)
+    {
+        sprite.flipX = flip;
+        Launcher launcher = GetComponentInChildren<Launcher>();
+        launcher.gameObject.transform.rotation = flip ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
+        
     }
 }
