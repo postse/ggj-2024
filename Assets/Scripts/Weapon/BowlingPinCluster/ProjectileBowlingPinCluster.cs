@@ -40,14 +40,16 @@ public class BowlingPinCluster : Projectile
 
         float velocityMag = velocity.magnitude;
         Vector3 offsetX = Vector3.right * (velocity.x > 0 ? 1 : -1);
+
         GameObject pin1 = Instantiate(bowlingPin, transform.position - offsetX, Quaternion.Euler(0, 0, velTan * Mathf.Rad2Deg + spread));
         pin1.GetComponent<Rigidbody2D>().velocity = velUp.normalized * velocityMag;
         
         GameObject pin2 = Instantiate(bowlingPin, transform.position, Quaternion.Euler(0, 0, velTan * Mathf.Rad2Deg));
         pin2.GetComponent<Rigidbody2D>().velocity = velocity.normalized * velocityMag;
-        GameObject pin3 = Instantiate(bowlingPin, transform.position + offsetX, Quaternion.Euler(0, 0, velTan * Mathf.Rad2Deg - spread));
         
+        GameObject pin3 = Instantiate(bowlingPin, transform.position + offsetX, Quaternion.Euler(0, 0, velTan * Mathf.Rad2Deg - spread));
         pin3.GetComponent<Rigidbody2D>().velocity = velDown.normalized * velocityMag;
+        
         Destroy(this.gameObject);
     }
 
