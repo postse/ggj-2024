@@ -77,7 +77,7 @@ MonoBehaviour:
   - {fileID: 8298013761124257415, guid: 6b873a630b14ed3eebaa6a364e379b23, type: 3}
   counts: ffffffff0200000005000000
   active: 0
-  launcher: {fileID: 0}
+  launcher: {fileID: 2307377226361905132}
 --- !u!1 &5177332239580765678
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,3 +645,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8673475956473057458, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
   m_PrefabInstance: {fileID: 8582308044934945879}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2307377226361905132 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6277746227756106683, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+  m_PrefabInstance: {fileID: 8582308044934945879}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f98e291bce40246865a4debac67456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

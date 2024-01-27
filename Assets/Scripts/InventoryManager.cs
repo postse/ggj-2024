@@ -53,6 +53,10 @@ public class InventoryManager : MonoBehaviour
         launcher.SetProjectilePrefab(items[active].GetProjectile());
     }
 
+    public void AddItem(int index) {
+        counts[index]++;
+    }
+
     // Manage inventory and load another projectile if there are more
     public void SpendItem() {
         if (counts[active] == 0) return;

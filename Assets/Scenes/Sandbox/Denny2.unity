@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &179910071 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2307377226361905132, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
-  m_PrefabInstance: {fileID: 287708253}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96f98e291bce40246865a4debac67456, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &287708253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,10 +135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clown Car
       objectReference: {fileID: 0}
-    - target: {fileID: 3271458567113284090, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
-      propertyPath: launcher
-      value: 
-      objectReference: {fileID: 179910071}
     - target: {fileID: 4252377177649841876, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.4999998
@@ -337,7 +322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e865ffe4c819d0f4a9b2db8880bc0e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0
 --- !u!850595691 &1193366004
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -459,6 +443,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc6bb088ee5980f4a989252a9b688886, type: 3}
+--- !u!1 &1425463732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1425463734}
+  - component: {fileID: 1425463733}
+  m_Layer: 0
+  m_Name: BowlingPinCollectible
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1425463733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425463732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d4ede7a395e399f906b4108253b18d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 0
+--- !u!4 &1425463734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425463732}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.2714853, y: 1.3142345, z: -0.1697239}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4297167673816044040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -586,3 +615,4 @@ SceneRoots:
   - {fileID: 4908087628833129906}
   - {fileID: 1417111178}
   - {fileID: 4297167673816044040}
+  - {fileID: 1425463734}
