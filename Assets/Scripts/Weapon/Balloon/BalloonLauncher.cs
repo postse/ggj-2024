@@ -5,24 +5,24 @@ using UnityEngine;
 public class BalloonLauncher : Launcher
 {
 
-    [SerializeField]
-    private Transform pivot;
-
     void Start() {
-        launchableObj = Instantiate(launchableObj, firePoint.position + (firePoint.position * .1f), firePoint.transform.rotation);
-        launchableObj.transform.SetParent(firePoint);
+        launchableObj = Instantiate(launchableObj, idlePoint.position, idlePoint.rotation);
+        launchableObj.transform.SetParent(idlePoint);
     }
 
     public override void Launch()
     {
+        if (launchableObj == null) {
+            return;
+        }
         launchableObj.transform.SetParent(null);
+        launchableObj.transform.position = firePoint.position;
         launchableObj.Launch(angle, power);
         launchableObj = null;
     }
 
     protected override void UpdateTransforms()
     {
-        pivot.rotation = Quaternion.Euler(0, 0, angle);
-        this.launchableObj.transform.rotation = pivot.rotation;
+        idlePoint.rotation = Quaternion.Euler(0, 0, angle);
     }
 }
