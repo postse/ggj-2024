@@ -56,13 +56,9 @@ public class CarController : MonoBehaviour
 
     void Update()
     {
-        if (!isTurn)
-        {
-            moveHorizontal = 0.0f;
-            return;
-        }
-
         moveHorizontal = 0.0f;
+
+        if (!isTurn) return;
 
         if (fuel > 0)
         {
