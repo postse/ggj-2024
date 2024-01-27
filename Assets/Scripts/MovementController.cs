@@ -28,26 +28,18 @@ public class CarController : MonoBehaviour
     [SerializeField]
     private float maxRotation = 80.0f; // max rotation in degrees
 
-    [SerializeField]
-    private KeyCode moveLeftKey = KeyCode.A;
-
-    [SerializeField]
-    private KeyCode moveRightKey = KeyCode.D;
-
-    [SerializeField]
-    private KeyCode jetpackKey = KeyCode.Space;
-
-
     private float moveHorizontal;
     private bool isBubblesActive;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
+    private InputController inputController;
     bool flipped;
 
     void Start()
     {
         rb = GetComponentInChildren<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+        inputController = GetComponent<InputController>();
         fuel = maxFuel; // initialize fuel to maxFuel
         flipped = false;
     }
@@ -58,7 +50,7 @@ public class CarController : MonoBehaviour
 
         if (fuel > 0)
         {
-            if (Input.GetAxis("Horizontal") < 0)
+            if (inputController.GetAxis("Horizontal") < 0)
             {
                 moveHorizontal = -1.0f;
                 fuel -= fuelConsumptionRate * Time.deltaTime; // consume fuel
@@ -68,7 +60,7 @@ public class CarController : MonoBehaviour
                     flipped = true;
                 }
             }
-            else if (Input.GetAxis("Horizontal") > 0)
+            else if (inputController.GetAxis("Horizontal") > 0)
             {
                 moveHorizontal = 1.0f;
                 fuel -= fuelConsumptionRate * Time.deltaTime; // consume fuel
@@ -79,7 +71,7 @@ public class CarController : MonoBehaviour
                 }
             }
 
-            if (Input.GetButton("Jump"))
+            if (inputController.GetButton("Jump"))
             {
                 fuel -= fuelConsumptionRate * bubblesRelativeFuelConsumptionRate * Time.deltaTime; // consume fuel twice as fast
                 isBubblesActive = true;
