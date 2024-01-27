@@ -50,6 +50,10 @@ MonoBehaviour:
   OriginalTexture: {fileID: 0}
   CollidableLogicLayer: {fileID: 6428190748806598306}
   VisibleLayer: {fileID: 6077654672652425828}
+  width: 1920
+  height: 1080
+  smoothness: 500
+  terrainColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &7545205845703296727
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 4377669944707833705, guid: 62a0c0b39dcaec94ab203f50d7542b2b, type: 3}
+  bomb: {fileID: 1596717518672494604, guid: 404d62a8f6cecb4b9b06683467fbe61d, type: 3}
+  primaryLayer: {fileID: 6428190748806598306}
+  secondaryLayer: {fileID: 6077654672652425828}
 --- !u!114 &5490635083868348353
 MonoBehaviour:
   m_ObjectHideFlags: 0
