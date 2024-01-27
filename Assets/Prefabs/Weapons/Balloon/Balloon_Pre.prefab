@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -4604376384419672864}
   - component: {fileID: 7829348326326463128}
   - component: {fileID: 1827660316035017516}
+  - component: {fileID: -7684668885420449938}
   m_Layer: 0
   m_Name: Balloon_Pre
   m_TagString: Untagged
@@ -162,3 +163,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
+--- !u!114 &-7684668885420449938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3520541591507194675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0fcf27862db6b9c8b9f6274deb0bf89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 64
+  destroyOnImpact: 1
+  terrain: {fileID: 0}

@@ -8,12 +8,11 @@ public class TerrainBreaker : MonoBehaviour
 {
 
     [SerializeField]
-    private int size = 64;
+    private int craterSize = 64;
 
     [SerializeField]
     private bool destroyOnImpact = false;
 
-    [SerializeField]
     private Terrain terrain;
 
     public Shape destroyCircle;
@@ -22,7 +21,7 @@ public class TerrainBreaker : MonoBehaviour
     void Start()
     {
         terrain = GameObject.Find("Terrain").GetComponent<Terrain>();
-        destroyCircle = Shape.GenerateShapeCircle(size);
+        destroyCircle = Shape.GenerateShapeCircle(craterSize);
     }
 
     // Update is called once per frame
@@ -34,7 +33,7 @@ public class TerrainBreaker : MonoBehaviour
         if (collision.gameObject.tag == "Terrain") {
             Vector3 p = this.transform.position;
 
-            terrain.BreakTerrain(p, size, destroyCircle);
+            terrain.BreakTerrain(p, craterSize, destroyCircle);
             if (destroyOnImpact) {
                 Destroy(this.gameObject);
             }

@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 2384024810541278957}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3503533039926588424
 Transform:
   m_ObjectHideFlags: 0
@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3f4a549bd39b1279deeeea182ff210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalTexture: {fileID: 0}
+  CollisionTexture: {fileID: 0}
+  VisualTexture: {fileID: 0}
   CollidableLogicLayer: {fileID: 6428190748806598306}
   VisibleLayer: {fileID: 6077654672652425828}
   width: 1920

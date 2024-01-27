@@ -36,10 +36,10 @@ public class Terrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CollisionTexture = new PerlinTerrainGenerator().Generate(width, height, smoothness, terrainColor);
+        CollisionTexture = CollisionTexture == null ? new PerlinTerrainGenerator().Generate(width, height, smoothness, terrainColor) : CollisionTexture;
+        VisualTexture = VisualTexture == null ? CollisionTexture : VisualTexture;
 
-        // VisibleLayer.OriginalTexture = VisualTexture ?? CollisionTexture;
-        VisibleLayer.OriginalTexture = CollisionTexture;
+        VisibleLayer.OriginalTexture = VisualTexture;
         CollidableLogicLayer.OriginalTexture = CollisionTexture;
 
         CollidableLogicLayer.InitLayer();

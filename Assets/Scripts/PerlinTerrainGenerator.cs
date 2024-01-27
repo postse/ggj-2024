@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -10,12 +11,12 @@ public class PerlinTerrainGenerator : MonoBehaviour
     private int _width;
     private int _height;
 
-    public Texture2D Generate(int width = 3840, int height = 2160, float smoothness = 500, Color? terrainColor = null)
+    public Texture2D Generate(int width = 3840, int height = 2160, float terrainSmoothness = 500, Color? terrainColor = null, float textureSmoothness = 500)
     {
         _width = width;
         _height = height;
 
-        // Tuple<smoothness, weight>
+        // Tuple<terrainSmoothness, weight>
         // Smoothness in tuple is relative to initial smoothness value
         Tuple<float, float>[] floatTuples = new Tuple<float, float>[]
         {
@@ -23,7 +24,9 @@ public class PerlinTerrainGenerator : MonoBehaviour
             new Tuple<float, float>(.5f, .1f),
             new Tuple<float, float>(.2f, .05f)
         };
-
+        
+        // Texture Noise
+        
         var seed = UnityEngine.Random.value * 100;
         Color[,] colorMap = new Color[width, height];
         for (int x = 0; x < width; x++)
@@ -34,7 +37,7 @@ public class PerlinTerrainGenerator : MonoBehaviour
 
             for (int y = 0; y < floatTuples.Length; y++)
             {
-                hillHeight += Mathf.RoundToInt(GenerateHillHeight(x, smoothness * floatTuples[y].Item1, seed) * floatTuples[y].Item2);
+                hillHeight += Mathf.RoundToInt(GenerateHillHeight(x, terrainSmoothness * floatTuples[y].Item1, seed) * floatTuples[y].Item2);
                 totalHillHeight += floatTuples[y].Item2;
             }
 
@@ -44,7 +47,11 @@ public class PerlinTerrainGenerator : MonoBehaviour
             {
                 if (y < hillHeight)
                 {
-                    colorMap[x, y] = terrainColor ?? Color.green;
+                    float brightness = Mathf.PerlinNoise(x / textureSmoothness + seed, y / textureSmoothness + seed);
+                    Color color = terrainColor ?? Color.green;
+                    color *= brightness;
+                    color.a = 1.0f;
+                    colorMap[x, y] = color;
                 }
                 else
                 {
@@ -55,9 +62,9 @@ public class PerlinTerrainGenerator : MonoBehaviour
         return _SetNoiseTexture(colorMap);
     }
 
-    private float GenerateHillHeight(int x, float smoothness, float seed)
+    private float GenerateHillHeight(int x, float terrainSmoothness, float seed)
     {
-        return _height * Mathf.PerlinNoise(x / smoothness + seed, 0);
+        return _height * Mathf.PerlinNoise(x / terrainSmoothness + seed, 0);
     }
 
     private Texture2D _SetNoiseTexture(Color[,] colorMap)
