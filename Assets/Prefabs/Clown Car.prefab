@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 4804258933519843669}
   - component: {fileID: 5369114102284853393}
   m_Layer: 0
-  m_Name: MovementController
+  m_Name: CarBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
