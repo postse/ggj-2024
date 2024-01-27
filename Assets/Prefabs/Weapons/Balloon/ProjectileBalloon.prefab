@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 121750828008917825}
   - component: {fileID: 3200849386992760034}
   - component: {fileID: 2426502169682742822}
+  - component: {fileID: -2338529195617777680}
   m_Layer: 0
   m_Name: ProjectileBalloon
   m_TagString: Projectile
@@ -162,3 +163,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionAnimation: {fileID: 502887073166235544, guid: 189e1de322a6ef342a9e93dfcdac6dc6, type: 3}
+--- !u!114 &-2338529195617777680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9127919564168515240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0fcf27862db6b9c8b9f6274deb0bf89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  craterSize: 64
+  destroyOnImpact: 1
