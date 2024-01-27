@@ -126,10 +126,10 @@ TextureImporter:
       name: JackAnimation_0
       rect:
         serializedVersion: 2
-        x: 25
+        x: 0
         y: 240
-        width: 82
-        height: 50
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: JackAnimation_1
       rect:
         serializedVersion: 2
-        x: 145
+        x: 120
         y: 240
-        width: 82
-        height: 66
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: JackAnimation_2
       rect:
         serializedVersion: 2
-        x: 251
+        x: 240
         y: 240
-        width: 98
-        height: 75
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: JackAnimation_3
       rect:
         serializedVersion: 2
-        x: 11
+        x: 0
         y: 120
-        width: 98
-        height: 76
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: JackAnimation_4
       rect:
         serializedVersion: 2
-        x: 131
+        x: 120
         y: 120
-        width: 98
-        height: 95
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: JackAnimation_5
       rect:
         serializedVersion: 2
-        x: 251
+        x: 240
         y: 120
-        width: 98
-        height: 105
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: JackAnimation_6
       rect:
         serializedVersion: 2
-        x: 11
+        x: 0
         y: 0
-        width: 98
-        height: 116
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

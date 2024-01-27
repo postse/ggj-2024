@@ -33,6 +33,7 @@ public class TerrainBreaker : MonoBehaviour
         if (collision.gameObject.tag == "Terrain") {
             if (destroyOnImpact) {
                 BreakTerrain();
+                Destroy(this.gameObject);
             }
         }
     }
@@ -41,7 +42,6 @@ public class TerrainBreaker : MonoBehaviour
         Vector3 p = this.transform.position;
 
         terrain.BreakTerrain(p, craterSize, destroyCircle);
-        Destroy(this.gameObject);
     }
 
 }
