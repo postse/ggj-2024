@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TurnController : MonoBehaviour
@@ -14,6 +15,9 @@ public class TurnController : MonoBehaviour
     [SerializeField]
     private GameObject[] players;
 
+    [SerializeField]
+    private bool isGameOver = false;
+
     void Start()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -24,21 +28,54 @@ public class TurnController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return)) // Change GetButton to GetButtonDown
         {
-            players[playerTurn].GetComponent<CarController>().isTurn = false;
+            SetNextPlayer();
+        }
+    }
 
-            playerTurn++;
-            if (playerTurn >= players.Length)
+    void SetNextPlayer()
+    {
+        players[playerTurn].GetComponent<CarController>().isTurn = false;
+
+        playerTurn++;
+        if (playerTurn >= players.Length)
+        {
+            playerTurn = 0;
+            roundNumber++;
+
+            foreach (var player in players.Where(player => !player.GetComponent<CarController>().isDead))
             {
-                playerTurn = 0;
-                roundNumber++;
-
-                foreach (var player in players)
-                {
-                    player.GetComponent<CarController>().ResetFuel();
-                }
+                player.GetComponent<CarController>().ResetFuel();
             }
+        }
 
-            players[playerTurn].GetComponent<CarController>().isTurn = true;
+        var currentPlayer = players[playerTurn].GetComponent<CarController>();
+
+        if (currentPlayer.isDead)
+        {
+            SetNextPlayer();
+        } 
+        else
+        {
+            currentPlayer.isTurn = true;
+        }
+    }
+
+    public void CheckIfGameOver()
+    {
+        var livingPlayers = players.Where(player => !player.GetComponent<CarController>().isDead).ToList();
+        if (livingPlayers.Count <= 1)
+        {
+            isGameOver = true;
+            var winner = livingPlayers.First();
+
+            if (livingPlayers.Count == 1)
+            {
+                Debug.Log("Player " + winner.GetComponent<CarController>().name + " wins!");
+            }
+            else
+            {
+                Debug.Log("Draw!");
+            }
         }
     }
 }
