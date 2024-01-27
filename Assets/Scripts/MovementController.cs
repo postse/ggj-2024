@@ -83,6 +83,9 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Debug.Log("Up " + rb.transform.up);
+        // Debug.Log(rb.constraints);
+
         if (!isBubblesActive && moveHorizontal == 0.0f)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
