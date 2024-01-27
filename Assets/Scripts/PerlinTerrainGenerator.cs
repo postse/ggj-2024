@@ -14,8 +14,7 @@ public class PerlinTerrainGenerator : MonoBehaviour
         _width = width;
         _height = height;
 
-        // fix this
-        var seed = Random.Range(0, 10);
+        var seed = Random.value * 100;
         Color[,] colorMap = new Color[width, height];
         for (int x = 0; x < width; x++)
         {
