@@ -589,7 +589,7 @@ MonoBehaviour:
   noiseTextureImage: {fileID: 744794332}
   width: 256
   height: 256
-  scale: 0.15
+  smoothness: 50
 --- !u!4 &1213677131
 Transform:
   m_ObjectHideFlags: 0
