@@ -16,13 +16,15 @@ public class JackInTheBoxProjectile : Projectile
 
     void BeginExplode()
     {
-        GetComponent<Animator>().Play("JackBox");
-        Invoke("EndExplosion", 1);
+        GetComponent<Animator>().SetTrigger("Explode");
     }
 
-    void EndExplosion()
+    public void BreakTerrain()
     {
         GetComponent<TerrainBreaker>().BreakTerrain();
+    }
+
+    public void DestroySelf() {
         Destroy(this.gameObject);
     }
 }

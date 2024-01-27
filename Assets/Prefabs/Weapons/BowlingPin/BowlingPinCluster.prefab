@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   craterSize: 64
+  damage: 20
   destroyOnImpact: 1
 --- !u!82 &5991719629681017548
 AudioSource:
