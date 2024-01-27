@@ -16,13 +16,20 @@ class ProjectileBalloon : Projectile {
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!exploded && collision.gameObject.CompareTag("Terrain"))
+        if (collision.gameObject.CompareTag("Terrain"))
         {
-            exploded = true;
-            GameObject anim = Instantiate(explosionAnimation, this.transform.position, Quaternion.identity);
-            // TODO: Don't hardcode explosion time
-            Destroy(anim, .6f);
-            Destroy(this.gameObject);
+            GetComponent<Animator>().SetTrigger("Explode");
+            GetComponent<AudioSource>().Play();
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().gravityScale = 0;
         }
+    }
+
+    void BreakTerrain() {
+        GetComponent<TerrainBreaker>().BreakTerrain();
+    }
+
+    void DestroySelf() {
+        Destroy(this.gameObject);
     }
 }
