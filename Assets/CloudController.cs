@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class CloudController : MonoBehaviour
 {
-    [SerializeField]
-    private Sprite cloudSprite;
-
-    [SerializeField]
     private SpriteRenderer spriteRenderer;
 
     private Object[] cloudSprites;
+
+    [SerializeField]
+    private float speed;
 
     private void Awake()
     {
@@ -24,24 +23,29 @@ public class CloudController : MonoBehaviour
     void Start()
     {
         int index = Random.Range(0, cloudSprites.Length);
-        int cloudScale = Random.Range(2, 5);
+        int cloudScale = Random.Range(1, 4);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        spriteRenderer.sprite = Instantiate(cloudSprites[index]) as Sprite;
-        spriteRenderer.size = new Vector2(spriteRenderer.size.x * cloudScale, spriteRenderer.size.y * cloudScale);
+        //speed = Random.Range(1, 10);
+        speed = this.transform.position.y;
+
+        spriteRenderer.sprite = cloudSprites[index] as Sprite;
+
+        spriteRenderer.drawMode = SpriteDrawMode.Sliced;
+        spriteRenderer.size *= cloudScale;
+
+        spriteRenderer.sortingOrder = Mathf.FloorToInt(speed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position.x <= -10)
+        if (this.transform.position.x <= -60)
         {
             Destroy(this.gameObject);
         }
 
-        float speed = 1 * Time.deltaTime;
-
-        this.transform.position = new Vector3(this.transform.position.x - speed, + this.transform.position.y, this.transform.position.y);
+        this.transform.position = new Vector3(this.transform.position.x - ((speed / 20) * Time.deltaTime), + this.transform.position.y, this.transform.position.y);
     }
 }
