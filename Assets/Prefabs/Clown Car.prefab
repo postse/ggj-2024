@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1764531529808354184}
   - component: {fileID: 3271458567113284090}
   - component: {fileID: 2413644854791455179}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Clown Car
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -49,13 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   movementSpeed: 5
-  bubblesSpeed: 15
+  bubblesSpeed: 10
   maxFuel: 5
   fuel: 0
   maxHealth: 100
   health: 0
   fuelConsumptionRate: 1
-  bubblesRelativeFuelConsumptionRate: 5
+  bubblesFuelUsed: 2
   maxRotation: 80
   carSound: {fileID: 2413644854791455179}
   isTurn: 0
@@ -339,6 +339,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6959240117199990883}
     m_Modifications:
+    - target: {fileID: 241528894002559389, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1083145508807426860, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -409,11 +413,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1769959498182495582, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3.41
+      value: -3.25
       objectReference: {fileID: 0}
     - target: {fileID: 1769959498182495582, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.21
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 1769959498182495582, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -427,9 +431,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4173180690249110971, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8956272167035255563, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
       propertyPath: m_Name
       value: Power Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956272167035255563, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9110296127247923703, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -552,42 +568,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fuel Bar
       objectReference: {fileID: 0}
+    - target: {fileID: 987795131471883015, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717622351856822853, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223444618497949310, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246250614905519412, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970495576831153204, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2223444618497949310, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8872900867876512631}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
 --- !u!224 &5081798695963550580 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 94887909184918468, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
   m_PrefabInstance: {fileID: 5176660111359291568}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6416631009698369230 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2223444618497949310, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
-  m_PrefabInstance: {fileID: 5176660111359291568}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8872900867876512631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6416631009698369230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8237ea374c45d40985421e79e0b63d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8034542316944715483 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2906894728485428843, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
   m_PrefabInstance: {fileID: 5176660111359291568}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6416631009698369230}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c872f0b63f957c48a98e4b5c30a46a2, type: 3}
@@ -612,6 +628,18 @@ PrefabInstance:
     - target: {fileID: 2833416319671589320, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
       propertyPath: m_Name
       value: Health Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833416319671589320, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458251465224666273, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725061402566982036, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4880829433550463090, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
       propertyPath: m_Pivot.x
@@ -693,6 +721,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5495752616306744640, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5869582266289427074, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
+      propertyPath: m_margin.x
+      value: -11.733103
+      objectReference: {fileID: 0}
+    - target: {fileID: 5869582266289427074, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
+      propertyPath: m_margin.z
+      value: -19.44755
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934177589199503061, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -722,6 +766,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6959240117199990883}
     m_Modifications:
+    - target: {fileID: 406898027573303817, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1416555780664304441, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: m_Name
       value: Launcher
@@ -729,6 +777,17 @@ PrefabInstance:
     - target: {fileID: 1814046452567907279, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: m_TagString
       value: ClownBody
+    - target: {fileID: 1416555780664304441, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814046452567907279, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988171779662504751, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6277746227756106683, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: powerBar
@@ -738,6 +797,10 @@ PrefabInstance:
       propertyPath: inventoryManager
       value: 
       objectReference: {fileID: 3271458567113284090}
+    - target: {fileID: 6507620503726891762, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8673475956473057458, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4

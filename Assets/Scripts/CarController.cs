@@ -34,7 +34,7 @@ public class CarController : MonoBehaviour
     private float fuelConsumptionRate = 1.0f; // fuel consumed per second
 
     [SerializeField]
-    private float bubblesRelativeFuelConsumptionRate = 2.0f; // fuel consumed per second
+    private float bubblesFuelUsed = 2.0f; // fuel consumed per second
 
     [SerializeField]
     private float maxRotation = 80.0f; // max rotation in degrees
@@ -55,6 +55,7 @@ public class CarController : MonoBehaviour
     private Color ogClownColor;
     private TurnController turnController;
     private InventoryManager inventoryManager;
+    private GameLogic gameLogic;
     public bool flipped;
 
 
@@ -66,17 +67,20 @@ public class CarController : MonoBehaviour
 
     void Start()
     {
+        gameLogic = FindObjectOfType<GameLogic>();
         rb = GetComponentInChildren<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         ogColor = sprite.color;
         ogClownColor = clownSpriteRenderer.color;
         turnController = FindObjectOfType<TurnController>();
         inventoryManager = GetComponent<InventoryManager>();
-        fuel = maxFuel; // initialize fuel to maxFuel
+        fuel = (gameLogic?.maxFuel ?? maxFuel); // initialize fuel to maxFuel
+        maxFuel = (gameLogic?.maxFuel ?? maxFuel);
         fuelBar.SetMaxFuel(maxFuel);
-        health = maxHealth; // initialize health to maxHealth
-        healthBar.SetMaxHealth(maxHealth);
+        health = (gameLogic?.maxHealth ?? maxHealth); // initialize health to maxHealth
+        healthBar.SetMaxHealth((gameLogic?.maxHealth ?? maxHealth));
         flipped = false;
+        movementSpeed = (gameLogic?.movementSpeed ?? movementSpeed);
     }
 
     void Update()
@@ -121,9 +125,10 @@ public class CarController : MonoBehaviour
                 engineSoundRunning = false;
             }
 
-            if (Input.GetButton("Jump"))
+            if (Input.GetButtonUp("Jump"))
             {
-                fuel -= fuelConsumptionRate * bubblesRelativeFuelConsumptionRate * Time.deltaTime; // consume fuel twice as fast
+                if (fuel < bubblesFuelUsed) return; // not enough fuel to use bubbles
+                fuel -=  bubblesFuelUsed; // consume fuel twice as fast
                 fuelBar.SetFuel(fuel); // change fuel bar
                 isBubblesActive = true;
             }
@@ -152,7 +157,7 @@ public class CarController : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.None;
 
-            rb.velocity = rb.transform.up * bubblesSpeed;
+            rb.AddForce(Vector2.up * 100 * bubblesSpeed);
             isBubblesActive = false;
         }
 

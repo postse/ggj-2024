@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour, ICollectible
 {
-
-    private Collider2D collider;
-    void Start() {
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
-        collider = GetComponent<Collider2D>();
-    }
-
-    void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag == "CarBody") {
-            PickUp(collision.gameObject.transform.parent.gameObject);
+    void OnTriggerEnter2D(Collider2D otherCollider) {
+        if (otherCollider.gameObject.tag == "CarBody") {
+            PickUp(otherCollider.gameObject.transform.parent.gameObject);
+        } else if (otherCollider.gameObject.tag == "Terrain") {
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         }
     }
 

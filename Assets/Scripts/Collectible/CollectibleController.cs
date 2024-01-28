@@ -12,8 +12,15 @@ public class CollectibleController : MonoBehaviour
     private int spawnHeight = 55;
 
     [SerializeField]
-    private int collectiblesPerDrop = 5;
+    public int collectiblesPerDrop = 5;
 
+    private GameLogic gameLogic;
+
+    private void Start()
+    {
+        gameLogic = FindObjectOfType<GameLogic>();
+        collectiblesPerDrop = Mathf.RoundToInt((gameLogic?.dropsMultiplier ?? 1f) * collectiblesPerDrop);
+    }
 
     public void DropCollectibles() {
         for (int i = 0; i < collectiblesPerDrop; i++) {
@@ -22,7 +29,7 @@ public class CollectibleController : MonoBehaviour
     }
 
     public void DropCollectible() {
-        int index = Random.Range(0, collectibles.Length-1);
+        int index = Random.Range(0, collectibles.Length);
         int randX = Random.Range(5, 95);
         int randY = spawnHeight;
         Vector3 position = new Vector3(randX, randY, 0);

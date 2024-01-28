@@ -46,7 +46,7 @@ public class CreateGame : MonoBehaviour
     {
         try
         {
-            var playerConfig = FindObjectOfType<PlayerConfig>();
+            var playerConfig = FindObjectOfType<GameLogic>();
             CreateGameWithPlayerCount(playerConfig.playerCount);
         }
         catch
@@ -87,5 +87,8 @@ public class CreateGame : MonoBehaviour
             GameObject go = Instantiate(playerPrefab, new Vector3(startX + randomOffset, terrainPosition.y + terrain.height + 5, 0), Quaternion.identity);
             go.name = "Player " + (i + 1);
         }
+
+        // Drop # of collectibles equal to number of players
+        GetComponent<CollectibleController>().collectiblesPerDrop = playerCount;
     }
 }

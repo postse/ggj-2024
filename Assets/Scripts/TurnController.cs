@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TurnController : MonoBehaviour
@@ -20,7 +21,10 @@ public class TurnController : MonoBehaviour
     public bool isGameOver = false;
 
     CollectibleController collectibleController;
-    InventoryPanel inventoryPanel;
+    private InventoryPanel inventoryPanel;
+    
+    [SerializeField]
+    private WinnerAnnouncement winnerAnnouncement;
 
     void Start()
     {
@@ -28,7 +32,6 @@ public class TurnController : MonoBehaviour
         players[playerTurn].GetComponent<CarController>().isTurn = true;
         collectibleController = FindObjectOfType<CollectibleController>();
         inventoryPanel = FindObjectOfType<InventoryPanel>();
-
 
         // Initialize the inventory panel
         GetCurrentPlayer().GetComponent<InventoryManager>().SetInventoryPanel();
@@ -46,7 +49,6 @@ public class TurnController : MonoBehaviour
 
     public void SetNextPlayer()
     {
-        Debug.Log("Setting next player");
         if (isGameOver) return;
 
 
@@ -59,10 +61,10 @@ public class TurnController : MonoBehaviour
             foreach (var player in players.Where(player => !player.GetComponent<CarController>().isDead))
             {
                 player.GetComponent<CarController>().ResetFuel();
-
-                // Only drop at end of round
-                FindObjectOfType<CollectibleController>().DropCollectibles();
             }
+
+            // Only drop at end of round
+            FindObjectOfType<CollectibleController>().DropCollectibles();
         }
 
         var currentPlayer = players[playerTurn].GetComponent<CarController>();
@@ -88,12 +90,15 @@ public class TurnController : MonoBehaviour
 
             if (livingPlayers.Count == 1)
             {
-                var winner = livingPlayers.First();
-                Debug.Log(winner.GetComponent<CarController>().name + " wins!");
+                var winner = livingPlayers.First().GetComponent<CarController>();
+                winnerAnnouncement.gameObject.SetActive(true);
+                winnerAnnouncement.DisplayEverything(winner);
             }
             else
             {
                 Debug.Log("Draw!");
+                winnerAnnouncement.gameObject.SetActive(true);
+                winnerAnnouncement.DisplayDraw();
             }
         }
     }
