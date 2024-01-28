@@ -269,17 +269,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
---- !u!114 &306875702 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5358839887529528756, guid: d58a7fcf883eb9a599b6a21db7bf9bdd, type: 3}
-  m_PrefabInstance: {fileID: 274950958}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a71f3893d5e41444b289b0b1599bd43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!850595691 &1193366004
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -352,10 +341,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 327489520869295562, guid: cc6bb088ee5980f4a989252a9b688886, type: 3}
-      propertyPath: terrain
-      value: 
-      objectReference: {fileID: 306875702}
     - target: {fileID: 4961906618016206477, guid: cc6bb088ee5980f4a989252a9b688886, type: 3}
       propertyPath: m_Name
       value: GameLogic
@@ -403,35 +388,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4961906618016206477, guid: cc6bb088ee5980f4a989252a9b688886, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1758870449}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc6bb088ee5980f4a989252a9b688886, type: 3}
---- !u!1 &1758870446 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4961906618016206477, guid: cc6bb088ee5980f4a989252a9b688886, type: 3}
-  m_PrefabInstance: {fileID: 1417111178}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1758870449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758870446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b10b2ff78df90d7959c859c7ba743fd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectibles:
-  - {fileID: 8910677025610393953, guid: c53ccb9ad6245655ca77bc870bb1aa07, type: 3}
-  - {fileID: 945961780412441357, guid: c33c09e2053b5dbc5955b10abce667b6, type: 3}
-  - {fileID: 418014225690838247, guid: 9e8d0210a13c37c80a5012e9501fda9f, type: 3}
-  - {fileID: 2218133032868409304, guid: aae8c4e21bb3cc149a09a6e89c6be5a0, type: 3}
-  spawnHeight: 55
-  collectiblesPerDrop: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
