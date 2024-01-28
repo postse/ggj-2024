@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1764531529808354184}
   - component: {fileID: 3271458567113284090}
   - component: {fileID: 2413644854791455179}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Clown Car
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 6893162379009918047}
   - component: {fileID: 4804258933519843669}
   - component: {fileID: 5369114102284853393}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CarBody
   m_TagString: CarBody
   m_Icon: {fileID: 0}
@@ -338,6 +338,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6959240117199990883}
     m_Modifications:
+    - target: {fileID: 241528894002559389, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1083145508807426860, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -426,9 +430,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4173180690249110971, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8956272167035255563, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
       propertyPath: m_Name
       value: Power Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956272167035255563, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9110296127247923703, guid: adba9a6ea9e7c1b4e9cd2e9e0ecebc3f, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -551,6 +567,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fuel Bar
       objectReference: {fileID: 0}
+    - target: {fileID: 987795131471883015, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717622351856822853, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223444618497949310, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246250614905519412, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970495576831153204, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -591,6 +627,18 @@ PrefabInstance:
     - target: {fileID: 2833416319671589320, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
       propertyPath: m_Name
       value: Health Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833416319671589320, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458251465224666273, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725061402566982036, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4880829433550463090, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
       propertyPath: m_Pivot.x
@@ -672,6 +720,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5495752616306744640, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934177589199503061, guid: a8ec42a86c91ab945941da25431ca914, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -701,9 +757,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6959240117199990883}
     m_Modifications:
+    - target: {fileID: 406898027573303817, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1416555780664304441, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: m_Name
       value: Launcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 1416555780664304441, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814046452567907279, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988171779662504751, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6277746227756106683, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: powerBar
@@ -713,6 +785,10 @@ PrefabInstance:
       propertyPath: inventoryManager
       value: 
       objectReference: {fileID: 3271458567113284090}
+    - target: {fileID: 6507620503726891762, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8673475956473057458, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4
