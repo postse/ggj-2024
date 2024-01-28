@@ -46,7 +46,6 @@ public class TurnController : MonoBehaviour
 
     public void SetNextPlayer()
     {
-        Debug.Log("Setting next player");
         if (isGameOver) return;
 
 
