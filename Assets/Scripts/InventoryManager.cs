@@ -90,9 +90,7 @@ public class InventoryManager : MonoBehaviour
 
     public void SetInventoryPanel()
     {
-        Debug.Log("Setting Inventory Panel for " + this.transform.name + " with " + GetItemCount(InventoryType.JackInTheBox) + " Jack in the Boxes and " + GetItemCount(InventoryType.BowlingPin) + " Bowling Pins");
-
-        inventoryPanel.SetPlayerNameText(this.transform.name);
+        inventoryPanel.SetPlayerNameText(GetComponent<CarController>().name);
         inventoryPanel.SetJackInTheBoxText(GetItemCount(InventoryType.JackInTheBox));
         inventoryPanel.SetBowlingPinsText(GetItemCount(InventoryType.BowlingPin));
     }
