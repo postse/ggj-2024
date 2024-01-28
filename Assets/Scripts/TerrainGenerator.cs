@@ -32,16 +32,18 @@ public class TerrainGenerator : MonoBehaviour
     [SerializeField]
     private float seed = 0;
 
-
+    private GameLogic gameLogic;
 
     // Start is called before the first frame update
     void Start()
     {
-        var pixelWidth = width * CollidableLogicLayer.PPU;
-        var pixelHeight = height * CollidableLogicLayer.PPU;
+        gameLogic = FindObjectOfType<GameLogic>();
+
+        var pixelWidth = (gameLogic?.mapWidth ?? width) * CollidableLogicLayer.PPU;
+        var pixelHeight = (gameLogic?.mapHeight ?? height) * CollidableLogicLayer.PPU;
         seed = seed == 0 ? UnityEngine.Random.value * 100 : seed;
 
-        CollisionTexture = CollisionTexture == null ? new PerlinTerrainGenerator().Generate(seed, pixelWidth, pixelHeight, smoothness, terrainColor) : CollisionTexture;
+        CollisionTexture = CollisionTexture == null ? new PerlinTerrainGenerator().Generate(seed, pixelWidth, pixelHeight, (gameLogic?.smoothness ?? smoothness), terrainColor) : CollisionTexture;
         VisualTexture = VisualTexture == null ? CollisionTexture : VisualTexture;
 
         VisibleLayer.OriginalTexture = VisualTexture;

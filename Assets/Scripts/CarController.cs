@@ -51,6 +51,7 @@ public class CarController : MonoBehaviour
     private Color ogColor;
     private TurnController turnController;
     private InventoryManager inventoryManager;
+    private GameLogic gameLogic;
     public bool flipped;
 
     public FuelBar fuelBar;
@@ -60,16 +61,19 @@ public class CarController : MonoBehaviour
 
     void Start()
     {
+        gameLogic = FindObjectOfType<GameLogic>();
         rb = GetComponentInChildren<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         ogColor = sprite.color;
         turnController = FindObjectOfType<TurnController>();
         inventoryManager = GetComponent<InventoryManager>();
-        fuel = maxFuel; // initialize fuel to maxFuel
+        fuel = (gameLogic?.maxFuel ?? maxFuel); // initialize fuel to maxFuel
+        maxFuel = (gameLogic?.maxFuel ?? maxFuel);
         fuelBar.SetMaxFuel(maxFuel);
-        health = maxHealth; // initialize health to maxHealth
-        healthBar.SetMaxHealth(maxHealth);
+        health = (gameLogic?.maxHealth ?? maxHealth); // initialize health to maxHealth
+        healthBar.SetMaxHealth((gameLogic?.maxHealth ?? maxHealth));
         flipped = false;
+        movementSpeed = (gameLogic?.movementSpeed ?? movementSpeed);
     }
 
     void Update()

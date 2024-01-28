@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        var playerConfig = FindObjectOfType<PlayerConfig>();
+        var playerConfig = FindObjectOfType<GameLogic>();
         SceneManager.LoadScene("Game");
 
         if (EventSystem.current.currentSelectedGameObject.name == "1player")

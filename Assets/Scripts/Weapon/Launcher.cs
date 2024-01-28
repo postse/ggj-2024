@@ -40,12 +40,16 @@ public class Launcher : MonoBehaviour
     private InventoryManager inventoryManager;
     private CarController carController;
     private TurnController turnController;
+    private GameLogic gameLogic;
 
     public bool shotWeapon = false;
 
     public PowerBar powerBar;
 
     void Start() {
+        gameLogic = FindObjectOfType<GameLogic>();
+        powerCycleSpeed = (gameLogic?.weaponPowerCycleSpeed ?? 1f);
+        powerMultiplier = (gameLogic?.weaponPower ?? 1f);
         carController = GetComponentInParent<CarController>();
         powerBar.SetMaxPower(1);
         powerBar.SetPower(0);
