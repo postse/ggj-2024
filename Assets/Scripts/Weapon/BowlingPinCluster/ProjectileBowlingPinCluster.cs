@@ -53,8 +53,7 @@ public class BowlingPinCluster : Projectile
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Bowling pin collided with " + collision.gameObject.name);
-        if (!exploded && collision.gameObject.CompareTag("Terrain") || collision.gameObject.CompareTag("CarBody"))
+        if (!exploded && (collision.gameObject.CompareTag("Terrain") || collision.gameObject.CompareTag("CarBody")))
         {
             GetComponent<SpriteRenderer>().enabled = true;
             CancelInvoke();
