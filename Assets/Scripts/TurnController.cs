@@ -48,7 +48,6 @@ public class TurnController : MonoBehaviour
 
     public void SetNextPlayer()
     {
-        Debug.Log("Setting next player");
         if (isGameOver) return;
 
 
@@ -61,10 +60,10 @@ public class TurnController : MonoBehaviour
             foreach (var player in players.Where(player => !player.GetComponent<CarController>().isDead))
             {
                 player.GetComponent<CarController>().ResetFuel();
-
-                // Only drop at end of round
-                FindObjectOfType<CollectibleController>().DropCollectibles();
             }
+
+            // Only drop at end of round
+            FindObjectOfType<CollectibleController>().DropCollectibles();
         }
 
         var currentPlayer = players[playerTurn].GetComponent<CarController>();

@@ -58,7 +58,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 2097163501
   m_SortingOrder: 0
@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 6374883765201200956}
   - component: {fileID: 126002972511307854}
   - component: {fileID: 2906894728485428843}
+  - component: {fileID: 7500538832455231431}
   m_Layer: 5
   m_Name: fuel bar
   m_TagString: Untagged
@@ -294,6 +295,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 126002972511307854}
+--- !u!114 &7500538832455231431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2223444618497949310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8237ea374c45d40985421e79e0b63d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6246250614905519412
 GameObject:
   m_ObjectHideFlags: 0

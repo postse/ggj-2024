@@ -12,7 +12,7 @@ public class CollectibleController : MonoBehaviour
     private int spawnHeight = 55;
 
     [SerializeField]
-    private int collectiblesPerDrop = 5;
+    public int collectiblesPerDrop = 5;
 
 
     public void DropCollectibles() {
@@ -22,7 +22,7 @@ public class CollectibleController : MonoBehaviour
     }
 
     public void DropCollectible() {
-        int index = Random.Range(0, collectibles.Length-1);
+        int index = Random.Range(0, collectibles.Length);
         int randX = Random.Range(5, 95);
         int randY = spawnHeight;
         Vector3 position = new Vector3(randX, randY, 0);
