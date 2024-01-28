@@ -63,6 +63,31 @@ public class Launcher : MonoBehaviour
 
         if (Input.GetButton("Fire1"))
         {
+            float powerIncrement = (1f / powerCycleSpeed) * Time.deltaTime;
+
+            if (powerIncreasing)
+            {
+                currentPower += powerIncrement;
+
+                if (currentPower >= 1f)
+                {
+                    currentPower = 1f;
+                    powerIncreasing = false;
+                }
+            }
+            else
+            {
+                currentPower -= powerIncrement;
+
+                if (currentPower <= 0f)
+                {
+                    currentPower = 0f;
+                    powerIncreasing = true;
+                }
+            }
+        }
+        else if (Input.GetButtonUp("Fire1"))
+        {
             Launch();
             inventoryManager.SpendItem();
         }
@@ -74,29 +99,6 @@ public class Launcher : MonoBehaviour
         else if (Input.GetButton("AimRight"))
         {
             SetAim(-1);
-        }
-
-        float powerIncrement = (1f / powerCycleSpeed) * Time.deltaTime;
-
-        if (powerIncreasing)
-        {
-            currentPower += powerIncrement;
-
-            if (currentPower >= 1f)
-            {
-                currentPower = 1f;
-                powerIncreasing = false;
-            }
-        }
-        else
-        {
-            currentPower -= powerIncrement;
-
-            if (currentPower <= 0f)
-            {
-                currentPower = 0f;
-                powerIncreasing = true;
-            }
         }
     }
 
