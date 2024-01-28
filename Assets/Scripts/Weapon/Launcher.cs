@@ -123,8 +123,6 @@ public class Launcher : MonoBehaviour
 
     private IEnumerator LaunchCoroutine()
     {
-        Debug.Log("Player " + carController.name + " launched with power " + currentPower * powerMultiplier + " and angle " + angle + " degrees");
-
         turnController.EndTurn();
         Destroy(_idleObject);
         if (!projectilePrefab) yield break;  // Projectile is null, don't launch
@@ -135,11 +133,11 @@ public class Launcher : MonoBehaviour
         var projectileComponent = projectile.GetComponent<Projectile>();
         projectileComponent.Launch(this.transform.parent.rotation.eulerAngles.z + angle + 90f, currentPower * powerMultiplier);
 
-        while (!projectileComponent.IsDestroyed())
+        while (GameObject.FindGameObjectsWithTag("Projectile").Length > 0)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(.5f);
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.5f);
 
         turnController.SetNextPlayer();
     }
