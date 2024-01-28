@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TurnController : MonoBehaviour
@@ -21,6 +22,7 @@ public class TurnController : MonoBehaviour
 
     CollectibleController collectibleController;
     InventoryPanel inventoryPanel;
+    public WinnerAnnouncement winnerAnnouncement;
 
     void Start()
     {
@@ -88,12 +90,16 @@ public class TurnController : MonoBehaviour
 
             if (livingPlayers.Count == 1)
             {
-                var winner = livingPlayers.First();
+                var winner = livingPlayers.First().GetComponent<CarController>();
                 Debug.Log(winner.GetComponent<CarController>().name + " wins!");
+                winnerAnnouncement.gameObject.SetActive(true);
+                winnerAnnouncement.DisplayEverything(winner);
             }
             else
             {
                 Debug.Log("Draw!");
+                winnerAnnouncement.gameObject.SetActive(true);
+                winnerAnnouncement.DisplayDraw();
             }
         }
     }
