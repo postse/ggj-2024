@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class JackInTheBoxProjectile : Projectile
 {
-    [SerializeField]
-    private GameObject explosionAnimation;
 
     [SerializeField]
     private float explosionDelay = 5f;

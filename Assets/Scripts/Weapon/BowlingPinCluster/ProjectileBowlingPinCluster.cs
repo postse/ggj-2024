@@ -16,12 +16,10 @@ public class BowlingPinCluster : Projectile
     [SerializeField]
     private float spread = 15.0f;
 
-    [SerializeField]
-    private GameObject fizzleAnimation;
     bool exploded = false;
 
     void Start() {
-        Invoke("Explode", explosionDelay);
+        Invoke(nameof(BreakApart), explosionDelay);
     }
 
     // Update is called once per frame
@@ -30,7 +28,7 @@ public class BowlingPinCluster : Projectile
         transform.Rotate(0, 0, -360f * rotationPerSecond * Time.deltaTime);
     }
 
-    void Explode() {
+    void BreakApart() {
         Vector2 velocity = GetComponent<Rigidbody2D>().velocity;
         float velTan = Mathf.Atan2(velocity.y, velocity.x);
         float velUpTan = velTan + spread * Mathf.PI / 180;
@@ -55,12 +53,31 @@ public class BowlingPinCluster : Projectile
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Bowling pin collided with " + collision.gameObject.name);
         if (!exploded && collision.gameObject.CompareTag("Terrain"))
         {
-            GameObject anim = Instantiate(fizzleAnimation, this.transform.position, Quaternion.identity);
+            GetComponent<SpriteRenderer>().enabled = true;
+            CancelInvoke();
             exploded = true;
-            Destroy(anim, .6f);
-            Destroy(this.gameObject);
+
+            this.RemoveAllChildren();
+
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            GetComponent<Collider2D>().enabled = false;
+            this.gameObject.transform.rotation = Quaternion.identity;
+            GetComponent<Animator>().SetTrigger("Explode");
+            GetComponent<SpriteRenderer>().sortingLayerName = "Effects";
+            GetComponent<AudioSource>().Play();
+
+        }
+    }
+
+    
+    private void RemoveAllChildren()
+    {
+        foreach (Transform child in this.transform)
+        {
+            GameObject.Destroy(child.gameObject);
         }
     }
 }

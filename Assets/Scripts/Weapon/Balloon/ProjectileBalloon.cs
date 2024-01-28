@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 class ProjectileBalloon : Projectile {
-    [SerializeField]
-    private GameObject explosionAnimation;
-
     void Update() {
         if (this.GetComponent<Rigidbody2D>().velocity.magnitude > 0.1f) {
             this.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(this.GetComponent<Rigidbody2D>().velocity.y, this.GetComponent<Rigidbody2D>().velocity.x) * Mathf.Rad2Deg);
@@ -20,7 +17,7 @@ class ProjectileBalloon : Projectile {
             GetComponent<AudioSource>().Play();
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().gravityScale = 0;
-            GetComponent<AudioSource>().Play();
+            GetComponent<Collider2D>().enabled = false;
         }
     }
 }

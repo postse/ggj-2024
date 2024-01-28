@@ -76,4 +76,9 @@ public class InventoryManager : MonoBehaviour
             LoadProjectile();
         }
     }
+
+    public int getItemCount(int index)
+    {
+        return counts[index];
+    }
 }

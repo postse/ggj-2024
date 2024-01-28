@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -30,12 +32,6 @@ public class Launcher : MonoBehaviour
     private float maxAngle = 135;
 
     [SerializeField]
-    private KeyCode aimUpKey = KeyCode.W;
-
-    [SerializeField]
-    private KeyCode aimDownKey = KeyCode.S;
-
-    [SerializeField]
     private KeyCode launchKey = KeyCode.Space;
 
     [SerializeField]
@@ -51,22 +47,27 @@ public class Launcher : MonoBehaviour
     [SerializeField]
     private InventoryManager inventoryManager;
     private CarController carController;
+    private TurnController turnController;
 
     public bool shotWeapon = false;
+
+    public PowerBar powerBar;
 
     void Start() {
         // if (idlePrefab != null) {
         //     this.SetIdleSprite(idlePrefab);
         // }
         carController = GetComponentInParent<CarController>();
+        powerBar.SetMaxPower(currentPower);
+        turnController = FindObjectOfType<TurnController>();
     }
 
 
-    void Update()
+    async void Update()
     {
         if (!carController.isTurn) return;
 
-        if (Input.GetKeyDown(launchKey))
+        if (Input.GetButton("Fire1"))
         {
             Launch();
             inventoryManager.SpendItem();
@@ -118,22 +119,33 @@ public class Launcher : MonoBehaviour
     }
 
     public void SetPower(float power) {
-        this.powerMultiplier = power;
+        powerBar.SetPower(power);
     }
 
     public void Launch()
     {
-        if (shotWeapon) return;
+        StartCoroutine(LaunchCoroutine());
+    }
 
-        shotWeapon = true;
-
+    private IEnumerator LaunchCoroutine()
+    {
+        turnController.EndTurn();
         Destroy(_idleObject);
-        if (!projectilePrefab) return;  // Projectile is null, don't launch
+        if (!projectilePrefab) yield break;  // Projectile is null, don't launch
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
 
         // Arrow is offset by 90 degrees
-        projectile.GetComponent<Projectile>().Launch(this.transform.parent.rotation.eulerAngles.z + angle + 90f, currentPower * powerMultiplier);
+        var projectileComponent = projectile.GetComponent<Projectile>();
+        projectileComponent.Launch(this.transform.parent.rotation.eulerAngles.z + angle + 90f, currentPower * powerMultiplier);
+
+        while (GameObject.FindGameObjectsWithTag("Projectile").Length > 0)
+        {
+            yield return new WaitForSeconds(.5f);
+        }
+        yield return new WaitForSeconds(.5f);
+
+        turnController.SetNextPlayer();
     }
 
     protected void UpdateTransforms()

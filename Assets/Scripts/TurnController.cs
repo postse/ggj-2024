@@ -24,18 +24,13 @@ public class TurnController : MonoBehaviour
         players[playerTurn].GetComponent<CarController>().isTurn = true;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return)) // Change GetButton to GetButtonDown
-        {
-            SetNextPlayer();
-        }
-    }
-
-    void SetNextPlayer()
+    public void EndTurn()
     {
         players[playerTurn].GetComponent<CarController>().isTurn = false;
+    }
 
+    public void SetNextPlayer()
+    {
         playerTurn++;
         if (playerTurn >= players.Length)
         {
@@ -57,7 +52,6 @@ public class TurnController : MonoBehaviour
         else
         {
             currentPlayer.isTurn = true;
-            currentPlayer.GetComponentInChildren<Launcher>().shotWeapon = false;
         }
     }
 
