@@ -5,7 +5,7 @@ using DTerrain;
 using Unity.VisualScripting;
 using UnityEngine.SocialPlatforms.GameCenter;
 
-public class TerrainGenerator : MonoBehaviour
+public class Terrain : MonoBehaviour
 {
     [SerializeField]
     private Texture2D CollisionTexture = null;
