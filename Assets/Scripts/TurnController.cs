@@ -22,7 +22,7 @@ public class TurnController : MonoBehaviour
 
     CollectibleController collectibleController;
     InventoryPanel inventoryPanel;
-    public WinnerAnnouncement winnerAnnouncement;
+    private WinnerAnnouncement winnerAnnouncement;
 
     void Start()
     {
@@ -30,7 +30,6 @@ public class TurnController : MonoBehaviour
         players[playerTurn].GetComponent<CarController>().isTurn = true;
         collectibleController = FindObjectOfType<CollectibleController>();
         inventoryPanel = FindObjectOfType<InventoryPanel>();
-
 
         // Initialize the inventory panel
         GetCurrentPlayer().GetComponent<InventoryManager>().SetInventoryPanel();
@@ -90,7 +89,6 @@ public class TurnController : MonoBehaviour
             if (livingPlayers.Count == 1)
             {
                 var winner = livingPlayers.First().GetComponent<CarController>();
-                Debug.Log(winner.GetComponent<CarController>().name + " wins!");
                 winnerAnnouncement.gameObject.SetActive(true);
                 winnerAnnouncement.DisplayEverything(winner);
             }
