@@ -56,17 +56,19 @@ public class BowlingPinCluster : Projectile
         Debug.Log("Bowling pin collided with " + collision.gameObject.name);
         if (!exploded && collision.gameObject.CompareTag("Terrain"))
         {
+            GetComponent<SpriteRenderer>().enabled = true;
             CancelInvoke();
             exploded = true;
 
             this.RemoveAllChildren();
 
-            transform.rotation = Quaternion.identity;
-            GetComponent<Animator>().SetTrigger("Explode");
-            GetComponent<AudioSource>().Play();
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            GetComponent<Rigidbody2D>().gravityScale = 0;
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             GetComponent<Collider2D>().enabled = false;
+            this.gameObject.transform.rotation = Quaternion.identity;
+            GetComponent<Animator>().SetTrigger("Explode");
+            GetComponent<SpriteRenderer>().sortingLayerName = "Effects";
+            GetComponent<AudioSource>().Play();
+
         }
     }
 
