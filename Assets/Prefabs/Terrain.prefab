@@ -228,6 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e865ffe4c819d0f4a9b2db8880bc0e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultShakeDuration: 0.15
+  shakeMagnitude: 0.7
 --- !u!1 &7545205845703296727
 GameObject:
   m_ObjectHideFlags: 0
