@@ -9,6 +9,6 @@ public class HealthCollectible : Collectible
 
     override public void PickUp(GameObject player) {
         player.GetComponent<CarController>().Heal(healAmt);
-        Destroy(this.gameObject);
+        base.PickUp(player);
     }
 }

@@ -9,4 +9,13 @@ public abstract class Projectile : MonoBehaviour {
         this.GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * power, ForceMode2D.Impulse);
     }
 
+    public void BreakTerrain()
+    {
+        GetComponent<TerrainBreaker>().BreakTerrain();
+    }
+
+    public void DestroySelf()
+    {
+        Destroy(this.gameObject);
+    }
 }
