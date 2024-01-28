@@ -14,13 +14,17 @@ public class WinnerAnnouncement : MonoBehaviour
     public void DisplayEverything(CarController winner)
     {
         panel.SetActive(true);
-        winnerText.text = "The winner of the game is " + winner.name + "!";
+        winnerText.text = "" + winner.name + " Wins!";
+        winnerText.outlineWidth = 0.5f;
+        winnerText.outlineColor = new Color32(0, 0, 0, 255);
     }
 
     public void DisplayDraw()
     {
         panel.SetActive(true);
-        winnerText.text = "This game will end in a draw!";
+        winnerText.text = "This game ends in a draw!";
+        winnerText.outlineWidth = 0.2f;
+        winnerText.outlineColor = new Color32(0, 0, 0, 255);
     }
 
     public void BackToMainMenu()
