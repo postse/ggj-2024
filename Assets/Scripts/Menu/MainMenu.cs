@@ -7,11 +7,18 @@ using UnityEngine.EventSystems;
 public class MainMenu : MonoBehaviour
 {
 
+    private BackgroundMusicController backgroundMusicController;
     public int playerCount;
+
+    void Start() {
+        backgroundMusicController = FindObjectOfType<BackgroundMusicController>();
+    }
 
     public void PlayGame()
     {
         var playerConfig = FindObjectOfType<GameLogic>();
+        backgroundMusicController.LowerVolume();
+        
         SceneManager.LoadScene("Game");
 
         if (EventSystem.current.currentSelectedGameObject.name == "1player")
