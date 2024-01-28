@@ -217,6 +217,8 @@ public class CarController : MonoBehaviour
         if (health <= 0)
         {
             isDead = true;
+            Color gray = new Color(50, 50, 50);
+            SetColor(gray, gray);
         }
         
         healthBar.SetHealth(health);
@@ -264,7 +266,11 @@ public class CarController : MonoBehaviour
         IEnumerator ResetColor()
         {
             yield return new WaitForSecondsRealtime(0.2f);
-            SetColor(ogColor, ogClownColor);
+            // This is super hacky, but we have little time.
+            // Essentially, only reset the color if it isn't gray (all 50's) because the player is dead
+            if (sprite.color.r != 50) {
+                SetColor(ogColor, ogClownColor);
+            }
         }
     }
 }
