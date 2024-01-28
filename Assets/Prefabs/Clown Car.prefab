@@ -48,13 +48,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
-  bubblesSpeed: 3
-  maxFuel: 1e+11
-  fuel: 1e+11
+  bubblesSpeed: 15
+  maxFuel: 5
+  fuel: 0
   maxHealth: 100
   health: 0
   fuelConsumptionRate: 1
-  bubblesRelativeFuelConsumptionRate: 3
+  bubblesRelativeFuelConsumptionRate: 5
   maxRotation: 80
   carSound: {fileID: 2413644854791455179}
   isTurn: 0
@@ -553,19 +553,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2223444618497949310, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8872900867876512631}
   m_SourcePrefab: {fileID: 100100000, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
 --- !u!224 &5081798695963550580 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 94887909184918468, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
   m_PrefabInstance: {fileID: 5176660111359291568}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6416631009698369230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2223444618497949310, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
+  m_PrefabInstance: {fileID: 5176660111359291568}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8872900867876512631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6416631009698369230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8237ea374c45d40985421e79e0b63d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8034542316944715483 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2906894728485428843, guid: 3f6bb8ecc77fb6d459485242d3ca47fe, type: 3}
   m_PrefabInstance: {fileID: 5176660111359291568}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 6416631009698369230}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c872f0b63f957c48a98e4b5c30a46a2, type: 3}

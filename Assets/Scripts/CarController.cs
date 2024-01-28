@@ -192,7 +192,9 @@ public class CarController : MonoBehaviour
 
     public void AddFuel(float fuelAmt)
     {
-        fuel = Math.Max(fuel + fuelAmt, maxFuel);
+        if (fuel < 0) throw new ArgumentException("Fuel must be positive");
+
+        fuel = Mathf.Min(fuel + fuelAmt, maxFuel);
         fuelBar.SetFuel(fuel);
     }
 
@@ -208,6 +210,7 @@ public class CarController : MonoBehaviour
             isDead = true;
         }
         
+        healthBar.SetHealth(health);
         turnController.CheckIfGameOver();
     }
 
