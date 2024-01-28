@@ -1,22 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BowlingPinProjectile : Projectile
 {
-    [SerializeField]
-    private GameObject explosionAnimation;
 
+    bool exploded = false;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Terrain"))
+        if (!exploded && collision.gameObject.CompareTag("Terrain"))
         {
-            GetComponent<Animator>().SetTrigger("Explode");
-            GetComponent<AudioSource>().Play();
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            GetComponent<Rigidbody2D>().gravityScale = 0;
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             GetComponent<Collider2D>().enabled = false;
+            this.gameObject.transform.rotation = Quaternion.identity;
+            GetComponent<Animator>().SetTrigger("Explode");
+            GetComponent<SpriteRenderer>().sortingLayerName = "Effects";
+            GetComponent<AudioSource>().Play();
 
+            exploded = true;
         }
     }
 }
