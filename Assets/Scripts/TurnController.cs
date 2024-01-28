@@ -67,10 +67,10 @@ public class TurnController : MonoBehaviour
         if (livingPlayers.Count <= 1)
         {
             isGameOver = true;
-            var winner = livingPlayers.First();
 
             if (livingPlayers.Count == 1)
             {
+                var winner = livingPlayers.First();
                 Debug.Log("Player " + winner.GetComponent<CarController>().name + " wins!");
             }
             else
