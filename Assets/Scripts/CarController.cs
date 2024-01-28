@@ -51,7 +51,6 @@ public class CarController : MonoBehaviour
     [SerializeField]
     private SpriteRenderer clownSpriteRenderer;
     private Color ogColor;
-    private GameObject clown;
     private Color ogClownColor;
     private TurnController turnController;
     private InventoryManager inventoryManager;

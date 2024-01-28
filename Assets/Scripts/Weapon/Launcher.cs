@@ -56,7 +56,6 @@ public class Launcher : MonoBehaviour
         turnController = FindObjectOfType<TurnController>();
     }
 
-
     void Update()
     {
         if (!carController.isTurn) return;
@@ -117,9 +116,21 @@ public class Launcher : MonoBehaviour
         this.UpdateTransforms();
     }
 
+    IEnumerator DisableClownCollision()
+    {
+        var clownSpriteRenderer = transform.Find("Clown").gameObject.GetComponent<EdgeCollider2D>();
+
+        clownSpriteRenderer.enabled = false;
+
+        yield return new WaitForSeconds(.2f);
+
+        clownSpriteRenderer.enabled = true;
+    }
+
     public void Launch()
     {
         StartCoroutine(LaunchCoroutine());
+        StartCoroutine(DisableClownCollision());
     }
 
     private IEnumerator LaunchCoroutine()
