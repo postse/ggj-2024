@@ -12,15 +12,22 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         var playerConfig = FindObjectOfType<PlayerConfig>();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Game");
         int loadPlayers;
-        if (EventSystem.current.currentSelectedGameObject.name == "1player") {
+        if (EventSystem.current.currentSelectedGameObject.name == "1player")
+        {
             playerConfig.playerCount = 1;
-        } else if (EventSystem.current.currentSelectedGameObject.name == "2players") {
+        }
+        else if (EventSystem.current.currentSelectedGameObject.name == "2players")
+        {
             playerConfig.playerCount = 2;
-        } else if (EventSystem.current.currentSelectedGameObject.name == "3players") {
+        }
+        else if (EventSystem.current.currentSelectedGameObject.name == "3players")
+        {
             playerConfig.playerCount = 3;
-        } else {
+        }
+        else
+        {
             playerConfig.playerCount = 4;
         }
     }
