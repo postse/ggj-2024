@@ -17,7 +17,7 @@ public class TurnController : MonoBehaviour
     private GameObject[] players;
 
     [SerializeField]
-    private bool isGameOver = false;
+    public bool isGameOver = false;
 
     void Start()
     {
@@ -62,6 +62,7 @@ public class TurnController : MonoBehaviour
 
     public void CheckIfGameOver()
     {
+        players = GameObject.FindGameObjectsWithTag("Player");
         var livingPlayers = players.Where(player => !player.GetComponent<CarController>().isDead).ToList();
         if (livingPlayers.Count <= 1)
         {

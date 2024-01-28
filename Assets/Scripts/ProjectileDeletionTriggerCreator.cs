@@ -33,7 +33,9 @@ public class ProjectileDeletionTriggerCreator : MonoBehaviour
         if (other.CompareTag("CarBody"))
         {
             other.GetComponentInParent<CarController>().isDead = true;
-            if (other.GetComponentInParent<CarController>().isTurn)
+            turnController.CheckIfGameOver();
+
+            if (!turnController.isGameOver && other.GetComponentInParent<CarController>().isTurn)
             {
                 turnController.EndTurn();
                 turnController.SetNextPlayer();
