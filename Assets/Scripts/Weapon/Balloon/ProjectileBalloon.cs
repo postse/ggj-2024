@@ -13,13 +13,13 @@ class ProjectileBalloon : Projectile {
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!exploded && collision.gameObject.CompareTag("Terrain") || collision.gameObject.CompareTag("CarBody"))
-        {
+        if (!exploded && (collision.gameObject.CompareTag("Terrain") || collision.gameObject.CompareTag("CarBody")))
+        { 
+            exploded = true;
             GetComponent<Animator>().SetTrigger("Explode");
             GetComponent<AudioSource>().Play();
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().gravityScale = 0;
-            exploded = true;
             FindObjectOfType<CameraMovement>().TriggerShake();
         }
     }
