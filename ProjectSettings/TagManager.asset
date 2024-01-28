@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - CarBody
   - Collectible
+  - Music
   layers:
   - Default
   - TransparentFX
