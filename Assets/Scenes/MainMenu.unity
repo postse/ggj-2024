@@ -698,7 +698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &240369916
 RectTransform:
   m_ObjectHideFlags: 0
@@ -718,8 +718,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -296}
-  m_SizeDelta: {x: -2951.9104, y: -1289.1332}
+  m_AnchoredPosition: {x: 30.342041, y: -113.43994}
+  m_SizeDelta: {x: -2891.227, y: -924.014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &284746015
 GameObject:
@@ -2039,18 +2039,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'A TO MOVE LEFT
+  m_text: '''A / D'' TO MOVE
 
-    D TO MOVE RIGHT
+    LEFT/RIGHT ARROW KEYS TO AIM
 
-    W TO AIM LEFT
+    LEFT SHIFT TO
+    JUMP
 
-    S TO AIM RIGHT
+    SPACE TO FIRE
 
-    SPACE
-    TO USE ITEM
+    ''E'' TO CHANGE WEAPON
 
-    ENTER TO CHANGE PLAYERS'
+
+    RUN OVER ITEMS TO PICK
+    THEM UP
+
+
+    DEFEAT THE OTHER CLOWNS!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4be62cc565011ad48b453c7d89b1e6ef, type: 2}
   m_sharedMaterial: {fileID: -17884376771107083, guid: 4be62cc565011ad48b453c7d89b1e6ef, type: 2}
@@ -2143,7 +2148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1283025082
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3742,7 +3747,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0024567, y: 373.4431}
+  m_AnchoredPosition: {x: 0.0024567, y: 430.13}
   m_SizeDelta: {x: 888.08, y: 123.9838}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1967518760
