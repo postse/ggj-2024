@@ -48,7 +48,7 @@ public class CarController : MonoBehaviour
     private Color ogColor;
     private TurnController turnController;
     private InventoryManager inventoryManager;
-    bool flipped;
+    public bool flipped;
 
     public FuelBar fuelBar;
     public HealthBar healthBar;
