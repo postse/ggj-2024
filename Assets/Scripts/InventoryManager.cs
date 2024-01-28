@@ -30,15 +30,7 @@ public class InventoryManager : MonoBehaviour
         LoadProjectile();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButtonDown("CycleProjectile")) {
-            CycleProjectile();
-        }
-    }
-
-    private void CycleProjectile() {
+    public void CycleProjectile() {
         active = active == items.Length - 1 ? 0 : active + 1;
         while (counts[active] == 0) {
             active = active == items.Length - 1 ? 0 : active + 1;
