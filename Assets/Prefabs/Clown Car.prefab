@@ -49,8 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   bubblesSpeed: 3
-  maxFuel: 1e+11
-  fuel: 1e+11
+  maxFuel: 10
+  fuel: 10
   maxHealth: 100
   health: 0
   fuelConsumptionRate: 1
@@ -234,7 +234,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 24d91148843c9134ab78bd6990dee9a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
