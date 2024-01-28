@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro.Examples;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -104,6 +105,11 @@ public class CarController : MonoBehaviour
 
             if (Input.GetButtonDown("CycleProjectile")) {
                 inventoryManager.CycleProjectile();
+            }
+
+            if (Input.GetKeyDown(KeyCode.B)) {
+            //    FindObjectOfType<ShakeBehavior>().TriggerShake();
+               FindObjectOfType<CameraMovement>().TriggerShake();
             }
         }
 
