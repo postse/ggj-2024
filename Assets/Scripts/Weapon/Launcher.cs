@@ -89,6 +89,7 @@ public class Launcher : MonoBehaviour
         else if (Input.GetButtonUp("Fire1"))
         {
             Launch();
+            currentPower = 0;
             inventoryManager.SpendItem();
         }
 
