@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5991719629681017548}
   - component: {fileID: 7724456775480942154}
   - component: {fileID: -3982063681416945933}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BowlingPinCluster
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -134,7 +134,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craterSize: 64
   damage: 20
-  destroyOnImpact: 0
 --- !u!82 &5991719629681017548
 AudioSource:
   m_ObjectHideFlags: 0
@@ -314,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5223064439524006777}
   - component: {fileID: 6909526840014835227}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bowling Pin1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5342734779935365104}
   - component: {fileID: 1826258969032169232}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BowlingPin2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 186839562588773442}
   - component: {fileID: 4461467766311773685}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BowlingPin3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

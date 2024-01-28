@@ -34,6 +34,7 @@ public class TurnController : MonoBehaviour
     {
         if (isGameOver) return;
 
+        FindObjectOfType<CollectibleController>().DropCollectibles();
 
         playerTurn++;
         if (playerTurn >= players.Length)

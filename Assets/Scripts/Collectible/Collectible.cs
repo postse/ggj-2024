@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour, ICollectible
 {
+
+    private Collider2D collider;
     void Start() {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+        collider = GetComponent<Collider2D>();
     }
 
     void OnCollisionEnter2D(Collision2D collision) {

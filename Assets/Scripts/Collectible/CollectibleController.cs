@@ -8,23 +8,24 @@ public class CollectibleController : MonoBehaviour
     [SerializeField]
     private GameObject[] collectibles;
 
-    private int counter = 0;
+    [SerializeField]
+    private int spawnHeight = 55;
 
-    void Update() {
-        counter++;
-        // if (Input.GetKeyDown(KeyCode.H)) {
-        if (counter % 100 == 0) {
-            int index = Random.Range(0, collectibles.Length-1);
-            Debug.Log(index);
-            int randX = Random.Range(0, 100);
-            int randY = 50;
-            Vector3 position = new Vector3(randX, randY, 0);
-            Quaternion rotation = new Quaternion();
-            DropCollectible(collectibles[index], position, rotation);
+    [SerializeField]
+    private int collectiblesPerDrop = 5;
+
+
+    public void DropCollectibles() {
+        for (int i = 0; i < collectiblesPerDrop; i++) {
+            DropCollectible();
         }
     }
 
-    public void DropCollectible(GameObject collectiblePrefab, Vector3 position, Quaternion rotation) {
-        GameObject collectible = Instantiate(collectiblePrefab, position, rotation);
+    public void DropCollectible() {
+        int index = Random.Range(0, collectibles.Length-1);
+        int randX = Random.Range(5, 95);
+        int randY = spawnHeight;
+        Vector3 position = new Vector3(randX, randY, 0);
+        GameObject collectible = Instantiate(collectibles[index], position, Quaternion.identity);
     }
 }
