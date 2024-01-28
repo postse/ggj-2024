@@ -8,6 +8,9 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     [SerializeField]
+    public string name;
+
+    [SerializeField]
     private float movementSpeed = 5f;
 
     [SerializeField]
@@ -48,7 +51,7 @@ public class CarController : MonoBehaviour
     private Color ogColor;
     private TurnController turnController;
     private InventoryManager inventoryManager;
-    bool flipped;
+    public bool flipped;
 
     public FuelBar fuelBar;
     public HealthBar healthBar;
@@ -73,7 +76,7 @@ public class CarController : MonoBehaviour
     {
         moveHorizontal = 0.0f;
 
-        if (!isTurn) return;
+        if (!isTurn || turnController.isGameOver) return;
 
         if (fuel > 0)
         {
@@ -192,7 +195,9 @@ public class CarController : MonoBehaviour
 
     public void AddFuel(float fuelAmt)
     {
-        fuel = Math.Max(fuel + fuelAmt, maxFuel);
+        if (fuel < 0) throw new ArgumentException("Fuel must be positive");
+
+        fuel = Mathf.Min(fuel + fuelAmt, maxFuel);
         fuelBar.SetFuel(fuel);
     }
 
@@ -201,21 +206,21 @@ public class CarController : MonoBehaviour
         if (damage < 0) throw new ArgumentException("Damage must be positive");
 
         Blink();    // Flicker player color
-        health -= Mathf.Min(damage, health);
-        healthBar.SetHealth(health);
+        health = Mathf.Max(health - damage, 0);
 
         if (health <= 0)
         {
             isDead = true;
         }
         
+        healthBar.SetHealth(health);
         turnController.CheckIfGameOver();
     }
 
     public void Heal(float heal) {
         if (heal < 0) throw new ArgumentException("Heal must be positive");
 
-        health = Math.Max(health + heal, maxHealth);
+        health = Mathf.Min(health + heal, maxHealth);
         healthBar.SetHealth(health);
     }
 

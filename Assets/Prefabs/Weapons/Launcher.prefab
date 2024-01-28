@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 799789476157890231}
   - component: {fileID: 3228175888850313052}
+  - component: {fileID: 6817155733502160931}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2810347712506367369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6817155733502160931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406898027573303817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8237ea374c45d40985421e79e0b63d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1416555780664304441
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,17 +146,17 @@ MonoBehaviour:
   firePoint: {fileID: 2810347712506367369}
   idlePoint: {fileID: 5699947173079166573}
   angle: 45
-  power: 10
+  powerMultiplier: 30
+  currentPower: 0
+  powerCycleSpeed: 1
   minAngle: -135
   maxAngle: 135
-  aimUpKey: 119
-  aimDownKey: 115
-  launchKey: 32
   idlePrefab: {fileID: 0}
   projectilePrefab: {fileID: 0}
   _aimSpeed: 200
   inventoryManager: {fileID: 0}
   shotWeapon: 0
+  powerBar: {fileID: 0}
 --- !u!1 &1814046452567907279
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,8 +183,8 @@ Transform:
   m_GameObject: {fileID: 1814046452567907279}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.17, y: 0.46, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2810347712506367369}
