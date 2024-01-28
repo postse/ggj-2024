@@ -21,7 +21,7 @@ public class ShowOnTurn : MonoBehaviour
         }
         else
         {
-            transform.localScale = Vector2.zero;
+            transform.localScale = Vector3.zero;
         }
     }
 }
