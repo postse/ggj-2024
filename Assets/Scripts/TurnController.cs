@@ -21,7 +21,9 @@ public class TurnController : MonoBehaviour
     public bool isGameOver = false;
 
     CollectibleController collectibleController;
-    InventoryPanel inventoryPanel;
+    private InventoryPanel inventoryPanel;
+    
+    [SerializeField]
     private WinnerAnnouncement winnerAnnouncement;
 
     void Start()
