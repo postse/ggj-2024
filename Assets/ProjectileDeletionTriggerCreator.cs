@@ -23,9 +23,8 @@ public class ProjectileDeletionTriggerCreator : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("Exit trigger");
         if (other.CompareTag("Projectile"))
-        {
+         {
             Destroy(other.gameObject);
         }
     }

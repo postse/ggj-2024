@@ -34,6 +34,8 @@ public class CarController : MonoBehaviour
 
     [SerializeField]
     private float maxRotation = 80.0f; // max rotation in degrees
+    [SerializeField]
+    private AudioSource carSound;
 
     public bool isTurn = false;
     public bool isDead = false;
@@ -47,6 +49,8 @@ public class CarController : MonoBehaviour
 
     public FuelBar fuelBar;
     public HealthBar healthBar;
+
+    private bool engineSoundRunning = false;
 
     void Start()
     {
@@ -89,6 +93,17 @@ public class CarController : MonoBehaviour
                     FlipSprite(false);
                     flipped = false;
                 }
+            }
+
+            // Play engine sound if moving
+            if (Input.GetAxis("Horizontal") != 0) {
+                if (!engineSoundRunning) {
+                    carSound.Play();
+                    engineSoundRunning = true;
+                    StartCoroutine(StopSound());
+                }
+            } else {
+                engineSoundRunning = false;
             }
 
             if (Input.GetButton("Jump"))
@@ -167,7 +182,7 @@ public class CarController : MonoBehaviour
         {
             isDead = true;
         }
-
+        
         turnController.CheckIfGameOver();
     }
 
@@ -182,5 +197,17 @@ public class CarController : MonoBehaviour
     {
         health = maxHealth;
         healthBar.SetHealth(health);
+    }
+
+    /* Sound based functions */
+    private IEnumerator StopSound()
+    {
+        
+        while (engineSoundRunning)
+        {
+            yield return new WaitForSeconds(0.25f);
+        }
+
+        carSound.Stop();
     }
 }
