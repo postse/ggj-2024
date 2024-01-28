@@ -152,6 +152,17 @@ public class CarController : MonoBehaviour
 
             Vector3 movement = rb.transform.right * moveHorizontal * movementSpeed;
             rb.velocity = new Vector2(movement.x, rb.velocity.y + Physics2D.gravity.y * Time.fixedDeltaTime);
+
+            var rigidBodySize = rb.GetComponent<SpriteRenderer>().bounds.size.x;
+
+            // Ensure the rigidbody does not leave the camera bounds
+            float cameraWidth = Camera.main.orthographicSize * 2 * Camera.main.aspect;
+            float cameraLeftEdge = Camera.main.transform.position.x - cameraWidth / 2;
+            float cameraRightEdge = Camera.main.transform.position.x + cameraWidth / 2;
+            float objectHalfWidth = rigidBodySize / 2;
+
+            float clampedX = Mathf.Clamp(rb.position.x, cameraLeftEdge + objectHalfWidth, cameraRightEdge - objectHalfWidth);
+            rb.position = new Vector2(clampedX, rb.position.y);
         }
 
         float z = rb.transform.eulerAngles.z;
