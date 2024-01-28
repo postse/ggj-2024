@@ -17,14 +17,14 @@ public class TerrainBreaker : MonoBehaviour
     [SerializeField]
     private bool destroyOnImpact = false;
 
-    private TerrainGenerator terrain;
+    private Terrain terrain;
 
     public Shape destroyCircle;
 
     // Start is called before the first frame update
     void Start()
     {
-        terrain = GameObject.Find("Terrain").GetComponent<TerrainGenerator>();
+        terrain = GameObject.Find("Terrain").GetComponent<Terrain>();
         destroyCircle = Shape.GenerateShapeCircle(craterSize);
     }
 
