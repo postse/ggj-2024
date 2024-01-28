@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8955349973807155755}
   - component: {fileID: 3004844803117337008}
   - component: {fileID: 327489520869295562}
+  - component: {fileID: 7709624893893949259}
   m_Layer: 0
   m_Name: LevelLogic
   m_TagString: Untagged
@@ -62,5 +63,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 2049682013209598996, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
-  terrain: {fileID: 0}
   defaultPlayerCount: 2
+  edgeBuffer: 5
+--- !u!114 &7709624893893949259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961906618016206477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10b2ff78df90d7959c859c7ba743fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectibles:
+  - {fileID: 8910677025610393953, guid: c53ccb9ad6245655ca77bc870bb1aa07, type: 3}
+  - {fileID: 945961780412441357, guid: c33c09e2053b5dbc5955b10abce667b6, type: 3}
+  - {fileID: 418014225690838247, guid: 9e8d0210a13c37c80a5012e9501fda9f, type: 3}
+  - {fileID: 2218133032868409304, guid: aae8c4e21bb3cc149a09a6e89c6be5a0, type: 3}
+  spawnHeight: 55
+  collectiblesPerDrop: 5

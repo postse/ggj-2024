@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3342532749802332911}
   - component: {fileID: 5318213180456548124}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8478473231001004193}
   - component: {fileID: 8405959471324528675}
   - component: {fileID: 1351079393701632449}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HealthCollectible
   m_TagString: Collectible
   m_Icon: {fileID: 0}

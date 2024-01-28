@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4461148601324176319}
   - component: {fileID: 6893032447433297462}
   - component: {fileID: 814722087594499424}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: JackInTheBoxProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
