@@ -2,25 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class WinnerAnnouncement : MonoBehaviour
 {
 
-    public TextMeshProUGUI size;
-    public TextMeshProUGUI text;
-    public TextMeshProUGUI color;
-    public TextMeshProUGUI timer;
+    public GameObject panel;
+    public TextMeshProUGUI winnerText;
 
-    // Start is called before the first frame update
-    void Start()
+    public void DisplayEverything(CarController winner)
     {
-        
+        panel.SetActive(true);
+        winnerText.text = "The winner of the game is " + winner.name + "!";
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DisplayDraw()
     {
-        
+        panel.SetActive(true);
+        winnerText.text = "This game will end in a draw!";
     }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }

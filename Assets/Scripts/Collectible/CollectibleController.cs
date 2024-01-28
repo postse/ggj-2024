@@ -12,7 +12,7 @@ public class CollectibleController : MonoBehaviour
     private int spawnHeight = 55;
 
     [SerializeField]
-    private int collectiblesPerDrop = 5;
+    public int collectiblesPerDrop = 5;
 
     private GameLogic gameLogic;
 
