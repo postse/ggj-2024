@@ -50,6 +50,7 @@ MonoBehaviour:
   playerTurn: 0
   players: []
   isGameOver: 0
+  winnerAnnouncement: {fileID: 0}
 --- !u!114 &327489520869295562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,6 +66,11 @@ MonoBehaviour:
   playerPrefab: {fileID: 2049682013209598996, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
   defaultPlayerCount: 2
   edgeBuffer: 5
+  carSprites:
+  - {fileID: 21300000, guid: 1b2ab1f73141c734892adcd2578752bd, type: 3}
+  - {fileID: 21300000, guid: 0aa8b0d14695d7247b4cdb09b67237eb, type: 3}
+  - {fileID: 21300000, guid: 0ea0ce151cb37c24f9564bead4edd4b3, type: 3}
+  - {fileID: 21300000, guid: 941abb79ffdacfd41b42232415f2ffd2, type: 3}
 --- !u!114 &7709624893893949259
 MonoBehaviour:
   m_ObjectHideFlags: 0

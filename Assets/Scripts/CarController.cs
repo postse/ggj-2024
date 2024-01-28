@@ -88,6 +88,10 @@ public class CarController : MonoBehaviour
 
         if (!isTurn || turnController.isGameOver) return;
 
+        if (Input.GetButtonDown("CycleProjectile")) {
+            inventoryManager.CycleProjectile();
+        }
+
         if (fuel > 0)
         {
             if (Input.GetAxis("Horizontal") < 0)
@@ -130,15 +134,6 @@ public class CarController : MonoBehaviour
                 rb.constraints = RigidbodyConstraints2D.None;
 
                 rb.AddForce(Vector2.up * 100 * bubblesSpeed * (Mathf.Min(fuelBeforeBubble, bubblesFuelUsed) / bubblesFuelUsed));
-            }
-
-            if (Input.GetButtonDown("CycleProjectile")) {
-                inventoryManager.CycleProjectile();
-            }
-
-            if (Input.GetKeyDown(KeyCode.B)) {
-            //    FindObjectOfType<ShakeBehavior>().TriggerShake();
-               FindObjectOfType<CameraMovement>().TriggerShake();
             }
         }
 
@@ -213,12 +208,17 @@ public class CarController : MonoBehaviour
     {
         if (damage < 0) throw new ArgumentException("Damage must be positive");
 
-        Blink();    // Flicker player color
         health = Mathf.Max(health - damage, 0);
 
         if (health <= 0)
         {
+            Color gray = new Color(.2f, .2f, .2f);
+            SetColor(gray, gray);
             isDead = true;
+        }
+        else
+        {
+            Blink();    // Flicker player color
         }
         
         healthBar.SetHealth(health);
@@ -245,7 +245,7 @@ public class CarController : MonoBehaviour
 
     // Flicker player color to Red
     public void Blink() {
-        Color damageColor = new Color(100, 0, 0);
+        Color damageColor = new Color(1, 0, 0);
 
         SetColor(damageColor, damageColor);
 
