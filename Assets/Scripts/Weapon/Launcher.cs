@@ -58,18 +58,45 @@ public class Launcher : MonoBehaviour
         //     this.SetIdleSprite(idlePrefab);
         // }
         carController = GetComponentInParent<CarController>();
-        powerBar.SetMaxPower(currentPower);
+        powerBar.SetMaxPower(1);
         turnController = FindObjectOfType<TurnController>();
     }
 
 
-    async void Update()
+    void Update()
     {
         if (!carController.isTurn) return;
 
         if (Input.GetButton("Fire1"))
         {
+            float powerIncrement = (1f / powerCycleSpeed) * Time.deltaTime;
+
+            if (powerIncreasing)
+            {
+                currentPower += powerIncrement;
+
+                if (currentPower >= 1f)
+                {
+                    currentPower = 1f;
+                    powerIncreasing = false;
+                }
+            }
+            else
+            {
+                currentPower -= powerIncrement;
+
+                if (currentPower <= 0f)
+                {
+                    currentPower = 0f;
+                    powerIncreasing = true;
+                }
+            }
+            powerBar.SetPower(currentPower);
+        }
+        else if (Input.GetButtonUp("Fire1"))
+        {
             Launch();
+            currentPower = 0;
             inventoryManager.SpendItem();
         }
 
@@ -80,29 +107,6 @@ public class Launcher : MonoBehaviour
         else if (Input.GetButton("AimRight"))
         {
             SetAim(-1);
-        }
-
-        float powerIncrement = (1f / powerCycleSpeed) * Time.deltaTime;
-
-        if (powerIncreasing)
-        {
-            currentPower += powerIncrement;
-
-            if (currentPower >= 1f)
-            {
-                currentPower = 1f;
-                powerIncreasing = false;
-            }
-        }
-        else
-        {
-            currentPower -= powerIncrement;
-
-            if (currentPower <= 0f)
-            {
-                currentPower = 0f;
-                powerIncreasing = true;
-            }
         }
     }
 
@@ -116,10 +120,6 @@ public class Launcher : MonoBehaviour
             this.angle = newAngle;
         }
         this.UpdateTransforms();
-    }
-
-    public void SetPower(float power) {
-        powerBar.SetPower(power);
     }
 
     public void Launch()

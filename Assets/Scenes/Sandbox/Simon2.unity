@@ -135,6 +135,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clown Car
       objectReference: {fileID: 0}
+    - target: {fileID: 2862492851918464518, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862492851918464518, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4252377177649841876, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.4999998
@@ -211,6 +219,14 @@ PrefabInstance:
     - target: {fileID: 2049682013209598996, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
       propertyPath: m_Name
       value: Clown Car (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862492851918464518, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862492851918464518, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4252377177649841876, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
       propertyPath: m_LocalPosition.x
@@ -405,6 +421,18 @@ PrefabInstance:
     - target: {fileID: 2049682013209598996, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
       propertyPath: m_Name
       value: Clown Car (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307377226361905132, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: powerCycleSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862492851918464518, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862492851918464518, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4252377177649841876, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
       propertyPath: m_LocalPosition.x
