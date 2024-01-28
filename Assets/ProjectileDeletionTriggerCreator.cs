@@ -6,7 +6,7 @@ public class ProjectileDeletionTriggerCreator : MonoBehaviour
 {
     void Start()
     {
-        var parent = GetComponentInParent<Terrain>();
+        var parent = GetComponentInParent<TerrainGenerator>();
 
         var terrainPosition = parent.transform.position;
 
