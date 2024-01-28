@@ -124,12 +124,15 @@ public class CarController : MonoBehaviour
                 engineSoundRunning = false;
             }
 
-            if (Input.GetButtonUp("Jump"))
+            if (Input.GetButtonDown("Jump"))
             {
-                if (fuel < bubblesFuelUsed) return; // not enough fuel to use bubbles
-                fuel -=  bubblesFuelUsed; // consume fuel twice as fast
+                // Variable jump height somewhat based upon fuel before jump
+                var fuelBeforeBubble = fuel;
+                fuel -=  Mathf.Min(fuel, bubblesFuelUsed); // consume fuel twice as fast
                 fuelBar.SetFuel(fuel); // change fuel bar
-                isBubblesActive = true;
+                rb.constraints = RigidbodyConstraints2D.None;
+
+                rb.AddForce(Vector2.up * 100 * bubblesSpeed * (Mathf.Min(fuelBeforeBubble, bubblesFuelUsed) / bubblesFuelUsed));
             }
 
             if (Input.GetButtonDown("CycleProjectile")) {
@@ -150,14 +153,6 @@ public class CarController : MonoBehaviour
         if (!isBubblesActive && moveHorizontal == 0.0f)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
-        }
-
-        if (isBubblesActive)
-        {
-            rb.constraints = RigidbodyConstraints2D.None;
-
-            rb.AddForce(Vector2.up * 100 * bubblesSpeed);
-            isBubblesActive = false;
         }
 
         if (moveHorizontal != 0.0f)
