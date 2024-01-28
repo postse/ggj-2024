@@ -22,13 +22,13 @@ public class CameraMovement : MonoBehaviour
         float cameraX = Camera.main.orthographicSize * Camera.main.aspect; // half of the horizontal viewing area
         Camera.main.transform.position = new Vector3(terrainPosition.x + cameraX + cameraInset, terrainPosition.y + Camera.main.orthographicSize + cameraInset, -10); // Adjust the Z value as needed
         
-        ogPosition = transform.localPosition;
+        ogPosition = cameraTransform.localPosition;
     }
 
 
     // Good guide:
     // https://medium.com/nice-things-ios-android-development/basic-2d-screen-shake-in-unity-9c27b56b516
-    private Transform transform;
+    private Transform cameraTransform;
     private float shakeDuration = 0f;
 
     [SerializeField]
@@ -42,19 +42,19 @@ public class CameraMovement : MonoBehaviour
     private Vector3 ogPosition;
 
     void Awake() {
-        if (transform == null) {
-            transform = GetComponent<Transform>();
+        if (cameraTransform == null) {
+            cameraTransform = GetComponent<Transform>();
         }
     }
 
     void Update() {
         if (shakeDuration > 0) {
-            transform.localPosition = ogPosition + Random.insideUnitSphere * shakeMagnitude;
+            cameraTransform.localPosition = ogPosition + Random.insideUnitSphere * shakeMagnitude;
    
             shakeDuration -= Time.deltaTime * dampingSpeed;
         } else {
             shakeDuration = 0f;
-            transform.localPosition = ogPosition;
+            cameraTransform.localPosition = ogPosition;
         }
     }
 

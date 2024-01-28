@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CreateGame : MonoBehaviour
@@ -12,6 +14,34 @@ public class CreateGame : MonoBehaviour
     [SerializeField]
     private float edgeBuffer = 5f;
 
+    private List<string> clownNames = new List<string>
+    {
+        "Bozo",
+        "Ronald McDonald",
+        "Krusty",
+        "Joker",
+        "Pogo",
+        "Puddles",
+        "Penny",
+        "Patches",
+        "Punchy",
+        "Pennywise",
+        "Penny",
+        "Bingo",
+        "Bongo",
+        "Steve",
+        "Scungo",
+        "Abraham",
+        "Denver",
+        "Logan",
+        "Simon",
+        "Zane",
+        "Bobby",
+        "Bubbles",
+        "ClownyMcClownface",
+        "Oobabadooba"
+    };
+
     void Awake()
     {
         try
@@ -22,6 +52,18 @@ public class CreateGame : MonoBehaviour
         catch
         {
             CreateGameWithPlayerCount(defaultPlayerCount);
+        }
+    }
+
+    private void Start()
+    {
+        var players = FindObjectsOfType<CarController>();
+        foreach (var player in players)
+        {
+            int randomIndex = Random.Range(0, clownNames.Count);
+            string randomClownName = clownNames[randomIndex];
+            player.name = randomClownName;
+            clownNames = clownNames.ToArray().Where((name, index) => index != randomIndex).ToList();
         }
     }
 
