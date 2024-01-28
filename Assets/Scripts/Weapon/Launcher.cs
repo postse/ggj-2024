@@ -59,6 +59,7 @@ public class Launcher : MonoBehaviour
         // }
         carController = GetComponentInParent<CarController>();
         powerBar.SetMaxPower(1);
+        powerBar.SetPower(0);
         turnController = FindObjectOfType<TurnController>();
     }
 
