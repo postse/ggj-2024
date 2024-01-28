@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -48,11 +49,14 @@ public class Launcher : MonoBehaviour
 
     public bool shotWeapon = false;
 
+    public PowerBar powerBar;
+
     void Start() {
         // if (idlePrefab != null) {
         //     this.SetIdleSprite(idlePrefab);
         // }
         carController = GetComponentInParent<CarController>();
+        powerBar.SetMaxPower(power);
     }
 
 
@@ -85,6 +89,7 @@ public class Launcher : MonoBehaviour
 
     public void SetPower(float power) {
         this.power = power;
+        powerBar.SetPower(power);
     }
 
     public void Launch()
