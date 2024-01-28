@@ -32,6 +32,9 @@ public class TerrainBreaker : MonoBehaviour
         // Get all colliders within the craterSize radius
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(p, craterSize / terrain.CollidableLogicLayer.PPU);
 
+        // Check if any collisions have "ClownBody" tag
+        // var hitClowns = hitColliders.ToArray().Where(collider => collider.tag == "ClownBody").ToHashSet();
+
         // Check if any of the colliders have the "Player" tag
         var hitPlayers = hitColliders.ToArray().Where(collider => collider.tag == "CarBody").ToHashSet();
 

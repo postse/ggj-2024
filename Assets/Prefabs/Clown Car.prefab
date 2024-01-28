@@ -60,6 +60,7 @@ MonoBehaviour:
   carSound: {fileID: 2413644854791455179}
   isTurn: 0
   isDead: 0
+  clownSpriteRenderer: {fileID: 4344097835782490324}
   flipped: 0
   fuelBar: {fileID: 8034542316944715483}
   healthBar: {fileID: 2843177827420221500}
@@ -189,8 +190,8 @@ GameObject:
   - component: {fileID: 6959240117199990883}
   - component: {fileID: 6893162379009918047}
   - component: {fileID: 4804258933519843669}
-  - component: {fileID: 5369114102284853393}
-  m_Layer: 7
+  - component: {fileID: 5416184298831902535}
+  m_Layer: 0
   m_Name: CarBody
   m_TagString: CarBody
   m_Icon: {fileID: 0}
@@ -206,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 5177332239580765678}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.47, y: 1.96, z: 0}
+  m_LocalPosition: {x: 0.477, y: 1.953, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -295,7 +296,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &5369114102284853393
+--- !u!70 &5416184298831902535
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -327,8 +328,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.75}
-  m_Size: {x: 3, y: 1.6}
+  m_Offset: {x: -0.01690516, y: -0.7524792}
+  m_Size: {x: 2.979387, y: 1.6596285}
   m_Direction: 1
 --- !u!1001 &2932271122574943530
 PrefabInstance:
@@ -773,6 +774,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Launcher
       objectReference: {fileID: 0}
+    - target: {fileID: 1814046452567907279, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: m_TagString
+      value: ClownBody
     - target: {fileID: 1416555780664304441, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -840,7 +844,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1814046452567907279, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8845153181768686398}
   m_SourcePrefab: {fileID: 100100000, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
 --- !u!4 &1100034855894568165 stripped
 Transform:
@@ -858,3 +865,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f98e291bce40246865a4debac67456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &4344097835782490324 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5427732850068214915, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+  m_PrefabInstance: {fileID: 8582308044934945879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7941730779133708184 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1814046452567907279, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+  m_PrefabInstance: {fileID: 8582308044934945879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!68 &8845153181768686398
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7941730779133708184}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.48443747, y: 0.5799055}
+  - {x: 0.56507677, y: 0.44295412}
+  - {x: 0.44182754, y: 0.26724613}
+  - {x: 0.46259496, y: 0.12740737}
+  - {x: 0.47863278, y: 0.012255669}
+  - {x: 0.9223746, y: -0.044760086}
+  - {x: 0.95192623, y: -0.15974689}
+  - {x: 0.6921344, y: -0.36734617}
+  - {x: 0.77929425, y: -0.8054687}
+  - {x: -0.52152383, y: -0.8016975}
+  - {x: -0.6400863, y: -0.6227082}
+  - {x: -0.91765857, y: -0.53782684}
+  - {x: -0.8701719, y: -0.43873674}
+  - {x: -0.40338996, y: -0.38881266}
+  - {x: -0.16207843, y: -0.11717844}
+  - {x: -0.1782929, y: 0.045766182}
+  - {x: -0.05544746, y: 0.09118098}
+  - {x: -0.07559486, y: 0.20632297}
+  - {x: -0.37896115, y: 0.4271242}
+  - {x: -0.27892524, y: 0.5832707}
+  - {x: 0.47846854, y: 0.5820028}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
