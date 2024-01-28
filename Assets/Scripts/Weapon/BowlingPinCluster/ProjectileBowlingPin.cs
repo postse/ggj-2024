@@ -2,34 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BowlingPinProjectile : MonoBehaviour
+public class BowlingPinProjectile : Projectile
 {
     [SerializeField]
     private GameObject explosionAnimation;
 
-    [SerializeField]
-    private AudioSource _audioSource;
-
-    bool exploded = false;
-
-    void Start()
-    {
-        _audioSource = GetComponent<AudioSource>();
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!exploded && collision.gameObject.CompareTag("Terrain"))
+        if (collision.gameObject.CompareTag("Terrain"))
         {
-            Debug.Log(_audioSource);
-            _audioSource.Play();
+            GetComponent<Animator>().SetTrigger("Explode");
+            GetComponent<AudioSource>().Play();
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().gravityScale = 0;
+            GetComponent<Collider2D>().enabled = false;
 
-            exploded = true;
-            
-            GameObject anim = Instantiate(explosionAnimation, this.transform.position, Quaternion.identity);
-            // TODO: Don't hardcode explosion time
-            Destroy(anim, .6f);
-            Destroy(this.gameObject, 1);
         }
     }
 }

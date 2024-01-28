@@ -11,20 +11,15 @@ public class JackInTheBoxProjectile : Projectile
     private float explosionDelay = 5f;
 
     void Start() {
-        Invoke("BeginExplode", 5f);
+        Invoke("BeginExplode", explosionDelay);
     }
 
     void BeginExplode()
     {
         GetComponent<Animator>().SetTrigger("Explode");
-    }
-
-    public void BreakTerrain()
-    {
-        GetComponent<TerrainBreaker>().BreakTerrain();
-    }
-
-    public void DestroySelf() {
-        Destroy(this.gameObject);
+        GetComponent<AudioSource>().Play();
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().gravityScale = 0;
+        GetComponent<Collider2D>().enabled = false;
     }
 }
