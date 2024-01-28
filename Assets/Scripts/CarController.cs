@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro.Examples;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -44,7 +45,9 @@ public class CarController : MonoBehaviour
     private bool isBubblesActive;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
+    private Color ogColor;
     private TurnController turnController;
+    private InventoryManager inventoryManager;
     bool flipped;
 
     public FuelBar fuelBar;
@@ -56,7 +59,9 @@ public class CarController : MonoBehaviour
     {
         rb = GetComponentInChildren<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+        ogColor = sprite.color;
         turnController = FindObjectOfType<TurnController>();
+        inventoryManager = GetComponent<InventoryManager>();
         fuel = maxFuel; // initialize fuel to maxFuel
         fuelBar.SetMaxFuel(maxFuel);
         health = maxHealth; // initialize health to maxHealth
@@ -111,6 +116,15 @@ public class CarController : MonoBehaviour
                 fuel -= fuelConsumptionRate * bubblesRelativeFuelConsumptionRate * Time.deltaTime; // consume fuel twice as fast
                 fuelBar.SetFuel(fuel); // change fuel bar
                 isBubblesActive = true;
+            }
+
+            if (Input.GetButtonDown("CycleProjectile")) {
+                inventoryManager.CycleProjectile();
+            }
+
+            if (Input.GetKeyDown(KeyCode.B)) {
+            //    FindObjectOfType<ShakeBehavior>().TriggerShake();
+               FindObjectOfType<CameraMovement>().TriggerShake();
             }
         }
 
@@ -175,6 +189,7 @@ public class CarController : MonoBehaviour
     {
         if (damage < 0) throw new ArgumentException("Damage must be positive");
 
+        Blink();    // Flicker player color
         health -= Mathf.Min(damage, health);
         healthBar.SetHealth(health);
 
@@ -209,5 +224,21 @@ public class CarController : MonoBehaviour
         }
 
         carSound.Stop();
+    }
+    
+    private void SetColor(Color color) {
+        sprite.color = color;
+    }
+
+    // Flicker player color to Red
+    public void Blink() {
+        SetColor(new Color(100, 0, 0));
+
+        StartCoroutine(ResetColor());
+        IEnumerator ResetColor()
+        {
+            yield return new WaitForSecondsRealtime(0.2f);
+            SetColor(ogColor);
+        }
     }
 }
