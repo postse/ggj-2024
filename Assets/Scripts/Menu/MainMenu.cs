@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     {
         var playerConfig = FindObjectOfType<PlayerConfig>();
         SceneManager.LoadScene("Game");
-        int loadPlayers;
+
         if (EventSystem.current.currentSelectedGameObject.name == "1player")
         {
             playerConfig.playerCount = 1;
