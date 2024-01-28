@@ -6,12 +6,14 @@ public class CameraMovement : MonoBehaviour
 {
     [SerializeField]
     private float cameraInset = 2f;
+    private GameLogic gameLogic;
 
     void Start()
     {
+        gameLogic = FindObjectOfType<GameLogic>();
         var parent = GetComponentInParent<TerrainGenerator>();
 
-        float desiredWidth = parent.width; // The desired width of the camera's viewport in world units
+        float desiredWidth = (gameLogic?.mapWidth ?? parent.width); // The desired width of the camera's viewport in world units
 
         var terrainPosition = parent.transform.position;
 

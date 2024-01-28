@@ -2672,6 +2672,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameLogic
       objectReference: {fileID: 0}
+    - target: {fileID: 6452422930850494473, guid: 715300b309d48bf4cb89845c7d54f96b, type: 3}
+      propertyPath: maxFuel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452422930850494473, guid: 715300b309d48bf4cb89845c7d54f96b, type: 3}
+      propertyPath: mapWidth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452422930850494473, guid: 715300b309d48bf4cb89845c7d54f96b, type: 3}
+      propertyPath: mapHeight
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452422930850494473, guid: 715300b309d48bf4cb89845c7d54f96b, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452422930850494473, guid: 715300b309d48bf4cb89845c7d54f96b, type: 3}
+      propertyPath: smoothness
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452422930850494473, guid: 715300b309d48bf4cb89845c7d54f96b, type: 3}
+      propertyPath: playerCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452422930850494473, guid: 715300b309d48bf4cb89845c7d54f96b, type: 3}
+      propertyPath: weaponPower
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452422930850494473, guid: 715300b309d48bf4cb89845c7d54f96b, type: 3}
+      propertyPath: movementSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452422930850494473, guid: 715300b309d48bf4cb89845c7d54f96b, type: 3}
+      propertyPath: dropsMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452422930850494473, guid: 715300b309d48bf4cb89845c7d54f96b, type: 3}
+      propertyPath: weaponPowerCycleSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8955349973807155755, guid: 715300b309d48bf4cb89845c7d54f96b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 56.077927
