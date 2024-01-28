@@ -19,10 +19,19 @@ public class TurnController : MonoBehaviour
     [SerializeField]
     public bool isGameOver = false;
 
+    CollectibleController collectibleController;
+    InventoryPanel inventoryPanel;
+
     void Start()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
         players[playerTurn].GetComponent<CarController>().isTurn = true;
+        collectibleController = FindObjectOfType<CollectibleController>();
+        inventoryPanel = FindObjectOfType<InventoryPanel>();
+
+
+        // Initialize the inventory panel
+        GetCurrentPlayer().GetComponent<InventoryManager>().SetInventoryPanel();
     }
 
     public void EndTurn()
@@ -30,11 +39,16 @@ public class TurnController : MonoBehaviour
         players[playerTurn].GetComponent<CarController>().isTurn = false;
     }
 
+    public GameObject GetCurrentPlayer()
+    {
+        return players[playerTurn];
+    }
+
     public void SetNextPlayer()
     {
+        Debug.Log("Setting next player");
         if (isGameOver) return;
 
-        FindObjectOfType<CollectibleController>().DropCollectibles();
 
         playerTurn++;
         if (playerTurn >= players.Length)
@@ -45,6 +59,9 @@ public class TurnController : MonoBehaviour
             foreach (var player in players.Where(player => !player.GetComponent<CarController>().isDead))
             {
                 player.GetComponent<CarController>().ResetFuel();
+
+                // Only drop at end of round
+                FindObjectOfType<CollectibleController>().DropCollectibles();
             }
         }
 
@@ -57,6 +74,7 @@ public class TurnController : MonoBehaviour
         else
         {
             currentPlayer.isTurn = true;
+            GetCurrentPlayer().GetComponent<InventoryManager>().SetInventoryPanel();
         }
     }
 

@@ -17,7 +17,6 @@ public abstract class Projectile : MonoBehaviour {
 
     public void BreakTerrain()
     {
-        Debug.Log("Break terrain");
         GetComponent<TerrainBreaker>().DestroyTerrainAndDamage();
     }
 

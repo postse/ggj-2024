@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponCollectible : Collectible
 {
     [SerializeField]
-    private int weaponType;
+    private InventoryManager.InventoryType weaponType;
 
     [SerializeField]
     private int amt;

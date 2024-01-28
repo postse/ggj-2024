@@ -9,6 +9,12 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
 
+    public enum InventoryType {
+        WaterBalloon = 0,
+        BowlingPin = 1,
+        JackInTheBox = 2,
+    }
+
     [SerializeField]
     private InventoryItem[] items;
 
@@ -23,11 +29,13 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField]
     private Launcher launcher;
+    private InventoryPanel inventoryPanel;
 
     // Start is called before the first frame update
     void Start()
     {
         LoadProjectile();
+        inventoryPanel = FindObjectOfType<InventoryPanel>();
     }
 
     public void CycleProjectile() {
@@ -45,8 +53,9 @@ public class InventoryManager : MonoBehaviour
         launcher.SetProjectilePrefab(items[active].GetProjectile());
     }
 
-    public void AddItem(int index, int amt) {
-        counts[index] += amt;
+    public void AddItem(InventoryType inventoryType, int amt) {
+        counts[(int)inventoryType] += amt;
+        SetInventoryPanel();
     }
 
     // Manage inventory and load another projectile if there are more
@@ -67,10 +76,24 @@ public class InventoryManager : MonoBehaviour
             // Count is negative, treat as infinity
             LoadProjectile();
         }
+
+        SetInventoryPanel();
     }
 
-    public int getItemCount(int index)
+    public int GetItemCount(InventoryType item) {
+        return counts[(int)item];
+    }
+
+    public InventoryType GetActiveItem() {
+        return (InventoryType)active;
+    }
+
+    public void SetInventoryPanel()
     {
-        return counts[index];
+        Debug.Log("Setting Inventory Panel for " + this.transform.name + " with " + GetItemCount(InventoryType.JackInTheBox) + " Jack in the Boxes and " + GetItemCount(InventoryType.BowlingPin) + " Bowling Pins");
+
+        inventoryPanel.SetPlayerNameText(this.transform.name);
+        inventoryPanel.SetJackInTheBoxText(GetItemCount(InventoryType.JackInTheBox));
+        inventoryPanel.SetBowlingPinsText(GetItemCount(InventoryType.BowlingPin));
     }
 }

@@ -1,9 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Launcher : MonoBehaviour
@@ -51,9 +46,6 @@ public class Launcher : MonoBehaviour
     public PowerBar powerBar;
 
     void Start() {
-        // if (idlePrefab != null) {
-        //     this.SetIdleSprite(idlePrefab);
-        // }
         carController = GetComponentInParent<CarController>();
         powerBar.SetMaxPower(1);
         powerBar.SetPower(0);
@@ -137,7 +129,6 @@ public class Launcher : MonoBehaviour
         // Arrow is offset by 90 degrees
         var projectileComponent = projectile.GetComponent<Projectile>();
         projectileComponent.Launch(this.transform.parent.rotation.eulerAngles.z + angle + 90f, currentPower * powerMultiplier);
-
         while (GameObject.FindGameObjectsWithTag("Projectile").Length > 0)
         {
             yield return new WaitForSeconds(.5f);

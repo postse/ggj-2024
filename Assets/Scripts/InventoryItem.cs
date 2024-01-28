@@ -10,9 +10,6 @@ public class InventoryItem : MonoBehaviour
     [SerializeField]
     private GameObject projectile;
 
-    // [SerializeField]
-    // private int count;
-
     public GameObject GetIdle() {
         return idle;
     }
@@ -21,11 +18,4 @@ public class InventoryItem : MonoBehaviour
         return projectile;
     }
 
-    // public void SpendItem() {
-    //     count--;
-    // }
-
-    // public int GetCount() {
-    //     return count;
-    // }
 }

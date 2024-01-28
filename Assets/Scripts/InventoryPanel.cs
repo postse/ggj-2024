@@ -9,9 +9,9 @@ public class InventoryPanel : MonoBehaviour
 
 {
 
-    public InventoryManager inventory;
-    //   public TextMeshPro BowlingPinsCount;
-    //   public TextMeshPro JackInTheBoxCount;
+    private TurnController turnController;
+
+    public TextMeshProUGUI PlayerNameText;
 
     public TextMeshProUGUI BowlingPinsText;
     public TextMeshProUGUI JackInTheBoxText;
@@ -19,18 +19,21 @@ public class InventoryPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+       turnController = FindObjectOfType<TurnController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetPlayerNameText(string name)
     {
-        //int balloons = inventory.getItemCount(0);
-        int bowlingPins = inventory.getItemCount(1);
-        int jackInTheBox = inventory.getItemCount(2);
+        PlayerNameText.text = name;
+    }
 
-        //Debug.Log(BowlingPinsText.text);
-        BowlingPinsText.text = bowlingPins.ToString();
-        JackInTheBoxText.text = jackInTheBox.ToString();
+    public void SetJackInTheBoxText(int count)
+    {
+        JackInTheBoxText.text = count.ToString();
+    }
+
+    public void SetBowlingPinsText(int count)
+    {
+        BowlingPinsText.text = count.ToString();
     }
 }
