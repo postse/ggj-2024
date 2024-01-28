@@ -766,6 +766,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6277746227756106683, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: powerMultiplier
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6277746227756106683, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: inventoryManager
       value: 
       objectReference: {fileID: 3271458567113284090}
