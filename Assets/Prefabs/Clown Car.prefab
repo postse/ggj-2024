@@ -774,9 +774,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Launcher
       objectReference: {fileID: 0}
-    - target: {fileID: 1814046452567907279, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
-      propertyPath: m_TagString
-      value: ClownBody
     - target: {fileID: 1416555780664304441, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -784,6 +781,14 @@ PrefabInstance:
     - target: {fileID: 1814046452567907279, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814046452567907279, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: m_TagString
+      value: ClownBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810347712506367369, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.43
       objectReference: {fileID: 0}
     - target: {fileID: 4988171779662504751, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: m_Layer
