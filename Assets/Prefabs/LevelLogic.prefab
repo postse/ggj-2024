@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8955349973807155755}
-  - component: {fileID: 6452422930850494473}
+  - component: {fileID: 3004844803117337008}
+  - component: {fileID: 327489520869295562}
   m_Layer: 0
-  m_Name: GameLogic
+  m_Name: LevelLogic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +33,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6452422930850494473
+--- !u!114 &3004844803117337008
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +42,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 4961906618016206477}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da725fcfff1f0544e946574661c1efe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 38809da06566f6443bf03d5d2e38bc7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCount: 0
+  roundNumber: 1
+  playerTurn: 0
+  players: []
+  isGameOver: 0
+--- !u!114 &327489520869295562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961906618016206477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf97cf622494f7f48a7968b83e700fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 2049682013209598996, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+  terrain: {fileID: 0}
+  defaultPlayerCount: 2

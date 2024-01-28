@@ -15,7 +15,6 @@ public class Collectible : MonoBehaviour, ICollectible
     }
 
     public virtual void PickUp(GameObject player) {
-        Debug.Log("Hit player");
         Destroy(this.gameObject);
     }
 }

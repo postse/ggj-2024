@@ -6,17 +6,32 @@ public class JackInTheBoxProjectile : Projectile
 {
 
     [SerializeField]
-    private float explosionDelay = 5f;
+    private AudioSource explosionSound;
+    
+    [SerializeField]
+    private AudioSource popGoesTheWeasel;
+
 
     void Start() {
-        Invoke("BeginExplode", explosionDelay);
+        popGoesTheWeasel.Play();
+        Invoke("BeginExplode", popGoesTheWeasel.clip.length - 3f);
     }
 
     void BeginExplode()
     {
-        GetComponent<Animator>().SetTrigger("Explode");
-        GetComponent<AudioSource>().Play();
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Rigidbody2D>().gravityScale = 0;
+        GetComponent<Rigidbody2D>().angularVelocity = 0f;
+        GetComponent<Rigidbody2D>().isKinematic = false;
+        GetComponent<Animator>().SetTrigger("Explode");
+        StartCoroutine(ExplodeSound());
     }
+
+    IEnumerator ExplodeSound()
+    {
+        FindObjectOfType<CameraMovement>().TriggerShake();
+        yield return new WaitForSeconds(2.5f);
+        explosionSound.Play();    
+    }
+
 }

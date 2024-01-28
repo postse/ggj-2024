@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Projectile : MonoBehaviour {
 
     [SerializeField]
-    protected float destroyTimer = 10f;
+    protected float destroyTimer = 14f;
 
     public void Launch(float angle, float power)
     {
@@ -17,7 +17,8 @@ public abstract class Projectile : MonoBehaviour {
 
     public void BreakTerrain()
     {
-        GetComponent<TerrainBreaker>().BreakTerrain();
+        Debug.Log("Break terrain");
+        GetComponent<TerrainBreaker>().DestroyTerrainAndDamage();
     }
 
     public void DestroySelf()
