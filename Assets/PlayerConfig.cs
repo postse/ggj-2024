@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class PlayerConfig : MonoBehaviour
 {
-
     public int playerCount;
 
     private void Awake()
     {
         DontDestroyOnLoad(this);
     }
-
 }

@@ -9,10 +9,18 @@ public class CreateGame : MonoBehaviour
     private GameObject playerPrefab;
 
     [SerializeField]
-    private Terrain terrain;
+    private TerrainGenerator terrain;
 
-    public void InitiateGame(int playerCount) 
+    private void Awake()
     {
+        var playerConfig = FindObjectOfType<PlayerConfig>().GetComponent<PlayerConfig>();
+        CreateGameWithPlayerCount(playerConfig.playerCount);
+    }
+
+    public void CreateGameWithPlayerCount(int playerCount) 
+    {
+
+
         var terrainPosition = terrain.gameObject.transform.position;
 
         for (int i = 0; i < playerCount; i++)
