@@ -48,12 +48,15 @@ public class Launcher : MonoBehaviour
     private CarController carController;
     private TurnController turnController;
 
+    public PowerBar powerBar;
+
     void Start() {
         // if (idlePrefab != null) {
         //     this.SetIdleSprite(idlePrefab);
         // }
         carController = GetComponentInParent<CarController>();
         turnController = FindObjectOfType<TurnController>();
+        powerBar.SetMaxPower(1);
     }
 
 
@@ -81,6 +84,7 @@ public class Launcher : MonoBehaviour
         if (powerIncreasing)
         {
             currentPower += powerIncrement;
+            powerBar.SetPower(currentPower);
 
             if (currentPower >= 1f)
             {
@@ -91,6 +95,7 @@ public class Launcher : MonoBehaviour
         else
         {
             currentPower -= powerIncrement;
+            powerBar.SetPower(currentPower);
 
             if (currentPower <= 0f)
             {

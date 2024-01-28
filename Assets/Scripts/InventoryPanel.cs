@@ -25,7 +25,7 @@ public class InventoryPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int balloons = inventory.getItemCount(0);
+        //int balloons = inventory.getItemCount(0);
         int bowlingPins = inventory.getItemCount(1);
         int jackInTheBox = inventory.getItemCount(2);
 
