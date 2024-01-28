@@ -11,7 +11,7 @@ public class PerlinTerrainGenerator
     private int _width;
     private int _height;
 
-    public Texture2D Generate(int width = 3840, int height = 2160, float terrainSmoothness = 1000, Color? terrainColor = null, float textureSmoothness = 500)
+    public Texture2D Generate(float seed, int width = 3840, int height = 2160, float terrainSmoothness = 1000, Color? terrainColor = null, float textureSmoothness = 500)
     {
         _width = width;
         _height = height;
@@ -25,9 +25,6 @@ public class PerlinTerrainGenerator
             new Tuple<float, float>(.25f, .125f),
         };
         
-        // Texture Noise
-        
-        var seed = UnityEngine.Random.value * 100;
         Color[,] colorMap = new Color[width, height];
         for (int x = 0; x < width; x++)
         {
