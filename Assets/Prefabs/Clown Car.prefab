@@ -80,7 +80,7 @@ MonoBehaviour:
   - {fileID: 2313269143273946621, guid: de8afc2f330214398b2ec2dfa3b4c888, type: 3}
   - {fileID: 8298013761124257415, guid: 8c23ad90a566e70248b9dede8bc10901, type: 3}
   - {fileID: 8298013761124257415, guid: 6b873a630b14ed3eebaa6a364e379b23, type: 3}
-  counts: ffffffff0200000005000000
+  counts: ffffffff0100000001000000
   active: 0
   launcher: {fileID: 2307377226361905132}
 --- !u!82 &2413644854791455179
@@ -774,9 +774,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Launcher
       objectReference: {fileID: 0}
-    - target: {fileID: 1814046452567907279, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
-      propertyPath: m_TagString
-      value: ClownBody
     - target: {fileID: 1416555780664304441, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -784,6 +781,10 @@ PrefabInstance:
     - target: {fileID: 1814046452567907279, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814046452567907279, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
+      propertyPath: m_TagString
+      value: ClownBody
       objectReference: {fileID: 0}
     - target: {fileID: 4988171779662504751, guid: 5b9d29aab5d1b8941949e2c02727c8b4, type: 3}
       propertyPath: m_Layer
