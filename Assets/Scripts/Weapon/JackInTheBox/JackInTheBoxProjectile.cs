@@ -29,9 +29,10 @@ public class JackInTheBoxProjectile : Projectile
 
     IEnumerator ExplodeSound()
     {
+        yield return new WaitForSeconds(2f);
         FindObjectOfType<CameraMovement>().TriggerShake();
-        yield return new WaitForSeconds(2.5f);
-        explosionSound.Play();    
+        yield return new WaitForSeconds(.5f);
+        explosionSound.Play();
     }
 
 }
