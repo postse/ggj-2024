@@ -45,11 +45,11 @@ public class PerlinTerrainGenerator
                 if (y < hillHeight)
                 {
                     // This could be much prettier. You can do that, I believe in you.
-                    float brightness = Mathf.PerlinNoise(x / textureSmoothness + seed, y / textureSmoothness + seed);
-                    brightness += Mathf.PerlinNoise(x / textureSmoothness*2 + seed, y / textureSmoothness*2 + seed) * 0.5f;
-                    brightness += Mathf.PerlinNoise(x / textureSmoothness*4 + seed, y / textureSmoothness*4 + seed) * 0.25f;
-                    brightness *= y/hillHeight;
-                    brightness = Mathf.Clamp(brightness, 0.1f, 1.0f);
+                    // float brightness = Mathf.PerlinNoise(x / textureSmoothness + seed, y / textureSmoothness + seed);
+                    // brightness += Mathf.PerlinNoise(x / textureSmoothness*2 + seed, y / textureSmoothness*2 + seed) * 0.5f;
+                    // brightness += Mathf.PerlinNoise(x / textureSmoothness*4 + seed, y / textureSmoothness*4 + seed) * 0.25f;
+                    float brightness = y/hillHeight;
+                    brightness = Mathf.Clamp(brightness, 0.1f, 0.9f);
                     Color color = terrainColor ?? Color.green;
                     color *= brightness;
                     color.a = 1.0f;
