@@ -150,6 +150,12 @@ public class CarController : MonoBehaviour
         fuelBar.SetFuel(fuel);
     }
 
+    public void AddFuel(float fuelAmt)
+    {
+        fuel = Math.Max(fuel + fuelAmt, maxFuel);
+        fuelBar.SetFuel(fuel);
+    }
+
     public void TakeDamage(float damage)
     {
         if (damage < 0) throw new ArgumentException("Damage must be positive");
@@ -168,7 +174,7 @@ public class CarController : MonoBehaviour
     public void Heal(float heal) {
         if (heal < 0) throw new ArgumentException("Heal must be positive");
 
-        health += Mathf.Min(heal, health);
+        health = Math.Max(health + heal, maxHealth);
         healthBar.SetHealth(health);
     }
 

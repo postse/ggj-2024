@@ -32,9 +32,6 @@ public class Launcher : MonoBehaviour
     private float maxAngle = 135;
 
     [SerializeField]
-    private KeyCode launchKey = KeyCode.Space;
-
-    [SerializeField]
     private GameObject idlePrefab;
     private GameObject _idleObject;
 

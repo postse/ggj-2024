@@ -6,7 +6,7 @@ public class ProjectileDeletionTriggerCreator : MonoBehaviour
 {
     void Start()
     {
-        var parent = GetComponentInParent<Terrain>();
+        var parent = GetComponentInParent<TerrainGenerator>();
 
         var terrainPosition = parent.transform.position;
 
@@ -23,6 +23,7 @@ public class ProjectileDeletionTriggerCreator : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        Debug.Log("Exit trigger");
         if (other.CompareTag("Projectile"))
         {
             Destroy(other.gameObject);
