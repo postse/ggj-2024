@@ -48,10 +48,16 @@ public class CarController : MonoBehaviour
     private bool isBubblesActive;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
+    [SerializeField]
+    private SpriteRenderer clownSpriteRenderer;
     private Color ogColor;
+    private GameObject clown;
+    private Color ogClownColor;
     private TurnController turnController;
     private InventoryManager inventoryManager;
     public bool flipped;
+
+
 
     public FuelBar fuelBar;
     public HealthBar healthBar;
@@ -63,6 +69,7 @@ public class CarController : MonoBehaviour
         rb = GetComponentInChildren<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         ogColor = sprite.color;
+        ogClownColor = clownSpriteRenderer.color;
         turnController = FindObjectOfType<TurnController>();
         inventoryManager = GetComponent<InventoryManager>();
         fuel = maxFuel; // initialize fuel to maxFuel
@@ -242,19 +249,23 @@ public class CarController : MonoBehaviour
         carSound.Stop();
     }
     
-    private void SetColor(Color color) {
+    private void SetColor(Color color, Color clownColor) {
         sprite.color = color;
+        clownSpriteRenderer.color = clownColor;
     }
 
     // Flicker player color to Red
     public void Blink() {
-        SetColor(new Color(100, 0, 0));
+        Color damageColor = new Color(100, 0, 0);
+
+        SetColor(damageColor, damageColor);
 
         StartCoroutine(ResetColor());
+
         IEnumerator ResetColor()
         {
             yield return new WaitForSecondsRealtime(0.2f);
-            SetColor(ogColor);
+            SetColor(ogColor, ogClownColor);
         }
     }
 }
