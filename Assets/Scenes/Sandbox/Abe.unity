@@ -200,6 +200,14 @@ PrefabInstance:
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 7468249413579553767, guid: 32da5210ca753d746bf28a39230433dd, type: 3}
+    - target: {fileID: 2862492851918464518, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862492851918464518, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4252377177649841876, guid: 0c3e0069e92818c44b1ab11280a38944, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

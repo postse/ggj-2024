@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Projectile : MonoBehaviour {
 
     [SerializeField]
-    protected float destroyTimer = 10f;
+    protected float destroyTimer = 14f;
 
     public void Launch(float angle, float power)
     {
