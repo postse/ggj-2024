@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3503533039926588424}
-  - component: {fileID: 2384024810541278957}
+  - component: {fileID: 5358839887529528756}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Terrain
@@ -81,7 +81,7 @@ Transform:
   - {fileID: 2655189217587807046}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2384024810541278957
+--- !u!114 &5358839887529528756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3185807250158759952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c3f4a549bd39b1279deeeea182ff210, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a71f3893d5e41444b289b0b1599bd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTexture: {fileID: 0}
@@ -101,6 +101,7 @@ MonoBehaviour:
   height: 30
   smoothness: 500
   terrainColor: {r: 0, g: 1, b: 0, a: 1}
+  seed: 0
 --- !u!1 &6935628020330158844
 GameObject:
   m_ObjectHideFlags: 0
