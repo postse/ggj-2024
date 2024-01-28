@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CreateGame : MonoBehaviour
@@ -9,16 +7,13 @@ public class CreateGame : MonoBehaviour
     private GameObject playerPrefab;
 
     [SerializeField]
-    private TerrainGenerator terrain;
-
-    [SerializeField]
     private int defaultPlayerCount;
 
     void Awake()
     {
         try
         {
-            var playerConfig = FindObjectOfType<PlayerConfig>().GetComponent<PlayerConfig>();
+            var playerConfig = FindObjectOfType<PlayerConfig>();
             CreateGameWithPlayerCount(playerConfig.playerCount);
         }
         catch
@@ -29,6 +24,8 @@ public class CreateGame : MonoBehaviour
 
     public void CreateGameWithPlayerCount(int playerCount) 
     {
+        var terrain = FindObjectOfType<TerrainGenerator>();
+
         var terrainPosition = terrain.gameObject.transform.position;
 
         for (int i = 0; i < playerCount; i++)

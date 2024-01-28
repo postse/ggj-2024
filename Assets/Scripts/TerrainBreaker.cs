@@ -26,14 +26,14 @@ public class TerrainBreaker : MonoBehaviour
     }
 
 
-    public void BreakTerrain() {
+    public void DestroyTerrainAndDamage() {
         Vector3 p = this.transform.position;
 
         // Get all colliders within the craterSize radius
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(p, craterSize / terrain.CollidableLogicLayer.PPU);
 
         // Check if any of the colliders have the "Player" tag
-        var hitPlayers = hitColliders.ToArray().Where(collider => collider.tag == "CarBody");
+        var hitPlayers = hitColliders.ToArray().Where(collider => collider.tag == "CarBody").ToHashSet();
 
         // If there are players in the crater, damage them
         if (hitPlayers.Count() > 0)
