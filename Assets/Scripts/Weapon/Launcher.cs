@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -48,6 +49,8 @@ public class Launcher : MonoBehaviour
     private CarController carController;
     private TurnController turnController;
 
+    public bool shotWeapon = false;
+
     public PowerBar powerBar;
 
     void Start() {
@@ -55,8 +58,8 @@ public class Launcher : MonoBehaviour
         //     this.SetIdleSprite(idlePrefab);
         // }
         carController = GetComponentInParent<CarController>();
+        powerBar.SetMaxPower(currentPower);
         turnController = FindObjectOfType<TurnController>();
-        powerBar.SetMaxPower(1);
     }
 
 
@@ -84,7 +87,6 @@ public class Launcher : MonoBehaviour
         if (powerIncreasing)
         {
             currentPower += powerIncrement;
-            powerBar.SetPower(currentPower);
 
             if (currentPower >= 1f)
             {
@@ -95,7 +97,6 @@ public class Launcher : MonoBehaviour
         else
         {
             currentPower -= powerIncrement;
-            powerBar.SetPower(currentPower);
 
             if (currentPower <= 0f)
             {
@@ -118,7 +119,7 @@ public class Launcher : MonoBehaviour
     }
 
     public void SetPower(float power) {
-        this.powerMultiplier = power;
+        powerBar.SetPower(power);
     }
 
     public void Launch()
