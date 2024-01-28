@@ -32,4 +32,9 @@ public class WinnerAnnouncement : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void ToCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
 }
