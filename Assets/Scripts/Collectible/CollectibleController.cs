@@ -19,7 +19,7 @@ public class CollectibleController : MonoBehaviour
     private void Start()
     {
         gameLogic = FindObjectOfType<GameLogic>();
-        collectiblesPerDrop = Mathf.RoundToInt((gameLogic?.dropsMultiplier ?? 1) * collectiblesPerDrop);
+        collectiblesPerDrop = Mathf.RoundToInt((gameLogic?.dropsMultiplier ?? 1f) * collectiblesPerDrop);
     }
 
     public void DropCollectibles() {
