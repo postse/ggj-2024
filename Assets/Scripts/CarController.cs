@@ -118,10 +118,7 @@ public class CarController : MonoBehaviour
                 if (!engineSoundRunning) {
                     carSound.Play();
                     engineSoundRunning = true;
-                    StartCoroutine(StopSound());
                 }
-            } else {
-                engineSoundRunning = false;
             }
 
             if (Input.GetButtonDown("Jump"))
@@ -143,6 +140,11 @@ public class CarController : MonoBehaviour
             //    FindObjectOfType<ShakeBehavior>().TriggerShake();
                FindObjectOfType<CameraMovement>().TriggerShake();
             }
+        }
+
+        if ((Input.GetAxis("Horizontal") == 0 || fuel == 0) && engineSoundRunning) {
+            carSound.Stop();
+            engineSoundRunning = false;
         }
 
         fuel = Mathf.Clamp(fuel, 0, maxFuel); // ensure fuel is within [0, maxFuel]
@@ -234,18 +236,6 @@ public class CarController : MonoBehaviour
     {
         health = maxHealth;
         healthBar.SetHealth(health);
-    }
-
-    /* Sound based functions */
-    private IEnumerator StopSound()
-    {
-        
-        while (engineSoundRunning)
-        {
-            yield return new WaitForSeconds(0.25f);
-        }
-
-        carSound.Stop();
     }
     
     private void SetColor(Color color, Color clownColor) {

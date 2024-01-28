@@ -23,6 +23,7 @@ public class CollectibleController : MonoBehaviour
     }
 
     public void DropCollectibles() {
+        DeleteAllCollectibles();
         for (int i = 0; i < collectiblesPerDrop; i++) {
             DropCollectible();
         }
@@ -34,5 +35,12 @@ public class CollectibleController : MonoBehaviour
         int randY = spawnHeight;
         Vector3 position = new Vector3(randX, randY, 0);
         GameObject collectible = Instantiate(collectibles[index], position, Quaternion.identity);
+    }
+
+    public void DeleteAllCollectibles() {
+        GameObject[] collectibles = GameObject.FindGameObjectsWithTag("Collectible");
+        foreach (GameObject collectible in collectibles) {
+            Destroy(collectible);
+        }
     }
 }
