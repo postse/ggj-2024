@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using DTerrain;
 using Unity.VisualScripting;
-using UnityEngine.SocialPlatforms.GameCenter;
 
 public class TerrainGenerator : MonoBehaviour
 {
