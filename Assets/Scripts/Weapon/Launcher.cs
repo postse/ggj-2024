@@ -97,6 +97,7 @@ public class Launcher : MonoBehaviour
         {
             Launch();
             currentPower = 0;
+            powerBar.SetPower(currentPower);
             inventoryManager.SpendItem();
         }
 
