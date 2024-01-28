@@ -180,17 +180,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d58a7fcf883eb9a599b6a21db7bf9bdd, type: 3}
---- !u!114 &149975701 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5358839887529528756, guid: d58a7fcf883eb9a599b6a21db7bf9bdd, type: 3}
-  m_PrefabInstance: {fileID: 149975700}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a71f3893d5e41444b289b0b1599bd43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!850595691 &1193366004
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -263,10 +252,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 327489520869295562, guid: cc6bb088ee5980f4a989252a9b688886, type: 3}
-      propertyPath: terrain
-      value: 
-      objectReference: {fileID: 149975701}
     - target: {fileID: 4961906618016206477, guid: cc6bb088ee5980f4a989252a9b688886, type: 3}
       propertyPath: m_Name
       value: LevelLogic
