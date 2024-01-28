@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class TurnController : MonoBehaviour
@@ -31,6 +32,9 @@ public class TurnController : MonoBehaviour
 
     public void SetNextPlayer()
     {
+        if (isGameOver) return;
+
+
         playerTurn++;
         if (playerTurn >= players.Length)
         {

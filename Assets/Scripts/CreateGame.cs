@@ -11,16 +11,24 @@ public class CreateGame : MonoBehaviour
     [SerializeField]
     private TerrainGenerator terrain;
 
-    private void Awake()
+    [SerializeField]
+    private int defaultPlayerCount;
+
+    void Awake()
     {
-        var playerConfig = FindObjectOfType<PlayerConfig>().GetComponent<PlayerConfig>();
-        CreateGameWithPlayerCount(playerConfig.playerCount);
+        try
+        {
+            var playerConfig = FindObjectOfType<PlayerConfig>().GetComponent<PlayerConfig>();
+            CreateGameWithPlayerCount(playerConfig.playerCount);
+        }
+        catch
+        {
+            CreateGameWithPlayerCount(defaultPlayerCount);
+        }
     }
 
     public void CreateGameWithPlayerCount(int playerCount) 
     {
-
-
         var terrainPosition = terrain.gameObject.transform.position;
 
         for (int i = 0; i < playerCount; i++)
