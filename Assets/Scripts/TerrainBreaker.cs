@@ -14,9 +14,6 @@ public class TerrainBreaker : MonoBehaviour
     [SerializeField]
     private float damage;
 
-    [SerializeField]
-    private bool destroyOnImpact = false;
-
     private Terrain terrain;
 
     public Shape destroyCircle;
@@ -28,19 +25,6 @@ public class TerrainBreaker : MonoBehaviour
         destroyCircle = Shape.GenerateShapeCircle(craterSize);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "CarBody") {
-            if (destroyOnImpact) {
-                BreakTerrain();
-                Destroy(this.gameObject);
-            }
-        }
-    }
 
     public void BreakTerrain() {
         Vector3 p = this.transform.position;

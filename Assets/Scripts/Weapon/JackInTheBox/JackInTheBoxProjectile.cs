@@ -18,6 +18,5 @@ public class JackInTheBoxProjectile : Projectile
         GetComponent<AudioSource>().Play();
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Rigidbody2D>().gravityScale = 0;
-        GetComponent<Collider2D>().enabled = false;
     }
 }
