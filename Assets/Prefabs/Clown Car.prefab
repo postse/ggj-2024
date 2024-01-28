@@ -49,13 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   movementSpeed: 5
-  bubblesSpeed: 15
+  bubblesSpeed: 10
   maxFuel: 5
   fuel: 0
   maxHealth: 100
   health: 0
   fuelConsumptionRate: 1
-  bubblesRelativeFuelConsumptionRate: 5
+  bubblesFuelUsed: 2
   maxRotation: 80
   carSound: {fileID: 2413644854791455179}
   isTurn: 0

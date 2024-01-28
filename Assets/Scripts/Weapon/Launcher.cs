@@ -48,8 +48,8 @@ public class Launcher : MonoBehaviour
 
     void Start() {
         gameLogic = FindObjectOfType<GameLogic>();
-        powerCycleSpeed = (gameLogic?.weaponPowerCycleSpeed ?? 1f);
-        powerMultiplier = (gameLogic?.weaponPower ?? 1f);
+        powerCycleSpeed = (gameLogic?.weaponPowerCycleSpeed ?? powerCycleSpeed);
+        powerMultiplier = (gameLogic?.weaponPower ?? powerMultiplier);
         carController = GetComponentInParent<CarController>();
         powerBar.SetMaxPower(1);
         powerBar.SetPower(0);
