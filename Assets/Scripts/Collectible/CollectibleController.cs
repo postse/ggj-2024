@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 public class CollectibleController : MonoBehaviour
@@ -7,8 +8,12 @@ public class CollectibleController : MonoBehaviour
     [SerializeField]
     private GameObject[] collectibles;
 
+    private int counter = 0;
+
     void Update() {
-        if (Input.GetKeyDown(KeyCode.H)) {
+        counter++;
+        // if (Input.GetKeyDown(KeyCode.H)) {
+        if (counter % 100 == 0) {
             int index = Random.Range(0, collectibles.Length-1);
             Debug.Log(index);
             int randX = Random.Range(0, 100);

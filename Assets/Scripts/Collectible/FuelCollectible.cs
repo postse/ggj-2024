@@ -5,7 +5,7 @@ using UnityEngine;
 public class FuelCollectible : Collectible
 {
     [SerializeField]
-    private float fuelAmt = 25;
+    private float fuelAmt;
 
     override public void PickUp(GameObject player) {
         player.GetComponent<CarController>().AddFuel(fuelAmt);
