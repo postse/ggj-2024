@@ -8,6 +8,9 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     [SerializeField]
+    public string name;
+
+    [SerializeField]
     private float movementSpeed = 5f;
 
     [SerializeField]
@@ -73,7 +76,7 @@ public class CarController : MonoBehaviour
     {
         moveHorizontal = 0.0f;
 
-        if (!isTurn) return;
+        if (!isTurn || turnController.isGameOver) return;
 
         if (fuel > 0)
         {

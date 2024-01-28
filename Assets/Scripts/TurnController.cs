@@ -71,7 +71,7 @@ public class TurnController : MonoBehaviour
             if (livingPlayers.Count == 1)
             {
                 var winner = livingPlayers.First();
-                Debug.Log("Player " + winner.GetComponent<CarController>().name + " wins!");
+                Debug.Log(winner.GetComponent<CarController>().name + " wins!");
             }
             else
             {

@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   craterSize: 128
-  damage: 30
+  damage: 40
 --- !u!95 &3089867679999398199
 Animator:
   serializedVersion: 5
