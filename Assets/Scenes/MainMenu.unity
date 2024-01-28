@@ -2509,7 +2509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452422930850494473, guid: 715300b309d48bf4cb89845c7d54f96b, type: 3}
       propertyPath: weaponPower
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6452422930850494473, guid: 715300b309d48bf4cb89845c7d54f96b, type: 3}
       propertyPath: movementSpeed
