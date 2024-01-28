@@ -201,8 +201,7 @@ public class CarController : MonoBehaviour
         if (damage < 0) throw new ArgumentException("Damage must be positive");
 
         Blink();    // Flicker player color
-        health -= Mathf.Min(damage, health);
-        healthBar.SetHealth(health);
+        health = Mathf.Max(health - damage, 0);
 
         if (health <= 0)
         {
@@ -215,7 +214,7 @@ public class CarController : MonoBehaviour
     public void Heal(float heal) {
         if (heal < 0) throw new ArgumentException("Heal must be positive");
 
-        health = Math.Max(health + heal, maxHealth);
+        health = Mathf.Min(health + heal, maxHealth);
         healthBar.SetHealth(health);
     }
 
