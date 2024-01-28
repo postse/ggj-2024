@@ -32,6 +32,9 @@ public class CameraMovement : MonoBehaviour
     private float shakeDuration = 0f;
 
     [SerializeField]
+    private float defaultShakeDuration = 0.1f;
+
+    [SerializeField]
     private float shakeMagnitude = 0.7f;
 
     private float dampingSpeed = 1.0f;
@@ -56,6 +59,6 @@ public class CameraMovement : MonoBehaviour
     }
 
     public void TriggerShake() {
-        shakeDuration = 2.0f;
+        shakeDuration = defaultShakeDuration;
     }
 }

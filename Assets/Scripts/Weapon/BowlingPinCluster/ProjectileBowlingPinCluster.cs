@@ -68,6 +68,7 @@ public class BowlingPinCluster : Projectile
 
             this.gameObject.transform.rotation = Quaternion.identity;
             exploded = true;
+            FindObjectOfType<CameraMovement>().TriggerShake();
         }
     }
 

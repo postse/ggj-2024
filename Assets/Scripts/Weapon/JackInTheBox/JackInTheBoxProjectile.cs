@@ -20,6 +20,7 @@ public class JackInTheBoxProjectile : Projectile
     void BeginExplode()
     {
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().gravityScale = 0;
         GetComponent<Rigidbody2D>().angularVelocity = 0f;
         GetComponent<Rigidbody2D>().isKinematic = false;
         GetComponent<Animator>().SetTrigger("Explode");
@@ -28,7 +29,9 @@ public class JackInTheBoxProjectile : Projectile
 
     IEnumerator ExplodeSound()
     {
+        FindObjectOfType<CameraMovement>().TriggerShake();
         yield return new WaitForSeconds(2.5f);
-        explosionSound.Play();    }
+        explosionSound.Play();    
+    }
 
 }

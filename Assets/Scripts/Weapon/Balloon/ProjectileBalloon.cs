@@ -20,6 +20,7 @@ class ProjectileBalloon : Projectile {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().gravityScale = 0;
             exploded = true;
+            FindObjectOfType<CameraMovement>().TriggerShake();
         }
     }
 }

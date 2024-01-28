@@ -21,7 +21,6 @@ public class CollectibleController : MonoBehaviour
             Vector3 position = new Vector3(randX, randY, 0);
             Quaternion rotation = new Quaternion();
             DropCollectible(collectibles[index], position, rotation);
-            Debug.Log("Dropped item");
         }
     }
 
