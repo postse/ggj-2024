@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        var playerConfig = FindObjectOfType<GameLogic>();
+        var playerConfig = FindObjectOfType<GameSettings>();
         backgroundMusicController.LowerVolume();
         
         SceneManager.LoadScene("Game");

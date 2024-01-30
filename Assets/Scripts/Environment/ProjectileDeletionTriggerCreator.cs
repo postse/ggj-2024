@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ProjectileDeletionTriggerCreator : MonoBehaviour
 {
-    private TurnController turnController;
+    private GameLoop gameLoop;
 
     void Start()
     {
-        turnController = FindObjectOfType<TurnController>();
+        gameLoop = FindObjectOfType<GameLoop>();
         var parent = GetComponentInParent<TerrainGenerator>();
 
         var terrainPosition = parent.transform.position;
@@ -26,7 +26,7 @@ public class ProjectileDeletionTriggerCreator : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (turnController.isGameOver) return;
+        if (gameLoop.isGameOver) return;
         
         if (other.CompareTag("Projectile"))
         {
@@ -35,12 +35,12 @@ public class ProjectileDeletionTriggerCreator : MonoBehaviour
         if (other.CompareTag("CarBody"))
         {
             other.GetComponentInParent<CarController>().isDead = true;
-            turnController.CheckIfGameOver();
+            gameLoop.CheckIfGameOver();
 
-            if (!turnController.isGameOver && other.GetComponentInParent<CarController>().isTurn)
+            if (!gameLoop.isGameOver && other.GetComponentInParent<CarController>().isTurn)
             {
-                turnController.EndTurn();
-                turnController.SetNextPlayer();
+                gameLoop.EndTurn();
+                gameLoop.SetNextPlayer();
             }
         }
     }

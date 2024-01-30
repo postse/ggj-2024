@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GameLogic : MonoBehaviour
+public class GameSettings : MonoBehaviour
 {
     public int playerCount = 2;
     public float smoothness = 500;

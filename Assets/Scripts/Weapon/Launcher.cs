@@ -39,21 +39,21 @@ public class Launcher : MonoBehaviour
     [SerializeField]
     private InventoryManager inventoryManager;
     private CarController carController;
-    private TurnController turnController;
-    private GameLogic gameLogic;
+    private GameLoop gameLoop;
+    private GameSettings gameSettings;
 
     public bool shotWeapon = false;
 
     public PowerBar powerBar;
 
     void Start() {
-        gameLogic = FindObjectOfType<GameLogic>();
-        powerCycleSpeed = (gameLogic?.weaponPowerCycleSpeed ?? powerCycleSpeed);
-        powerMultiplier = (gameLogic?.weaponPower ?? powerMultiplier);
+        gameSettings = FindObjectOfType<GameSettings>();
+        powerCycleSpeed = (gameSettings?.weaponPowerCycleSpeed ?? powerCycleSpeed);
+        powerMultiplier = (gameSettings?.weaponPower ?? powerMultiplier);
         carController = GetComponentInParent<CarController>();
         powerBar.SetMaxPower(1);
         powerBar.SetPower(0);
-        turnController = FindObjectOfType<TurnController>();
+        gameLoop = FindObjectOfType<GameLoop>();
     }
 
     void Update()
@@ -135,7 +135,7 @@ public class Launcher : MonoBehaviour
 
     private IEnumerator LaunchCoroutine()
     {
-        turnController.EndTurn();
+        gameLoop.EndTurn();
         Destroy(_idleObject);
         if (!projectilePrefab) yield break;  // Projectile is null, don't launch
 
@@ -150,7 +150,7 @@ public class Launcher : MonoBehaviour
         }
         yield return new WaitForSeconds(.5f);
 
-        turnController.SetNextPlayer();
+        gameLoop.SetNextPlayer();
     }
 
     protected void UpdateTransforms()

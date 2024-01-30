@@ -13,6 +13,7 @@ public class PerlinTerrainGenerator
 
     private float terrainOffsetRatio = .2f;
 
+
     public Texture2D Generate(float seed, int width = 3840, int height = 2160, float terrainSmoothness = 1000, Color? terrainColor = null, float textureSmoothness = 500)
     {
         _width = width;

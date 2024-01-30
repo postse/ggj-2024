@@ -49,7 +49,7 @@ public class CreateGame : MonoBehaviour
     {
         try
         {
-            var playerConfig = FindObjectOfType<GameLogic>();
+            var playerConfig = FindObjectOfType<GameSettings>();
             CreateGameWithPlayerCount(playerConfig.playerCount);
         }
         catch

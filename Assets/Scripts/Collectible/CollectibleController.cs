@@ -14,12 +14,12 @@ public class CollectibleController : MonoBehaviour
     [SerializeField]
     public int collectiblesPerDrop = 5;
 
-    private GameLogic gameLogic;
+    private GameSettings gameSettings;
 
     private void Start()
     {
-        gameLogic = FindObjectOfType<GameLogic>();
-        collectiblesPerDrop = Mathf.RoundToInt((gameLogic?.dropsMultiplier ?? 1f) * collectiblesPerDrop);
+        gameSettings = FindObjectOfType<GameSettings>();
+        collectiblesPerDrop = Mathf.RoundToInt((gameSettings?.dropsMultiplier ?? 1f) * collectiblesPerDrop);
     }
 
     public void DropCollectibles() {

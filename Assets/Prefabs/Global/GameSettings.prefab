@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8955349973807155755}
-  - component: {fileID: 6452422930850494473}
+  - component: {fileID: 8087598037113817035}
   m_Layer: 0
-  m_Name: GameLogic
+  m_Name: GameSettings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6452422930850494473
+--- !u!114 &8087598037113817035
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4961906618016206477}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da725fcfff1f0544e946574661c1efe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 184cf30037e13c943b99a65dc4f86e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCount: 0
+  playerCount: 2
+  smoothness: 500
+  mapWidth: 3840
+  mapHeight: 2160
+  maxFuel: 5
+  maxHealth: 100
+  dropsMultiplier: 1
+  movementSpeed: 5
+  weaponPower: 1
+  weaponPowerCycleSpeed: 1

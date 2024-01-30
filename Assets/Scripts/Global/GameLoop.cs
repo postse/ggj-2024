@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class TurnController : MonoBehaviour
+public class GameLoop : MonoBehaviour
 {
     [SerializeField]
     private int roundNumber = 1;
@@ -19,9 +15,6 @@ public class TurnController : MonoBehaviour
 
     [SerializeField]
     public bool isGameOver = false;
-
-    CollectibleController collectibleController;
-    private InventoryPanel inventoryPanel;
     
     [SerializeField]
     private WinnerAnnouncement winnerAnnouncement;
@@ -30,8 +23,6 @@ public class TurnController : MonoBehaviour
     {
         players = GameObject.FindGameObjectsWithTag("Player");
         players[playerTurn].GetComponent<CarController>().isTurn = true;
-        collectibleController = FindObjectOfType<CollectibleController>();
-        inventoryPanel = FindObjectOfType<InventoryPanel>();
 
         // Initialize the inventory panel
         GetCurrentPlayer().GetComponent<InventoryManager>().SetInventoryPanel();
@@ -87,6 +78,11 @@ public class TurnController : MonoBehaviour
         if (livingPlayers.Count <= 1)
         {
             isGameOver = true;
+
+            #if UNITY_EDITOR
+                // Weird issue when running in the editor where the winner announcement is null when the editor exits which causes an annoying error
+                if (winnerAnnouncement == null) return;
+            #endif
 
             if (livingPlayers.Count == 1)
             {

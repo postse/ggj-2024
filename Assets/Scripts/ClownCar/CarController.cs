@@ -52,9 +52,9 @@ public class CarController : MonoBehaviour
     private SpriteRenderer clownSpriteRenderer;
     private Color ogColor;
     private Color ogClownColor;
-    private TurnController turnController;
+    private GameLoop gameLoop;
     private InventoryManager inventoryManager;
-    private GameLogic gameLogic;
+    private GameSettings gameSettings;
     public bool flipped;
 
 
@@ -66,27 +66,27 @@ public class CarController : MonoBehaviour
 
     void Start()
     {
-        gameLogic = FindObjectOfType<GameLogic>();
+        gameSettings = FindObjectOfType<GameSettings>();
         rb = GetComponentInChildren<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         ogColor = sprite.color;
         ogClownColor = clownSpriteRenderer.color;
-        turnController = FindObjectOfType<TurnController>();
+        gameLoop = FindObjectOfType<GameLoop>();
         inventoryManager = GetComponent<InventoryManager>();
-        fuel = (gameLogic?.maxFuel ?? maxFuel); // initialize fuel to maxFuel
-        maxFuel = (gameLogic?.maxFuel ?? maxFuel);
+        fuel = (gameSettings?.maxFuel ?? maxFuel); // initialize fuel to maxFuel
+        maxFuel = (gameSettings?.maxFuel ?? maxFuel);
         fuelBar.SetMaxFuel(maxFuel);
-        health = (gameLogic?.maxHealth ?? maxHealth); // initialize health to maxHealth
-        healthBar.SetMaxHealth((gameLogic?.maxHealth ?? maxHealth));
+        health = (gameSettings?.maxHealth ?? maxHealth); // initialize health to maxHealth
+        healthBar.SetMaxHealth((gameSettings?.maxHealth ?? maxHealth));
         flipped = false;
-        movementSpeed = (gameLogic?.movementSpeed ?? movementSpeed);
+        movementSpeed = (gameSettings?.movementSpeed ?? movementSpeed);
     }
 
     void Update()
     {
         moveHorizontal = 0.0f;
 
-        if (!isTurn || turnController.isGameOver) return;
+        if (!isTurn || gameLoop.isGameOver) return;
 
         if (Input.GetButtonDown("CycleProjectile")) {
             inventoryManager.CycleProjectile();
@@ -222,7 +222,7 @@ public class CarController : MonoBehaviour
         }
         
         healthBar.SetHealth(health);
-        turnController.CheckIfGameOver();
+        gameLoop.CheckIfGameOver();
     }
 
     public void Heal(float heal) {

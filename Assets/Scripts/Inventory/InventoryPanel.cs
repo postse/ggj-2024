@@ -9,7 +9,7 @@ public class InventoryPanel : MonoBehaviour
 
 {
 
-    private TurnController turnController;
+    private GameLoop gameLoop;
 
     public TextMeshProUGUI PlayerNameText;
 
@@ -19,7 +19,7 @@ public class InventoryPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       turnController = FindObjectOfType<TurnController>();
+       gameLoop = FindObjectOfType<GameLoop>();
     }
 
     public void SetPlayerNameText(string name)
