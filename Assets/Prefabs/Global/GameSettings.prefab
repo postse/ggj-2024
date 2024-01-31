@@ -46,11 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCount: 2
   smoothness: 500
-  mapWidth: 3840
-  mapHeight: 2160
+  mapWidth: 100
+  mapHeight: 30
   maxFuel: 5
   maxHealth: 100
   dropsMultiplier: 1
   movementSpeed: 5
-  weaponPower: 1
+  weaponPower: 30
   weaponPowerCycleSpeed: 1

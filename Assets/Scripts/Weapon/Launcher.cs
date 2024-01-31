@@ -47,7 +47,7 @@ public class Launcher : MonoBehaviour
     public PowerBar powerBar;
 
     void Start() {
-        gameSettings = FindObjectOfType<GameSettings>();
+        gameSettings = GameSettings.Instance;
         powerCycleSpeed = (gameSettings?.weaponPowerCycleSpeed ?? powerCycleSpeed);
         powerMultiplier = (gameSettings?.weaponPower ?? powerMultiplier);
         carController = GetComponentInParent<CarController>();

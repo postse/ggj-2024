@@ -17,6 +17,9 @@ public class CreateGame : MonoBehaviour
     [SerializeField]
     private Sprite[] carSprites;
 
+    [SerializeField]
+    private GameSettings gameSettings;
+
     private List<string> clownNames = new List<string>
     {
         "Bozo",
@@ -47,15 +50,9 @@ public class CreateGame : MonoBehaviour
 
     void Awake()
     {
-        try
-        {
-            var playerConfig = FindObjectOfType<GameSettings>();
-            CreateGameWithPlayerCount(playerConfig.playerCount);
-        }
-        catch
-        {
-            CreateGameWithPlayerCount(defaultPlayerCount);
-        }
+
+        gameSettings = GameSettings.Instance;
+        CreateGameWithPlayerCount(gameSettings.playerCount);
     }
 
     private void Start()
@@ -75,7 +72,7 @@ public class CreateGame : MonoBehaviour
         var terrain = FindObjectOfType<TerrainGenerator>();
 
         var terrainPosition = terrain.gameObject.transform.position;
-        float width = terrain.width - 10;
+        float width = gameSettings.mapWidth - 10;
         float chunkWidth = width / playerCount;
         float chunkRandomness = width / (playerCount + 1);
 
@@ -91,7 +88,7 @@ public class CreateGame : MonoBehaviour
             float startX = terrainPosition.x + this.edgeBuffer + (chunkWidth * i) + (chunkWidth / 2);
             float randomOffset = Random.Range(-chunkRandomness / 2, chunkRandomness / 2);
 
-            GameObject go = Instantiate(playerPrefab, new Vector3(startX + randomOffset, terrainPosition.y + terrain.height + 5, 0), Quaternion.identity);
+            GameObject go = Instantiate(playerPrefab, new Vector3(startX + randomOffset, terrainPosition.y + gameSettings.mapHeight + 5, 0), Quaternion.identity);
 
             int index = Random.Range(0, upperLimit);
             go.transform.Find("CarBody").GetComponent<SpriteRenderer>().sprite = carSpritesCopy[index];

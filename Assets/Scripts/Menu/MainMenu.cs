@@ -8,17 +8,15 @@ public class MainMenu : MonoBehaviour
 {
 
     private BackgroundMusicController backgroundMusicController;
-    public int playerCount;
 
     void Start() {
         backgroundMusicController = FindObjectOfType<BackgroundMusicController>();
     }
 
-    public void PlayGame()
+    public void ToGameConfiguration()
     {
-        var playerConfig = FindObjectOfType<GameSettings>();
-        backgroundMusicController.LowerVolume();
-        
+        var playerConfig = GameSettings.Instance;
+
         SceneManager.LoadScene("Game");
 
         if (EventSystem.current.currentSelectedGameObject.name == "1player")
@@ -37,6 +35,8 @@ public class MainMenu : MonoBehaviour
         {
             playerConfig.playerCount = 4;
         }
+
+        SceneManager.LoadScene("GameConfiguration");
     }
 
     public void ToMainMenu()

@@ -66,7 +66,7 @@ public class CarController : MonoBehaviour
 
     void Start()
     {
-        gameSettings = FindObjectOfType<GameSettings>();
+        gameSettings = GameSettings.Instance;
         rb = GetComponentInChildren<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         ogColor = sprite.color;
@@ -77,6 +77,7 @@ public class CarController : MonoBehaviour
         maxFuel = (gameSettings?.maxFuel ?? maxFuel);
         fuelBar.SetMaxFuel(maxFuel);
         health = (gameSettings?.maxHealth ?? maxHealth); // initialize health to maxHealth
+        maxHealth = (gameSettings?.maxHealth ?? maxHealth);
         healthBar.SetMaxHealth((gameSettings?.maxHealth ?? maxHealth));
         flipped = false;
         movementSpeed = (gameSettings?.movementSpeed ?? movementSpeed);

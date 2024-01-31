@@ -36,10 +36,12 @@ public class TerrainGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameSettings = FindObjectOfType<GameSettings>();
+        gameSettings = GameSettings.Instance;
 
-        var pixelWidth = (gameSettings?.mapWidth ?? width) * CollidableLogicLayer.PPU;
-        var pixelHeight = (gameSettings?.mapHeight ?? height) * CollidableLogicLayer.PPU;
+        width = gameSettings?.mapWidth ?? width;
+        height = gameSettings?.mapHeight ?? height;
+        var pixelWidth = width * CollidableLogicLayer.PPU;
+        var pixelHeight = height * CollidableLogicLayer.PPU;
         seed = seed == 0 ? UnityEngine.Random.value * 100 : seed;
 
         CollisionTexture = CollisionTexture == null ? new PerlinTerrainGenerator().Generate(seed, pixelWidth, pixelHeight, (gameSettings?.smoothness ?? smoothness), terrainColor) : CollisionTexture;
@@ -50,11 +52,6 @@ public class TerrainGenerator : MonoBehaviour
 
         CollidableLogicLayer.InitLayer();
         VisibleLayer.InitLayer();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     public void BreakTerrain(Vector3 center, int size, Shape destroyShape) {

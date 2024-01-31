@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameSettings : MonoBehaviour
 {
+    public static GameSettings Instance { get; private set; }
+
     public int playerCount = 2;
     public float smoothness = 500;
     public int mapWidth = 3840;
@@ -13,8 +15,16 @@ public class GameSettings : MonoBehaviour
     public float weaponPower = 1;
     public float weaponPowerCycleSpeed = 1;
 
-    private void Awake()
+    void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 }

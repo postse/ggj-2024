@@ -18,7 +18,7 @@ public class CollectibleController : MonoBehaviour
 
     private void Start()
     {
-        gameSettings = FindObjectOfType<GameSettings>();
+        gameSettings = GameSettings.Instance;
         collectiblesPerDrop = Mathf.RoundToInt((gameSettings?.dropsMultiplier ?? 1f) * collectiblesPerDrop);
     }
 

@@ -10,7 +10,7 @@ public class CameraMovement : MonoBehaviour
 
     void Start()
     {
-        gameSettings = FindObjectOfType<GameSettings>();
+        gameSettings = GameSettings.Instance;
         var parent = GetComponentInParent<TerrainGenerator>();
 
         float desiredWidth = (gameSettings?.mapWidth ?? parent.width); // The desired width of the camera's viewport in world units
