@@ -16,6 +16,7 @@ public class GameConfigurationSceneManager : MonoBehaviour
     [SerializeField] private SliderConfiguration movementSpeed;
     [SerializeField] private SliderConfiguration weaponPower;
     [SerializeField] private SliderConfiguration powerBarDifficulty;
+    [SerializeField] private SliderConfiguration dropsMultiplier;
 
     void Start()
     {
@@ -30,12 +31,12 @@ public class GameConfigurationSceneManager : MonoBehaviour
         gameSettings.mapWidth = mapSizeSlider.IntValue * 50;
         gameSettings.mapHeight = Mathf.RoundToInt(mapSizeSlider.IntValue * 50 * .3f);
         gameSettings.smoothness = (mapSizeSlider.IntValue * 50f * 5f) / hillHeightSlider.Value;
-        gameSettings.playerCount = 3;
         gameSettings.maxHealth = maxHealthSlider.IntValue;
         gameSettings.maxFuel = maxFuelSlider.Value;
         gameSettings.movementSpeed = movementSpeed.Value;
         gameSettings.weaponPower = weaponPower.Value;
         gameSettings.weaponPowerCycleSpeed = 3 / powerBarDifficulty.Value;
+        gameSettings.dropsMultiplier = dropsMultiplier.Value;
 
         SceneManager.LoadScene("Game");
     }
