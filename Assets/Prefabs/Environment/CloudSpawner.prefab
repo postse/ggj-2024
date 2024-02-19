@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c46f2b68b0cd864bbf8aca9c9c6b196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
   cloudPrefab: {fileID: 164913903451755500, guid: 25617c8fa9692a841860572d9a62ec8d, type: 3}

@@ -1,19 +1,17 @@
+using FishNet.Object;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloudSpawner : MonoBehaviour
+public class CloudSpawner : NetworkBehaviour
 {
-
     [SerializeField]
-    private GameObject cloudPrefab;
-    TerrainGenerator terrainGenerator;
-
-
+    private NetworkObject cloudPrefab;
+    NetworkedTerrainGenerator terrainGenerator;
 
     void Start()
     {
-        terrainGenerator = FindObjectOfType<TerrainGenerator>();
+        terrainGenerator = FindObjectOfType<NetworkedTerrainGenerator>();
         GenerateInitialClouds();
         StartCoroutine(RandomlyGenerateCloud());
     }
@@ -22,9 +20,9 @@ public class CloudSpawner : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            Instantiate(cloudPrefab, new Vector3(Random.Range(0, terrainGenerator.width), Random.Range(terrainGenerator.height - 10, 50), 0), Quaternion.identity);
+            NetworkObject nob = NetworkManager.GetPooledInstantiated(cloudPrefab, true);
+            Spawn(nob);
         }
-
     }
 
     IEnumerator RandomlyGenerateCloud()

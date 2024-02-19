@@ -1,9 +1,11 @@
 using FishNet;
+using FishNet.Managing.Scened;
 using FishNet.Object;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static FishNet.Component.Transforming.NetworkTransform;
 
 public class Lobby : NetworkBehaviour
 {
@@ -26,9 +28,21 @@ public class Lobby : NetworkBehaviour
             StartGameButton.gameObject.SetActive(true);
             StartGameButton.onClick.AddListener(() =>
             {
-                Debug.Log("STARTING GAME");
+                SwitchScenes();
             });
         }
+    }
+
+    void SwitchScenes()
+    {
+        SceneLookupData gameSceneLookupData = new SceneLookupData("NetworkedGame");
+        SceneLookupData lobbySceneLookupData = new SceneLookupData("Lobby");
+
+        SceneLoadData gameSceneLoadData = new SceneLoadData(gameSceneLookupData);
+        SceneUnloadData lobbySceneUnoadData = new SceneUnloadData(lobbySceneLookupData);
+
+        SceneManager.UnloadGlobalScenes(lobbySceneUnoadData);
+        SceneManager.LoadGlobalScenes(gameSceneLoadData);
     }
 
     private void OnDestroy()
